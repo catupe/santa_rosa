@@ -1,3 +1,7 @@
 git config --global http.proxy http://amesa:alvaro@192.168.0.254:3128
 
 git clone https://github.com/catupe/santa_rosa.git
+
+vagrant box add my-box name-of-the-box.box
+vagrant init my-box
+vagrant up
