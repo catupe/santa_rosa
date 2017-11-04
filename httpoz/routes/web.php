@@ -14,16 +14,37 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('test', function(){
-	return "Esto es una simple prueba!!";
+Route::get('user/{id?}', function( $id = 0 ) {
+    return 'User '.$id;
+})
+->where('id', '[0-9]+');
+
+Auth::routes();
+/*
+Route::get('login', [
+                      'as' => 'login',
+                      'uses' => 'Auth\LoginController@showLoginForm'
+]);
+Route::post('login', [
+                      'as' => 'login',
+                      'uses' => 'Auth\LoginController@showLoginForm'
+]);
+Route::post('logout', [
+                      'as' => 'logout',
+                      'uses' => 'Auth\LoginController@logout'
+]);
+*/
+/*
+Route::group(['middleware' => 'auth'], function () {
+	Route::get('login', 'Auth\LoginController@showLoginForm');
+});
+*/
+Route::get('/home/{nombre}', 'HomeController@index')->name('home');
+
+Route::get('ejemplo', function( $id = 0 ) {
+    return view('ejemplo.ppal');
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-$router->get('/example', [
-    'as' => 'example',
-    'middleware' => 'role:admin',
-    'uses' => 'ExampleController@index',
-]);

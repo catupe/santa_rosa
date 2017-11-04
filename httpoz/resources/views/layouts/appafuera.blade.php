@@ -15,39 +15,14 @@
     <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/santa_rosa.css') }}" rel="stylesheet">
 
+    @yield('head')
 
 </head>
-<body class="fixed-nav bg-dark sidenav-toggled" id="page-top">
-    <div id="wrapper">
-
-        @section('sidebar')
-        @show
-
-        <div class="content-wrapper">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-12">
-                        <h2 class="page-header santa_rosa-page-header">@yield('title')</h2>
-                        @yield('content')
-                    </div>
-                </div>
-            </div>
-            <!--
-            <footer class="sticky-footer">
-              <div class="container">
-                <div class="text-center">
-                  <small>Copyright © Your Website 2017</small>
-                </div>
-              </div>
-            </footer>
-            -->
-
+<body>
+            @yield('content')
             <script src="{{ asset('js/jquery.min.js') }}"></script>
             <script src="{{ asset('js/bootstrap/bootstrap.bundle.min.js') }}"></script>
             <script src="{{ asset('js/jquery-easing/jquery.easing.min.js') }}"></script>
             <script src="{{ asset('js/sb-admin.min.js') }}"></script>
-            <script src="{{ asset('js/santa_rosa.js') }}"></script>
-        </div>
-    </div>
 </body>
 </html>
