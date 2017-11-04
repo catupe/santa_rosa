@@ -14,14 +14,16 @@
 * Instalar httpoz para roles (https://httpoz.github.io/roles/installation/)
 * Instalar login php artisan make:auth	(https://laravel.com/docs/5.5/authentication)
 * crear virtual host
-	- sudo vi /etc/apache2/sites-available/sitio.com.conf
+	- sudo vi /etc/apache2/sites-available/santa-rosa.com.conf
 			<VirtualHost *:80>
-			  ServerName my-httpoz.com
+			  ServerName santa-rosa.com
 			  DocumentRoot "/home/vagrant/httpoz/public"
 			  <Directory "/home/vagrant/httpoz/public">
 				AllowOverride all
 			  </Directory>
+        ErrorLog ${APACHE_LOG_DIR}/santa-rosa.error.log
+        CustomLog ${APACHE_LOG_DIR}/santa-rosa.access.log combined
 			</VirtualHost>
-	- sudo a2ensite sitio.com.conf
+	- sudo a2ensite santa-rosa.com.conf
 	- configurar hosts maquina local
-		192.168.10.10 my-httpoz.com
+		192.168.10.10 santa-rosa.com
