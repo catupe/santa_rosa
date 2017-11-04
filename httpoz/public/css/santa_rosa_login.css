@@ -1,0 +1,10 @@
+body{
+  background-blend-mode: multiply;
+  background-image: linear-gradient(to right, #fffac1 0%,#ff964c 100%),url(../images/fondo_login.jpg);
+}
+form button{
+  cursor: pointer;
+}
+.card .card-header{
+    background-color: #563614;
+}
