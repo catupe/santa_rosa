@@ -1,3 +1,2 @@
-php artisan make:seeder BalanTableSeeder
-php artisan make:model Balanza1
+php artisan make:seeder Balanza1TableSeeder
 php artisan db:seed --class=Balanza1TableSeeder
