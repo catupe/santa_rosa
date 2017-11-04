@@ -1,6 +1,12 @@
+git config --global user.email "mesa.alvaro@gmail.com"
+git config --global user.name "catupe"
 git config --global http.proxy http://amesa:alvaro@192.168.0.254:3128
 
+git remote set-url origin git@github.com:catupe/santa_rosa.git
 git clone https://github.com/catupe/santa_rosa.git
+git add <filename>
+git commit -m "Commit message"
+git push origin master
 
 vagrant box add my-box name-of-the-box.box
 vagrant init my-box
