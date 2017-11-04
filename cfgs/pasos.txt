@@ -1,0 +1,27 @@
+* instalar laravel
+	- composer create-project laravel/laravel miweb --prefer-dist
+
+* base de datos
+	- configurar base de datos en .env del proyecto
+
+		GRANT USAGE ON *.* TO root@'192.168.10.1' IDENTIFIED BY 'root' ;
+		GRANT ALL ON santa_rosa_adm.* TO root@'192.168.10.1' ;
+
+	para cualquier ip
+		GRANT USAGE ON *.* TO root@'%' IDENTIFIED BY 'root' ;
+		GRANT ALL ON bican.* TO root@'%' ;
+
+* Instalar httpoz para roles (https://httpoz.github.io/roles/installation/)
+* Instalar login php artisan make:auth	(https://laravel.com/docs/5.5/authentication)
+* crear virtual host
+	- sudo vi /etc/apache2/sites-available/sitio.com.conf
+			<VirtualHost *:80>
+			  ServerName my-httpoz.com
+			  DocumentRoot "/home/vagrant/httpoz/public"
+			  <Directory "/home/vagrant/httpoz/public">
+				AllowOverride all
+			  </Directory>
+			</VirtualHost>
+	- sudo a2ensite sitio.com.conf
+	- configurar hosts maquina local
+		192.168.10.10 my-httpoz.com
