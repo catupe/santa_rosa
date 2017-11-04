@@ -39,7 +39,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('login', 'Auth\LoginController@showLoginForm');
 });
 */
-Route::get('/home/{nombre}', 'HomeController@index')->name('home');
+Route::get('/home/{nombre}', 'HomeController@index');
 
 Route::get('ejemplo', function( $id = 0 ) {
     return view('ejemplo.ppal');

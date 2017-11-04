@@ -51,7 +51,7 @@
 				<div class="dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown">
 					<h6 class="dropdown-header">Usuario</h6>
 					<a class="dropdown-item" href="#">
-						<div class="dropdown-message"><i class="fa fa-fw fa-wrench"></i> Editar Usuario</div>
+						<div class="dropdown-message"><i class="fa fa-fw fa-wrench"></i> Editar Perfil</div>
 					</a>
 					<a class="dropdown-item" href="#">
 						<div class="dropdown-message"><i class="fa fa-fw fa-cogs"></i> Cambiar Contrase&ntilde;a</div>

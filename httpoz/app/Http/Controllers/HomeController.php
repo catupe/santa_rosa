@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class HomeController extends Controller
 {
@@ -13,7 +14,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        //$this->middleware('auth');
     }
 
     /**
@@ -21,8 +22,21 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index( $nombre )
     {
+        $nombre_excel = 'storage' . DIRECTORY_SEPARATOR .'excel' . DIRECTORY_SEPARATOR . $nombre;
+        Excel::load( $nombre_excel, function($reader) {
+          // Loop through all sheets
+          $reader->each(function($sheet) {
+
+            // Loop through all rows
+            $sheet->each(function($row) {
+                error_log(print_r($row,1));
+            });
+
+          });
+        });
+
         return view('home');
     }
 }
