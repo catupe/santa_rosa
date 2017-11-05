@@ -1,0 +1,5 @@
+-- exportar
+vagrant package boxname --output test.box --vagrantfile Vagrantfile
+
+vagrant box add boxname test.box
+vagrant init
