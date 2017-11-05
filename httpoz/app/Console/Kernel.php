@@ -26,6 +26,10 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
+        $file_log = 'storage' . DIRECTORY_SEPARATOR . 'salida.cron.balanzas' . DIRECTORY_SEPARATOR . 'log.txt';
+        $schedule->command('balanza1:cargardatos')
+                 ->everyThirtyMinutes()
+                 ->appendOutputTo($file_log);
     }
 
     /**

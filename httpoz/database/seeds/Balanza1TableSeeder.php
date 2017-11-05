@@ -12,7 +12,7 @@ class Balanza1TableSeeder extends Seeder
      public function run()
      {
          \App\Balanza1::create([
-             'name' => 'balanza 1',
+             //'name' => 'balanza 1',
              'lectura' => '20134',
              'comentarios' => '',
          ]);
