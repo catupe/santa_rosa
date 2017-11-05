@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -23,40 +24,45 @@ class UserController extends Controller
      */
     public function cambiar_password( Request $request)
     {
-
-        error_log(print_r($request->has('aceptar'),1));
-        if ($request->has('aceptar'))
+        try
         {
-            /*
-            $this->validate(request(), [
-                'pass_vieja' => 'required|current_password',
-                'pass_nueva' => 'required|string|min:6|confirmed',
-            ]);
+            if ($request->has('aceptar'))
+            {
+                $this->validate(request(), [
+                    'pass_vieja' => 'required',
+                    'pass_nueva' => 'required|string|min:6',
+                ]);
+                // chequeo que la password vieja sea correcta
+                if (!Hash::check($request->pass_vieja, $request->user()->password)) {
+                  return view('auth.cambiarpassword', array('code_error'  => 1,
+                                                            'mensaje'     => "La contrase&ntilde;a actual no es correcta"));
+                }
+                error_log("2");
+                // chequeo que la nuva pass y la confirmacion sean iguales
+                if(strcmp($request->pass_nueva, $request->pass_nueva_confirmation) == 0)
+                {
+                    request()->user()->fill([
+                        'password' => Hash::make(request()->input('pass_nueva'))
+                    ])->save();
+                    error_log("3");
+                    request()->session()->flash('success', 'Password changed!');
+                    error_log("4");
 
-            request()->user()->fill([
-                'password' => Hash::make(request()->input('new_password'))
-            ])->save();
-            request()->session()->flash('success', 'Password changed!');
-            */
-            return view('auth.cambiarpassword', array('code_error'  => 1,
-                                                      'mensaje'     => "hicieron post todo OK"));
-        }
-        //else{
-        /*
-          $this->validate(request(), [
-              'pass_vieja' => 'required|current_password',
-              'pass_nueva' => 'required|string|min:6|confirmed',
-          ]);
-
-          request()->user()->fill([
-              'password' => Hash::make(request()->input('new_password'))
-          ])->save();
-          request()->session()->flash('success', 'Password changed!');
-          */
-          //return redirect()->route('auth.cambiarpassword');
-          //return view('auth.cambiarpassword', array('code_error'  => 2,
-          //                                          'mensaje'     => "hicieron post"));
-          //}
-          return view('auth.cambiarpassword');
+                    return view('auth.cambiarpassword', array('code_error'  => 2,
+                                                              'mensaje'     => "La contrase&ntilde;ia se cambio exitosamente"));
+                }
+                else
+                {
+                  return view('auth.cambiarpassword', array('code_error'  => 1,
+                                                            'mensaje'     => "La contrase&ntilde;a nueva no coincide con la confirmaci&oacute;n"));
+                }
+              }
+              return view('auth.cambiarpassword');
+          }
+          catch(Exception $e)
+          {
+              return view('auth.cambiarpassword', array('code_error'  => 1,
+                                                        'mensaje'     => "Ocurrio un error vuelva a intentarlo mas tarde."));
+          }
     }
 }

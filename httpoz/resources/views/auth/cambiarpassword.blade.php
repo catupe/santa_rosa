@@ -12,19 +12,19 @@
         <div class="form-group row">
           <label for="pass_vieja" class="col-4 col-sm-4 col-form-label">Contrase&ntilde;a Actual</label>
           <div class="col-sm-8 col-8">
-            <input type="password" class="form-control" id="pass_vieja" name="pass_vieja" placeholder="Contrase&ntilde;a Actual">
+            <input type="password" class="form-control" id="pass_vieja" name="pass_vieja" placeholder="Contrase&ntilde;a Actual" required>
           </div>
         </div>
         <div class="form-group row">
           <label for="pass_nueva" class="col-4 col-sm-4 col-form-label">Contrase&ntilde;a Nueva</label>
           <div class="col-8">
-            <input type="password" class="form-control" id="pass_nueva" name="pass_nueva" placeholder="Contrase&ntilde;a Nueva">
+            <input type="password" class="form-control" id="pass_nueva" name="pass_nueva" placeholder="Contrase&ntilde;a Nueva" required>
           </div>
         </div>
         <div class="form-group row">
-          <label for="pass_nueva_2" class="col-4 col-sm-4 col-form-label">Repita la Contrase&ntilde;a Nueva</label>
+          <label for="pass_nueva_confirmation" class="col-4 col-sm-4 col-form-label">Repita la Contrase&ntilde;a Nueva</label>
           <div class="col-8 col-sm-8">
-            <input type="password" class="form-control" id="pass_nueva_2" name="pass_nueva_2" placeholder="Repita la Contrase&ntilde;a Nueva">
+            <input type="password" class="form-control" id="pass_nueva_confirmation" name="pass_nueva_confirmation" placeholder="Repita la Contrase&ntilde;a Nueva" required>
           </div>
         </div>
         <div class="form-group row">

@@ -31,6 +31,8 @@
 
                         @if( isset($code_error) and ($code_error == 1) )
                             @include('mensajes.error', array('mensaje'=>$mensaje))
+                        @elseif (count($errors) )
+                            @include('mensajes.error', array('errors'=>$errors))  
                         @elseif ( isset($code_error) and ($code_error == 2) )
                             @include('mensajes.info', array('mensaje'=>$mensaje))
                         @endif
