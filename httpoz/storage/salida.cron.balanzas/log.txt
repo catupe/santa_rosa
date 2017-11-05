@@ -1,1 +1,2 @@
-La actualizacion de datos de la balanza 1 se realizo con exito
+[ 05-11-2017 18:32:07 ]  -  balanza 1 -  La actualizacion de datos de la balanza 1 se realizo con exito
+[ 05-11-2017 18:34:50 ]  -  balanza 1 -  La actualizacion de datos de la balanza 1 se realizo con exito

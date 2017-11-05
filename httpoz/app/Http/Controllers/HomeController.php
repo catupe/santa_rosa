@@ -26,7 +26,8 @@ class HomeController extends Controller
     {
         return view('ejemplo.ppal');
         /*
-        $nombre_excel = 'storage' . DIRECTORY_SEPARATOR .'excel' . DIRECTORY_SEPARATOR . $nombre;
+        $nombre_excel = storage_path('excel' . DIRECTORY_SEPARATOR . $nombre;);
+        //$nombre_excel = 'storage' . DIRECTORY_SEPARATOR .'excel' . DIRECTORY_SEPARATOR . $nombre;
         Excel::load( $nombre_excel, function($reader) {
           // Loop through all sheets
           $reader->each(function($sheet) {
