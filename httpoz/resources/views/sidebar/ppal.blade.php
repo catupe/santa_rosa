@@ -1,16 +1,18 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-	<a class="navbar-brand" href="index.html">Start Bootstrap</a>
+<nav class="navbar navbar-expand-lg navbar-dark santa-rosa_bg-dark fixed-top" id="mainNav">
+	<a class="navbar-brand" href="index.html">Molino Santa Rosa	</a>
 	<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
 	</button>
 	<div class="collapse navbar-collapse" id="navbarResponsive">
 		<ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-			<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Administraci&oacute;n de Usuarios">
-				<a class="nav-link" href="index.html">
-					<i class="fa fa-fw fa-users santa_rosa-icon-users-sidebar"></i>
-					<span class="nav-link-text">Administraci&oacute;n de Usuarios</span>
-				</a>
-			</li>
+			@role('admin')
+				<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Administraci&oacute;n de Usuarios">
+					<a class="nav-link" href="index.html">
+						<i class="fa fa-fw fa-users santa_rosa-icon-users-sidebar"></i>
+						<span class="nav-link-text">Administraci&oacute;n de Usuarios</span>
+					</a>
+				</li>
+			@endrole
 			<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Registro de Balanzas">
 				<a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExamplePages" data-parent="#exampleAccordion">
 					<i class="fa fa-fw fa-balance-scale santa_rosa-icon-balance-sidebar"></i>
@@ -45,7 +47,7 @@
 		<ul class="navbar-nav ml-auto">
 			<li class="nav-item dropdown">
 				<a class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					<span class="small">Pedrito</span>
+					<span class="small">{{ Auth::user()->name }}</span>
 					<i class="fa fa-fw fa-user santa_rosa-icon-user-top"></i>
 				</a>
 				<div class="dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown">

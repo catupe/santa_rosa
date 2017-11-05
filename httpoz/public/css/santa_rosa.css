@@ -38,7 +38,7 @@
 }
 /* fin login */
 .santa_rosa-icon-user-top{
-    color: dodgerblue;
+    color: yellow;
 }
 .santa_rosa-icon-users-sidebar{
     color: blanchedalmond;
@@ -52,4 +52,31 @@
 .santa_rosa-page-header{
     border-bottom: 1px solid #eee;
     padding-bottom: 9px;
+}
+.santa-rosa_bg-dark{
+  background-color: #3a250d!important;
+}
+.santa-rosa_bg-dark .navbar-brand{
+  color: #d89f57!important;
+}
+.santa-rosa_bg-dark .navbar-sidenav{
+  background-color: #3a250d!important;
+}
+.santa-rosa_bg-dark .sidenav-toggler{
+  background-color: #1f1406!important;
+}
+.santa-rosa_bg-dark .sidenav-second-level{
+  background-color: #4c3112!important;
+}
+.santa-rosa_bg-dark .nav-link-text{
+  color: white;
+}
+.santa-rosa_bg-dark .sidenav-second-level li a{
+  color: #c4c9ce!important;
+}
+.santa-rosa_bg-dark li a:hover{
+  color: #8a8d90!important;
+}
+.santa-rosa_bg-dark li a span:hover{
+  color: #8a8d90!important;
 }
