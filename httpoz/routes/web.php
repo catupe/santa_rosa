@@ -20,6 +20,8 @@ Route::get('user/{id?}', function( $id = 0 ) {
 ->where('id', '[0-9]+');
 
 Auth::routes();
+Route::any('cambiar_password', 'UserController@cambiar_password');
+
 /*
 Route::get('login', [
                       'as' => 'login',

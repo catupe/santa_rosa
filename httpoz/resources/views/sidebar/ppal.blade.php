@@ -55,7 +55,7 @@
 					<a class="dropdown-item" href="#">
 						<div class="dropdown-message"><i class="fa fa-fw fa-wrench"></i> Editar Perfil</div>
 					</a>
-					<a class="dropdown-item" href="#">
+					<a class="dropdown-item" href="{{ action('UserController@cambiar_password') }}">
 						<div class="dropdown-message"><i class="fa fa-fw fa-cogs"></i> Cambiar Contrase&ntilde;a</div>
 					</a>
 					<a class="dropdown-item" href="#">

@@ -27,7 +27,14 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12">
-                        <h2 class="page-header santa_rosa-page-header">@yield('title')</h2>
+                        <h4 class="page-header santa_rosa-page-header">@yield('title')</h4>
+
+                        @if( isset($code_error) and ($code_error == 1) )
+                            @include('mensajes.error', array('mensaje'=>$mensaje))
+                        @elseif ( isset($code_error) and ($code_error == 2) )
+                            @include('mensajes.info', array('mensaje'=>$mensaje))
+                        @endif
+
                         @yield('content')
                     </div>
                 </div>

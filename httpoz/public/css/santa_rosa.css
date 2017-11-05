@@ -80,3 +80,6 @@
 .santa-rosa_bg-dark li a span:hover{
   color: #8a8d90!important;
 }
+#cambiar_password button{
+    cursor: pointer;
+}
