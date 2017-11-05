@@ -45,6 +45,5 @@ Route::get('ejemplo', function( $id = 0 ) {
     return view('ejemplo.ppal');
 });
 
-Auth::routes();
-
+//Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');

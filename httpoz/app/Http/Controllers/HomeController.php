@@ -14,7 +14,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        //$this->middleware('auth');
+        $this->middleware('auth');
     }
 
     /**
@@ -22,8 +22,10 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index( $nombre )
+    public function index()
     {
+        return view('ejemplo.ppal');
+        /*
         $nombre_excel = 'storage' . DIRECTORY_SEPARATOR .'excel' . DIRECTORY_SEPARATOR . $nombre;
         Excel::load( $nombre_excel, function($reader) {
           // Loop through all sheets
@@ -38,5 +40,6 @@ class HomeController extends Controller
         });
 
         return view('home');
+        */
     }
 }
