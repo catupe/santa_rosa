@@ -1,0 +1,4 @@
+- Las blanzas van dejando las lecturas en un csv
+  Este csv crece indefinidamente?
+  Cuando se genera un nuevo csv?
+  Como se llama el csv de cada balanza?
