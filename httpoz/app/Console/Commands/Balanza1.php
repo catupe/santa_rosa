@@ -39,61 +39,61 @@ class Balanza1 extends Command
      */
     public function handle()
     {
-        //$balanza1 = Balanza1::where('name', '=', 'balanza 1');
-        /*
-        $balanza1 = new \App\Balanza1;
-        $balanza1->lectura = "222";
-        $balanza1->comentarios = "desde el job";
-        $balanza1->created_at =  "2017-12-15 16:15:10";
-        $balanza1->save();
-        */
 
-
-        print("-__________-\n");
-        $total = 0;
-        //$ultima_actualizada = 3; // sale de la base de datos
+        $cant_registros = 0;
         $ultima_actualizada = \App\Balanza1::max('fila');
+        //var_dump($ultima_actualizada);
         $nombre_excel = storage_path( 'excel' . DIRECTORY_SEPARATOR . 'CE1.csv' );//'storage' . DIRECTORY_SEPARATOR .'excel' . DIRECTORY_SEPARATOR . 'CE1.csv';
-        Excel::load( $nombre_excel, function($reader) use($ultima_actualizada, &$total) {
+        Excel::load( $nombre_excel, function($reader) use($ultima_actualizada, &$total, &$cant_registros) {
             $total = $reader->get()->count();
-            //error_log("cantidad csv => ". $total);
-            //error_log("-voy a recorrer-");
+
+            $header = $reader->all()->first()->keys()->toArray();
+            $cant_leer = $total - $ultima_actualizada;
+            //var_dump($cant_leer);
             $reader->skipRows($ultima_actualizada);
-            
-            // Loop through all sheets
-            //$reader->takeColumns();
-            $reader->each(function($sheet) {
-                // Loop through all rows
-                $sheet->columns(function ($row) {
-                //$sheet->each(function($nomCol, $valCol) {
-                    //$balanza1 = new \App\Balanza1;
-                    //print($row1."#".trim($row)."#\n");
-                    var_dump($row);
-                });
-                print("----------------\n");
-            });
+            $datos = $reader->toArray();
+            //var_dump($datos);
+            //var_dump($cant_registros);
+            $fila = $ultima_actualizada;
+            for($i=0; $i<$cant_leer; $i++) {
+                $fila ++;
+
+                $balanza1 = new \App\Balanza1;
+                //$balanza2 = new \App\Balanza2;
+                //$balanza3 = new \App\Balanza3;
+
+                $balanza1->lectura = trim($datos[$i][$header[0]]);
+                //$balanza2->lectura = trim($datos[$i][$header[1]]);
+                //$balanza3->lectura = trim($datos[$i][$header[2]]);
+
+                $balanza1->comentarios = "";
+                //$balanza2->comentarios = "";
+                //$balanza3->comentarios = "";
+
+                $dia_lectura = $datos[$i][$header[3]];
+                $hora_lectura = $datos[$i][$header[4]];
+                $balanza1->created_at = $dia_lectura . ' ' . $hora_lectura;
+                //$balanza2->created_at = $dia_lectura . ' ' . $hora_lectura;
+                //$balanza3->created_at = $dia_lectura . ' ' . $hora_lectura;
+
+                $balanza1->fila = $fila;
+                //$balanza2->fila = $fila;
+                //$balanza3->fila = $fila;
+
+                $balanza1->save();
+                //$balanza2->save();
+                //$balanza3->save();
+
+                $cant_registros++;
+            }
         });
-        //error_log("nuevo total => " . $total);
-        //$total_actualizadas = $total - $ultima_actualizada;
-        //error_log("total actualizadas => ". $total_actualizadas);
 
         $now = new \DateTime();
         $fecha_actual = $now->format('d-m-Y H:i:s');
-        $mensaje_salida = "[ " . $fecha_actual . " ]  -  balanza 1 -  " . $this->description;
+        $mensaje_salida  = "[ " . $fecha_actual . " ]  -  balanza 1 -  " . $this->description ."\n";
+        $mensaje_salida .= "[ " . $fecha_actual . " ]  -  cantidad de datos ingresados -  " . $cant_registros ."\n";
+        $mensaje_salida .= "\n\n";
         $this->info($mensaje_salida);
-        /*
-        $nombre_excel = 'storage' . DIRECTORY_SEPARATOR .'excel' . DIRECTORY_SEPARATOR . 'CE1.csv';
-        Excel::load( $nombre_excel, function($reader) {
-          // Loop through all sheets
-          $reader->each(function($sheet) {
 
-            // Loop through all rows
-            $sheet->each(function($row) {
-                error_log(print_r($row,1));
-            });
-
-          });
-        });
-        */
     }
 }

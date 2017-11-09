@@ -1,85 +1,273 @@
-[ 05-11-2017 18:32:07 ]  -  balanza 1 -  La actualizacion de datos de la balanza 1 se realizo con exito
-[ 05-11-2017 18:34:50 ]  -  balanza 1 -  La actualizacion de datos de la balanza 1 se realizo con exito
-int(0)
-[ 08-11-2017 22:46:59 ]  -  balanza 1 -  La actualizacion de datos de la balanza 1 se realizo con exito
-int(0)
-[ 08-11-2017 22:48:51 ]  -  balanza 1 -  La actualizacion de datos de la balanza 1 se realizo con exito
-[ 08-11-2017 22:49:37 ]  -  balanza 1 -  La actualizacion de datos de la balanza 1 se realizo con exito
-HOLA7int(0)
-[ 08-11-2017 22:50:41 ]  -  balanza 1 -  La actualizacion de datos de la balanza 1 se realizo con exito
-HOLA7int(13)
-[ 08-11-2017 22:52:13 ]  -  balanza 1 -  La actualizacion de datos de la balanza 1 se realizo con exito
--__________-
+[ 09-11-2017 02:14:25 ]  -  balanza 1 -  La actualizacion de datos de la balanza 1 se realizo con exito
+[ 09-11-2017 02:14:25 ]  -  cantidad de datos ingresados -  4
 
-                                                           
-  [Symfony\Component\Debug\Exception\FatalThrowableError]  
-  Class 'App\Console\Commands\Excel' not found             
-                                                           
 
--__________-
-#0#
-#0.00#
-#0#
-#2017-10-18#
-#20:51:59#
-----------------
-#0#
-#0.00#
-#0#
-#2017-10-18#
-#20:51:59#
-----------------
-#0#
-#0.00#
-#0#
-#2017-10-18#
-#20:51:59#
-----------------
-#20.96#
-#87264#
-#4077#
-#2017-10-18#
-#20:53:59#
-----------------
-[ 08-11-2017 23:04:59 ]  -  balanza 1 -  La actualizacion de datos de la balanza 1 se realizo con exito
--__________-
-balanza1#0#
-balanza2#0.00#
-balanza3#0#
-date#2017-10-18#
-time#20:51:59#
-----------------
-balanza1#0#
-balanza2#0.00#
-balanza3#0#
-date#2017-10-18#
-time#20:51:59#
-----------------
-balanza1#0#
-balanza2#0.00#
-balanza3#0#
-date#2017-10-18#
-time#20:51:59#
-----------------
-balanza1#20.96#
-balanza2#87264#
-balanza3#4077#
-date#2017-10-18#
-time#20:53:59#
-----------------
-[ 08-11-2017 23:57:14 ]  -  balanza 1 -  La actualizacion de datos de la balanza 1 se realizo con exito
--__________-
+
+[ 09-11-2017 02:14:48 ]  -  balanza 1 -  La actualizacion de datos de la balanza 1 se realizo con exito
+[ 09-11-2017 02:14:48 ]  -  cantidad de datos ingresados -  4
+
+
+
+int(4)
+int(0)
+array(0) {
+}
+[ 09-11-2017 02:15:56 ]  -  balanza 1 -  La actualizacion de datos de la balanza 1 se realizo con exito
+[ 09-11-2017 02:15:56 ]  -  cantidad de datos ingresados -  4
+
+
+
+int(4)
+int(0)
+array(0) {
+}
+int(4)
+[ 09-11-2017 02:17:28 ]  -  balanza 1 -  La actualizacion de datos de la balanza 1 se realizo con exito
+[ 09-11-2017 02:17:28 ]  -  cantidad de datos ingresados -  4
+
+
+
+int(4)
+int(0)
+array(0) {
+}
+
+                                      
+  [ErrorException]                    
+  Undefined variable: cant_registros  
+                                      
+
+int(4)
+int(0)
+array(0) {
+}
+int(0)
+[ 09-11-2017 02:18:38 ]  -  balanza 1 -  La actualizacion de datos de la balanza 1 se realizo con exito
+[ 09-11-2017 02:18:38 ]  -  cantidad de datos ingresados -  0
+
+
+
+int(4)
+int(1)
+array(1) {
+  [0]=>
+  array(5) {
+    ["balanza1"]=>
+    float(11.96)
+    ["balanza2"]=>
+    float(22.00657)
+    ["balanza3"]=>
+    float(3333)
+    ["date"]=>
+    string(10) "2017-11-18"
+    ["time"]=>
+    string(8) "14:54:59"
+  }
+}
+int(0)
+[ 09-11-2017 02:19:19 ]  -  balanza 1 -  La actualizacion de datos de la balanza 1 se realizo con exito
+[ 09-11-2017 02:19:19 ]  -  cantidad de datos ingresados -  1
+
+
+
+int(5)
+int(1)
+array(1) {
+  [0]=>
+  array(5) {
+    ["balanza1"]=>
+    float(4444.123456789)
+    ["balanza2"]=>
+    float(22.00657)
+    ["balanza3"]=>
+    float(3333)
+    ["date"]=>
+    string(10) "2017-12-18"
+    ["time"]=>
+    string(8) "14:54:59"
+  }
+}
+int(0)
+[ 09-11-2017 02:20:18 ]  -  balanza 1 -  La actualizacion de datos de la balanza 1 se realizo con exito
+[ 09-11-2017 02:20:18 ]  -  cantidad de datos ingresados -  1
+
+
+
+NULL
+int(6)
+array(6) {
+  [0]=>
+  array(5) {
+    ["balanza1"]=>
+    float(0)
+    ["balanza2"]=>
+    string(6) "  0.00"
+    ["balanza3"]=>
+    string(6) "     0"
+    ["date"]=>
+    string(10) "2017-10-18"
+    ["time"]=>
+    string(8) "20:51:59"
+  }
+  [1]=>
+  array(5) {
+    ["balanza1"]=>
+    float(0)
+    ["balanza2"]=>
+    string(6) "  0.00"
+    ["balanza3"]=>
+    string(6) "     0"
+    ["date"]=>
+    string(10) "2017-10-18"
+    ["time"]=>
+    string(8) "20:52:59"
+  }
+  [2]=>
+  array(5) {
+    ["balanza1"]=>
+    float(0)
+    ["balanza2"]=>
+    string(6) "  0.00"
+    ["balanza3"]=>
+    string(6) "     0"
+    ["date"]=>
+    string(10) "2017-10-18"
+    ["time"]=>
+    string(8) "20:53:59"
+  }
+  [3]=>
+  array(5) {
+    ["balanza1"]=>
+    float(20.96)
+    ["balanza2"]=>
+    float(87264)
+    ["balanza3"]=>
+    float(4077)
+    ["date"]=>
+    string(10) "2017-10-18"
+    ["time"]=>
+    string(8) "20:54:59"
+  }
+  [4]=>
+  array(5) {
+    ["balanza1"]=>
+    float(11.96)
+    ["balanza2"]=>
+    float(22.00657)
+    ["balanza3"]=>
+    float(3333)
+    ["date"]=>
+    string(10) "2017-11-18"
+    ["time"]=>
+    string(8) "14:54:59"
+  }
+  [5]=>
+  array(5) {
+    ["balanza1"]=>
+    float(4444.123456789)
+    ["balanza2"]=>
+    float(22.00657)
+    ["balanza3"]=>
+    float(3333)
+    ["date"]=>
+    string(10) "2017-12-18"
+    ["time"]=>
+    string(8) "14:54:59"
+  }
+}
+int(0)
 
                                                                                                                                                                        
-  [Symfony\Component\Debug\Exception\FatalThrowableError]                                                                                                              
-  Type error: Too few arguments to function Maatwebsite\Excel\Readers\LaravelExcelReader::takeColumns(), 0 passed in /home/vagrant/santa_rosa/httpoz/app/Console/Comm  
-  ands/Balanza1.php on line 63 and exactly 1 expected                                                                                                                  
+  [Illuminate\Database\QueryException]                                                                                                                                 
+  SQLSTATE[22003]: Numeric value out of range: 1264 Out of range value for column 'lectura' at row 1 (SQL: insert into `balanza1` (`lectura`, `comentarios`, `created  
+  _at`, `fila`, `updated_at`) values (20.96, , 2017-10-18 20:54:59, 4, 2017-11-09 02:23:05))                                                                           
                                                                                                                                                                        
 
--__________-
+                                                                                                      
+  [PDOException]                                                                                      
+  SQLSTATE[22003]: Numeric value out of range: 1264 Out of range value for column 'lectura' at row 1  
+                                                                                                      
 
-                                  
-  [BadMethodCallException]        
-  Method columns does not exist.  
-                                  
+int(3)
+int(3)
+array(3) {
+  [0]=>
+  array(5) {
+    ["balanza1"]=>
+    float(20.96)
+    ["balanza2"]=>
+    float(87264)
+    ["balanza3"]=>
+    float(4077)
+    ["date"]=>
+    string(10) "2017-10-18"
+    ["time"]=>
+    string(8) "20:54:59"
+  }
+  [1]=>
+  array(5) {
+    ["balanza1"]=>
+    float(11.96)
+    ["balanza2"]=>
+    float(22.00657)
+    ["balanza3"]=>
+    float(3333)
+    ["date"]=>
+    string(10) "2017-11-18"
+    ["time"]=>
+    string(8) "14:54:59"
+  }
+  [2]=>
+  array(5) {
+    ["balanza1"]=>
+    float(4444.123456789)
+    ["balanza2"]=>
+    float(22.00657)
+    ["balanza3"]=>
+    float(3333)
+    ["date"]=>
+    string(10) "2017-12-18"
+    ["time"]=>
+    string(8) "14:54:59"
+  }
+}
+int(0)
+
+                                                                                                                                                                       
+  [Illuminate\Database\QueryException]                                                                                                                                 
+  SQLSTATE[22003]: Numeric value out of range: 1264 Out of range value for column 'lectura' at row 1 (SQL: insert into `balanza1` (`lectura`, `comentarios`, `created  
+  _at`, `fila`, `updated_at`) values (20.96, , 2017-10-18 20:54:59, 4, 2017-11-09 02:24:27))                                                                           
+                                                                                                                                                                       
+
+                                                                                                      
+  [PDOException]                                                                                      
+  SQLSTATE[22003]: Numeric value out of range: 1264 Out of range value for column 'lectura' at row 1  
+                                                                                                      
+
+
+                                                                                                                                                                       
+  [Illuminate\Database\QueryException]                                                                                                                                 
+  SQLSTATE[22003]: Numeric value out of range: 1264 Out of range value for column 'lectura' at row 1 (SQL: insert into `balanza1` (`lectura`, `comentarios`, `created  
+  _at`, `fila`, `updated_at`) values (20.96, , 2017-10-18 20:54:59, 4, 2017-11-09 02:25:30))                                                                           
+                                                                                                                                                                       
+
+                                                                                                      
+  [PDOException]                                                                                      
+  SQLSTATE[22003]: Numeric value out of range: 1264 Out of range value for column 'lectura' at row 1  
+                                                                                                      
+
+[ 09-11-2017 02:26:15 ]  -  balanza 1 -  La actualizacion de datos de la balanza 1 se realizo con exito
+[ 09-11-2017 02:26:15 ]  -  cantidad de datos ingresados -  3
+
+
+
+[ 09-11-2017 02:27:02 ]  -  balanza 1 -  La actualizacion de datos de la balanza 1 se realizo con exito
+[ 09-11-2017 02:27:02 ]  -  cantidad de datos ingresados -  6
+
+
+
+[ 09-11-2017 02:28:13 ]  -  balanza 1 -  La actualizacion de datos de la balanza 1 se realizo con exito
+[ 09-11-2017 02:28:13 ]  -  cantidad de datos ingresados -  6
+
+
 
