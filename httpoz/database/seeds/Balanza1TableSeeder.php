@@ -15,6 +15,7 @@ class Balanza1TableSeeder extends Seeder
              //'name' => 'balanza 1',
              'lectura' => '20134',
              'comentarios' => '',
+             'fila' => 1,
          ]);
      }
 }

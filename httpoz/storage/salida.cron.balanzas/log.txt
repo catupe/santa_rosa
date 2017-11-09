@@ -1,2 +1,85 @@
 [ 05-11-2017 18:32:07 ]  -  balanza 1 -  La actualizacion de datos de la balanza 1 se realizo con exito
 [ 05-11-2017 18:34:50 ]  -  balanza 1 -  La actualizacion de datos de la balanza 1 se realizo con exito
+int(0)
+[ 08-11-2017 22:46:59 ]  -  balanza 1 -  La actualizacion de datos de la balanza 1 se realizo con exito
+int(0)
+[ 08-11-2017 22:48:51 ]  -  balanza 1 -  La actualizacion de datos de la balanza 1 se realizo con exito
+[ 08-11-2017 22:49:37 ]  -  balanza 1 -  La actualizacion de datos de la balanza 1 se realizo con exito
+HOLA7int(0)
+[ 08-11-2017 22:50:41 ]  -  balanza 1 -  La actualizacion de datos de la balanza 1 se realizo con exito
+HOLA7int(13)
+[ 08-11-2017 22:52:13 ]  -  balanza 1 -  La actualizacion de datos de la balanza 1 se realizo con exito
+-__________-
+
+                                                           
+  [Symfony\Component\Debug\Exception\FatalThrowableError]  
+  Class 'App\Console\Commands\Excel' not found             
+                                                           
+
+-__________-
+#0#
+#0.00#
+#0#
+#2017-10-18#
+#20:51:59#
+----------------
+#0#
+#0.00#
+#0#
+#2017-10-18#
+#20:51:59#
+----------------
+#0#
+#0.00#
+#0#
+#2017-10-18#
+#20:51:59#
+----------------
+#20.96#
+#87264#
+#4077#
+#2017-10-18#
+#20:53:59#
+----------------
+[ 08-11-2017 23:04:59 ]  -  balanza 1 -  La actualizacion de datos de la balanza 1 se realizo con exito
+-__________-
+balanza1#0#
+balanza2#0.00#
+balanza3#0#
+date#2017-10-18#
+time#20:51:59#
+----------------
+balanza1#0#
+balanza2#0.00#
+balanza3#0#
+date#2017-10-18#
+time#20:51:59#
+----------------
+balanza1#0#
+balanza2#0.00#
+balanza3#0#
+date#2017-10-18#
+time#20:51:59#
+----------------
+balanza1#20.96#
+balanza2#87264#
+balanza3#4077#
+date#2017-10-18#
+time#20:53:59#
+----------------
+[ 08-11-2017 23:57:14 ]  -  balanza 1 -  La actualizacion de datos de la balanza 1 se realizo con exito
+-__________-
+
+                                                                                                                                                                       
+  [Symfony\Component\Debug\Exception\FatalThrowableError]                                                                                                              
+  Type error: Too few arguments to function Maatwebsite\Excel\Readers\LaravelExcelReader::takeColumns(), 0 passed in /home/vagrant/santa_rosa/httpoz/app/Console/Comm  
+  ands/Balanza1.php on line 63 and exactly 1 expected                                                                                                                  
+                                                                                                                                                                       
+
+-__________-
+
+                                  
+  [BadMethodCallException]        
+  Method columns does not exist.  
+                                  
+

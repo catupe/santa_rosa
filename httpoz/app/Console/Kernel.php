@@ -31,7 +31,8 @@ class Kernel extends ConsoleKernel
         $path_log = storage_path($file_log);
         //print($path_log);
         $schedule->command('balanza1:cargardatos')
-                 ->everyThirtyMinutes()
+                //->everyThirtyMinutes()
+                  ->everyMinute()
                  ->appendOutputTo($path_log);
     }
 
