@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBalanza1Table extends Migration
+class CreateBalanzaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateBalanza1Table extends Migration
      */
     public function up()
     {
-        Schema::dropIfExists('balanza1');
-        Schema::create('balanza1', function (Blueprint $table) {
+        Schema::dropIfExists('balanza');
+        Schema::create('balanza', function (Blueprint $table) {
             $table->increments('id');
-            $table->decimal('lectura', 20, 8);
-            $table->string('comentarios');
-            $table->unsignedInteger('fila');
+            $table->string('nombre');
+            $table->string('nombre_mostrar');
+            $table->string('descripcion');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreateBalanza1Table extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('balanza1');
+        Schema::dropIfExists('balanza');
     }
 }
