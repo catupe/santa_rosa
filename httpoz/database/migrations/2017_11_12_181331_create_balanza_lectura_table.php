@@ -22,6 +22,7 @@ class CreateBalanzaLecturaTable extends Migration
             $table->string('comentarios');
             $table->unsignedInteger('fila');
             $table->timestamps();
+            $table->index(['balanza_id']);
         });
     }
 
