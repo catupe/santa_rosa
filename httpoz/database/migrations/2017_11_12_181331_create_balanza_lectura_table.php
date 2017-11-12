@@ -16,8 +16,8 @@ class CreateBalanzaLecturaTable extends Migration
         Schema::dropIfExists('balanza_lectura');
         Schema::create('balanza_lectura', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('balnza_id')->unsigned();
-            $table->foreign('balnza_id')->references('id')->on('balanza');
+            $table->integer('balanza_id')->unsigned();
+            $table->foreign('balanza_id')->references('id')->on('balanza');
             $table->decimal('lectura', 20, 8);
             $table->string('comentarios');
             $table->unsignedInteger('fila');
