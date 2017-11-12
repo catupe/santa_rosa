@@ -16,7 +16,7 @@ class CreateBalanzaTable extends Migration
         Schema::dropIfExists('balanza');
         Schema::create('balanza', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombre');
+            $table->string('nombre')->unique();
             $table->string('nombre_mostrar');
             $table->string('descripcion');
             $table->timestamps();
