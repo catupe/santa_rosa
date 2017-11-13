@@ -17,9 +17,14 @@
           <label for="balanza" class="col-4 col-sm-4 col-form-label">Seleccione Balanza</label>
           <div class="col-sm-6 col-8">
             <select class="form-control custom-select mb-2 mr-sm-2 mb-sm-0" id="balanza" name="balanza">
-                <option selected>Seleccione...</option>
+                <option>Seleccione...</option>
                 @foreach($balanzas as $balanza)
-                    <option id="{{ $balanza->id }}">{{ $balanza->nombre_mostrar }}</option>
+                    @if( $balanza->id == $balanza_actual )
+                      @php ($activa = 'selected')
+                    @else
+                        @php ($activa = '')
+                    @endif
+                    <option id="{{ $balanza->id }}" {{ $activa }}>{{ $balanza->nombre_mostrar }}</option>
                 @endforeach
             </select>
           </div>

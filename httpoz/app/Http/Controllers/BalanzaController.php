@@ -23,7 +23,8 @@ class BalanzaController extends Controller
               $balanzas = \App\Balanza::where('activa', 1)
                                         ->orderBy('nombre_mostrar', 'asc')
                                         ->get();
-              return view('balanza.verlecturas', array( 'balanzas' => $balanzas ));
+              return view('balanza.verlecturas', array( 'balanzas'        => $balanzas,
+                                                        'balanza_actual'  => 0));
           }
           catch( Exception $e ) {
             return view('balanza.verlecturas', array( 'code_error'  => 1,
