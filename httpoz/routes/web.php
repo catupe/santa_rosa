@@ -22,6 +22,8 @@ Route::get('user/{id?}', function( $id = 0 ) {
 Auth::routes();
 Route::any('cambiar_password', 'UserController@cambiar_password');
 
+//// balanzas
+Route::any('balanzas', 'BalanzaController@getLecturas');
 /*
 Route::get('login', [
                       'as' => 'login',

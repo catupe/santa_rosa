@@ -15,6 +15,7 @@
     <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/santa_rosa.css') }}" rel="stylesheet">
 
+    @yield('head')
 
 </head>
 <body class="fixed-nav bg-dark sidenav-toggled" id="page-top">
@@ -32,7 +33,7 @@
                         @if( isset($code_error) and ($code_error == 1) )
                             @include('mensajes.error', array('mensaje'=>$mensaje))
                         @elseif (count($errors) )
-                            @include('mensajes.error', array('errors'=>$errors))  
+                            @include('mensajes.error', array('errors'=>$errors))
                         @elseif ( isset($code_error) and ($code_error == 2) )
                             @include('mensajes.info', array('mensaje'=>$mensaje))
                         @endif
@@ -56,6 +57,9 @@
             <script src="{{ asset('js/jquery-easing/jquery.easing.min.js') }}"></script>
             <script src="{{ asset('js/sb-admin.min.js') }}"></script>
             <script src="{{ asset('js/santa_rosa.js') }}"></script>
+
+            @yield('scripts')
+
         </div>
     </div>
 </body>

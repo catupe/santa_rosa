@@ -19,6 +19,7 @@ class CreateBalanzaTable extends Migration
             $table->string('nombre')->unique();
             $table->string('nombre_mostrar');
             $table->string('descripcion');
+            $table->smallInteger('activa')->default(1);
             $table->timestamps();
         });
     }
