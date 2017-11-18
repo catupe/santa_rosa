@@ -271,3 +271,8 @@ int(0)
 
 
 
+[ 18-11-2017 22:53:38 ]  -  balanza 1 -  Command description
+[ 18-11-2017 22:53:38 ]  -  cantidad de datos ingresados -  18
+
+
+
