@@ -24,7 +24,7 @@
                     @else
                         @php ($activa = '')
                     @endif
-                    <option id="{{ $balanza->id }}" {{ $activa }}>{{ $balanza->nombre_mostrar }}</option>
+                    <option id="{{ $balanza->id }}" value="{{ $balanza->id }}" {{ $activa }}>{{ $balanza->nombre_mostrar }}</option>
                 @endforeach
             </select>
           </div>
@@ -32,15 +32,14 @@
         <div class="form-group row">
           <label for="fecha_ini" class="col-4 col-sm-4 col-form-label">Fecha Inicio</label>
           <div class="input-group col-6 col-md-4">
-            <input type="text" class="form-control form_datetime" value="2012-05-15 21:05" id="fecha_ini" name="fecha_ini">
+            <input type="text" class="form-control form_datetime date_input" value="2012-05-15 21:05" id="fecha_ini" name="fecha_ini">
             <span class="input-group-addon date"><i class=" fa fa-calendar" aria-hidden="true"></i></span>
-            <!--<input class="form-control" type="datetime-local" value="2011-08-19T00:00:00" id="fecha_ini" name="fecha_ini">-->
           </div>
         </div>
         <div class="form-group row">
           <label for="fecha_fin" class="col-4 col-sm-4 col-form-label">Fecha Fin</label>
           <div class="input-group col-6 col-md-4">
-            <input type="text" class="form-control  form_datetime" value="2012-05-15 21:05" id="fecha_fin" name="fecha_fin">
+            <input type="text" class="form-control  form_datetime date_input" value="2017-012-15 21:05" id="fecha_fin" name="fecha_fin">
             <span class="input-group-addon date"><i class="fa fa-calendar" aria-hidden="true"></i></span>
           </div>
         </div>
@@ -51,6 +50,33 @@
         </div>
       </form>
     </div>
+    @if( count($lecturas) > 0 )
+      <div class="col-12 col-sm-12 col-md-8">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Lectura</th>
+              <th scope="col">Fecha</th>
+              <th scope="col">Comentarios</th>
+            </tr>
+          </thead>
+          <tbody>
+            @foreach ($lecturas as $key => $lectura)
+              <tr>
+                  <td>{{ $lectura->id }}</td>
+                  <td>{{ $lectura->lectura }}</td>
+                  <td>{{ $lectura->updated_at }}</td>
+                  <td>{{ $lectura->comentarios }}</td>
+              </tr>
+            @endforeach
+          </tbody>
+        </table
+
+        {{ $lecturas->links('paginado.ppal') }}
+      
+      </div>
+    @endif
 @endsection
 
 @section('scripts')
