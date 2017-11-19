@@ -1,0 +1,16 @@
+-- virtual host
+
+C:\xampp\apache\conf\extra\httpd-vhosts.conf
+
+<VirtualHost *:80>
+  ServerName molino-santarosa.com
+  DocumentRoot "C:/xampp/htdocs/santa_rosa/httpoz/public"
+  ErrorLog "logs/molino-santarosa.com-error.log"
+  CustomLog "logs/molino-santarosa.com-access.log" common
+</VirtualHost>
+
+-- hosts
+
+C:\Windows\System32\drivers\etc\hosts
+
+  127.0.0.1	molino-santarosa.com
