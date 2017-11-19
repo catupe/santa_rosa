@@ -1,3 +1,3 @@
 php artisan make:seeder Balanza1TableSeeder
 php artisan db:seed --class=Balanza1TableSeeder
-php artisan make:seeder rolesTableSeeder
+php artisan make:seeder RolesTableSeeder
