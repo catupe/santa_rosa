@@ -51,7 +51,7 @@
       </form>
     </div>
     @if( count($lecturas) > 0 )
-      <div class="col-12 col-sm-12 col-md-8">
+      <div class="col-12 col-sm-12 col-md-12">
         <table class="table table-striped">
           <thead>
             <tr>
@@ -74,7 +74,7 @@
         </table
 
         {{ $lecturas->links('paginado.ppal') }}
-      
+
       </div>
     @endif
 @endsection

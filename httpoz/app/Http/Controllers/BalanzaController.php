@@ -21,6 +21,14 @@ class BalanzaController extends Controller
     {
           try {
 
+              $codigo_error = 0;
+              $mensaje      = "";
+              $lecturas     = array();
+
+              $balanza    = "";
+              $fecha_ini  = "";
+              $fecha_fin  = "";
+
               $start    = 0;
               $perPage  = $this->rowsPerPage;
 
@@ -34,11 +42,6 @@ class BalanzaController extends Controller
                   $start = ( $request->page - 1 ) * $perPage;
               }
 
-              $lecturas = array();
-
-              $balanza    = "";
-              $fecha_ini  = "";
-              $fecha_fin  = "";
               if( $request->has("page") ) {
                   $balanza   = $request->session()->get("balanzas_verlecturas_balanza");
                   $fecha_ini = $request->session()->get("balanzas_verlecturas_fecha_ini");
@@ -65,14 +68,23 @@ class BalanzaController extends Controller
                                                   //->toSql();
                                                   ->paginate($perPage);
                                                   //->get();
-                  error_log(print_r($lecturas,1));
 
+                  // sino  hay datos para los filtros ingresados
+                  // muestro mensaje de que no hay datos
+                  if( count($lecturas) == 0 ) {
+                      $codigo_error = 2;
+                      $mensaje      = "No existen datos para los filtros ingresados";
+                  }
               }
+
 
               $balanzas = \App\Balanza::where('activa', 1)
                                         ->orderBy('nombre_mostrar', 'asc')
                                         ->get();
-              return view('balanza.verlecturas', array( 'balanzas'        => $balanzas,
+
+              return view('balanza.verlecturas', array( 'code_error'      => $codigo_error,
+                                                        'mensaje'         => $mensaje,
+                                                        'balanzas'        => $balanzas,
                                                         'balanza_actual'  => $balanza,
                                                         'lecturas'        => $lecturas));
           }
