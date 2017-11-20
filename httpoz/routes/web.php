@@ -25,6 +25,13 @@ Route::any('cambiar_password', 'UserController@cambiar_password');
 //// balanzas
 Route::any('balanzas', 'BalanzaController@getLecturas');
 /*
+Route::any('balanzas', [
+                        'as'          => 'balanzas',
+                        'middleware'  => 'role:admin',
+                        'uses'        => 'BalanzaController@getLecturas',
+                      ]);
+*/
+/*
 Route::get('login', [
                       'as' => 'login',
                       'uses' => 'Auth\LoginController@showLoginForm'

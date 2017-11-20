@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BalanzaController extends Controller
 {
@@ -20,6 +21,13 @@ class BalanzaController extends Controller
     public function getLecturas( Request $request )
     {
           try {
+              /***
+              ESTO ES DE EJEMPLO COMO REDIRIGIR SI LA FUNCION NO ES PERMITIDA
+              $user = Auth::user();
+              if (!$user->isRole('admin')) {
+                  // TODO redirigir a index
+              }
+              ***/
 
               $codigo_error = 0;
               $mensaje      = "";
