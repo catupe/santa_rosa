@@ -20,7 +20,7 @@
 				</a>
 				<ul class="sidenav-second-level collapse" id="collapseExamplePages">
 					<li>
-						<a href="login.html">Blanza 1</a>
+						<a href="{{ action('BalanzaController@getLecturas') }}">Ver Lecturas</a>
 					</li>
 					<li>
 						<a href="register.html">Blanza 2</a>
