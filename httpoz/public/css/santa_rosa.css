@@ -90,3 +90,28 @@
     background-color: #343a40;
     border-color: #343a40;
 }
+/* para calendarios xq no funcionan los iconos desde el javascript */
+/* aca esta la web para los iconos http://astronautweb.co/snippet/font-awesome/ */
+.datetimepicker-days table th.next:before,
+.datetimepicker-hours table th.next:before,
+.datetimepicker-minutes table th.next:before {
+    content: "\f0da";
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+    color: #000;
+    font-size: 18px;
+}
+.datetimepicker-days table th.prev:before,
+.datetimepicker-hours table th.prev:before,
+.datetimepicker-minutes table th.prev:before{
+    content: "\f0d9";
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+/*--adjust as necessary--*/
+    color: #000;
+    font-size: 18px;
+}
