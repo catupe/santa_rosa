@@ -89,7 +89,7 @@ $(document).ready( function () {
         if( fecha == "" || !fechaExpReg.test(fecha) ) {
           $('#agregarLectura #fecha-nueva').addClass('is-invalid');
           $('#agregarLectura #invalid-fecha-nueva').html('La fecha es un campo requerido');
-          $('#agregarLectura #invalid-fecha-nueva').show();//attr('display', 'inherit!important')
+          $('#agregarLectura #invalid-fecha-nueva').show();//attr('display', 'inherit!important');
           error = 1;
         }
       }
