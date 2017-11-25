@@ -34,6 +34,11 @@ $(document).ready( function () {
       $('#agregarLectura input[type=text]').val("");
       $('#agregarLectura input[type=text]').prop('disabled', false);
 
+      // limpio mensajes de error
+      $('#agregarLectura select').removeClass("is-invalid");
+      $('#agregarLectura input[type=text]').removeClass("is-invalid");
+      $('#agregarLectura .invalid-feedback').html("");
+
       var button = $(event.relatedTarget);
       var modo = button.data('modo');
       $('#agregarLectura #modo-nueva').val(modo);
@@ -84,6 +89,7 @@ $(document).ready( function () {
         if( fecha == "" || !fechaExpReg.test(fecha) ) {
           $('#agregarLectura #fecha-nueva').addClass('is-invalid');
           $('#agregarLectura #invalid-fecha-nueva').html('La fecha es un campo requerido');
+          $('#agregarLectura #invalid-fecha-nueva').show();//attr('display', 'inherit!important')
           error = 1;
         }
       }
