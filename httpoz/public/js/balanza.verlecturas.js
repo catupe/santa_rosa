@@ -27,8 +27,12 @@ $(document).ready( function () {
       minuteStep: 30,
       pickerPosition: 'bottom-left'
     });
+    $("#agregarLectura #fecha-nueva").datetimepicker().on('show.bs.modal', function(event) {
+      event.stopPropagation();
+    });
 
-    $('#agregarLectura').on('shown.bs.modal', function (event) {
+    $('#agregarLectura').on('show.bs.modal', function (event) {
+      //event.preventDefault();
       // limpio todos los campos
       $('#agregarLectura select').prop('disabled', false);
       $('#agregarLectura input[type=text]').val("");
@@ -51,6 +55,7 @@ $(document).ready( function () {
         $('#agregarLectura select').val("");
       }
       if( modo == 2 ) {
+        modal.find('.modal-title').text('Editar Lectura');
         $('#agregarLectura #balanza-nueva').prop('disabled', true);
         $('#agregarLectura #lectura-nueva').val( button.data('lectura'));
         $('#agregarLectura #fecha-nueva').prop('disabled', true);
@@ -61,7 +66,11 @@ $(document).ready( function () {
 
       //modal.find('.modal-body input').val(recipient);
     });
-    $('#agregarLectura #guardar').click( function () {
+    $('#agregarLectura #guardar').click( function (e) {
+      e.preventDefault();
+      var l = Ladda.create(this);
+	 	  l.start();
+
       $('#agregarLectura select').removeClass("is-invalid");
       $('#agregarLectura input[type=text]').removeClass("is-invalid");
       $('#agregarLectura .invalid-feedback').html("");
@@ -155,8 +164,14 @@ $(document).ready( function () {
                  },
                  error: function (data) {
                   console.log('Error:', data);
+                 },
+                 complete: function () {
+                   l.stop();
                  }
              });
+         }
+         else{
+           l.stop();
          }
     });
 });

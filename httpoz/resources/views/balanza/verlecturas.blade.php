@@ -134,7 +134,7 @@
             <input type="hidden" id="id-nueva" name="id-nueva">
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-              <button type="button" class="btn btn-dark" id="guardar">Guardar</button>
+              <button type="button" class="btn btn-dark ladda-button" data-style="zoom-in" id="guardar">Guardar</button>
             </div>
           </div>
         </div>

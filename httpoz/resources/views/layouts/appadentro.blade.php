@@ -11,6 +11,7 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
     <link href="{{ asset('css/bootstrap/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/ladda/ladda-themeless.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/sb-admin.css') }}" rel="stylesheet">
     <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/santa_rosa.css') }}" rel="stylesheet">
@@ -56,6 +57,8 @@
             <script src="{{ asset('js/bootstrap/bootstrap.bundle.min.js') }}"></script>
             <script src="{{ asset('js/jquery-easing/jquery.easing.min.js') }}"></script>
             <script src="{{ asset('js/sb-admin.min.js') }}"></script>
+            <script src="{{ asset('js/ladda/spin.js') }}"></script>
+            <script src="{{ asset('js/ladda/ladda.min.js') }}"></script>
             <script src="{{ asset('js/santa_rosa.js') }}"></script>
 
             @yield('scripts')
