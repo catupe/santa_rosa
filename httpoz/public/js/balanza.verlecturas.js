@@ -97,7 +97,7 @@ $(document).ready( function () {
         var fechaExpReg = /^\d{4}\-\d{2}\-\d{2} \d{2}:\d{2}$/;
         if( fecha == "" || !fechaExpReg.test(fecha) ) {
           $('#agregarLectura #fecha-nueva').addClass('is-invalid');
-          $('#agregarLectura #invalid-fecha-nueva').html('La fecha es un campo requerido');
+          $('#agregarLectura #invalid-fecha-nueva').html('La fecha es un campo requerido, formato yyyy-mm-dd hh:mm');
           $('#agregarLectura #invalid-fecha-nueva').show();//attr('display', 'inherit!important');
           error = 1;
         }

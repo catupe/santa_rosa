@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Auth;
 class BalanzaController extends Controller
 {
     private $rowsPerPage = 5;
+    private $mensajes = array( '001' => 'La lectura es un campo requerido, debe ser num&eacute;rico',
+                               '002' => 'La fecha es un campo requerido, formato yyyy-mm-dd hh:mm',
+                               '003' => 'La balanza es un campo requerido' );
     /**
      * Create a new controller instance.
      *
@@ -114,6 +117,54 @@ class BalanzaController extends Controller
               ***/
               error_log("LLEGUE");
               error_log(print_r($request->all(),1));
+              $error = 0;
+              $mensaje = "";
+              if( $request->modo == 1 ) { // estoy creando lectura
+                if( is_numeric($request->balanza) ) {
+                  error_log("ok");
+                  $balanza = \App\Balanza::find($request->balanza);
+                  error_log("------");
+                  error_log(print_r($balanza,1));
+                  error_log("------");
+                  if( !isset($balanza) ){
+                    $error = 1;
+                    $mensajes[] = $this->mensajes["003"];
+                  }
+                }
+                else {
+                  $error = 1;
+                  $mensajes[] = $this->mensajes["003"];
+                }
+                if( !is_numeric($reques->lectura) ) {
+                  $error = 1;
+                  $mensajes[] = $this->mensajes["001"];
+                }
+                if( !preg_match('/^\d{4}\-\d{2}\-\d{2} \d{2}:\d{2}$/', $reques->fecha) ) {
+                  $error = 1;
+                  $mensajes[] = $this->mensajes["002"];
+                }
+              }
+              elseif( $request->modo == 2 ) { // estoy editando
+                error_log("EDICION");
+                $balanza = null;
+                if( is_numeric($request->id) ) {
+                  error_log("ok");
+                  $balanza_lectura = \App\BalanzaLectura::find($request->id)->first();
+                  error_log("------");
+                  error_log(print_r($balanza_lectura->id,1));
+                  error_log("------");
+                  if( !isset($balanza_lectura->id) ){
+                    $error = 1;
+                    $mensajes[] = $this->mensajes["003"];
+                  }
+                }
+                else {
+                  $error = 1;
+                  $mensajes[] = $this->mensajes["003"];
+                }
+              }
+              return Response::json( array('error'    => $error,
+                                           'mensaje'  => $mensajes ) );
               /*
               if( !isset($request->page) ) {
                   $request->page = 1;
