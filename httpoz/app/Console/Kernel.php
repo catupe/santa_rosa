@@ -24,6 +24,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
+        //var_dump();
         // $schedule->command('inspire')
         //          ->hourly();
         //$file_log = 'storage' . DIRECTORY_SEPARATOR . 'salida.cron.balanzas' . DIRECTORY_SEPARATOR . 'log.txt';

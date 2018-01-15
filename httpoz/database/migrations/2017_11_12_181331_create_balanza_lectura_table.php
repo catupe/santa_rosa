@@ -19,6 +19,8 @@ class CreateBalanzaLecturaTable extends Migration
             $table->integer('balanza_id')->unsigned();
             $table->foreign('balanza_id')->references('id')->on('balanza');
             $table->decimal('lectura', 20, 8);
+            //$table->decimal('lectura_acumulada', 20, 8);
+            //$table->unsignedInteger('lectura_cantidad');
             $table->string('comentarios');
             $table->unsignedInteger('fila');
             $table->timestamps();

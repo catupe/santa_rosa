@@ -1,0 +1,2183 @@
+ultima actualizada 12
+cont => 1
+cont => 2
+cont => 3
+cont => 4
+cont => 5
+
+[37;41m                                        [39;49m
+[37;41m  [InvalidArgumentException]            [39;49m
+[37;41m  A four digit year could not be found  [39;49m
+[37;41m  Data missing                          [39;49m
+[37;41m                                        [39;49m
+
+ultima actualizada 12
+cont => 1
+cont => 2
+cont => 3
+cont => 4
+cont => 5
+
+[37;41m                                        [39;49m
+[37;41m  [InvalidArgumentException]            [39;49m
+[37;41m  A four digit year could not be found  [39;49m
+[37;41m  Data missing                          [39;49m
+[37;41m                                        [39;49m
+
+ultima actualizada 12
+array(2) {
+  ["lectura"]=>
+  float(1)
+  ["date"]=>
+  string(19) "2017-11-28 21:20:08"
+}
+cont => 1
+array(2) {
+  ["lectura"]=>
+  float(1)
+  ["date"]=>
+  string(19) "2017-11-28 21:21:08"
+}
+cont => 2
+array(2) {
+  ["lectura"]=>
+  float(1)
+  ["date"]=>
+  string(19) "2017-11-28 21:22:08"
+}
+cont => 3
+array(2) {
+  ["lectura"]=>
+  float(1)
+  ["date"]=>
+  string(19) "2017-11-28 21:23:09"
+}
+cont => 4
+array(2) {
+  ["lectura"]=>
+  float(1)
+  ["date"]=>
+  string(19) "2017-11-28 21:24:09"
+}
+cont => 5
+array(2) {
+  ["lectura"]=>
+  string(4) "????"
+  ["date"]=>
+  string(9) "Date Time"
+}
+
+[37;41m                                        [39;49m
+[37;41m  [InvalidArgumentException]            [39;49m
+[37;41m  A four digit year could not be found  [39;49m
+[37;41m  Data missing                          [39;49m
+[37;41m                                        [39;49m
+
+ultima actualizada 12
+array(2) {
+  ["lectura"]=>
+  float(12)
+  ["date"]=>
+  string(19) "2017-11-29 06:17:50"
+}
+cont => 1
+array(2) {
+  ["lectura"]=>
+  float(16)
+  ["date"]=>
+  string(19) "2017-11-29 06:18:50"
+}
+cont => 2
+array(2) {
+  ["lectura"]=>
+  float(20)
+  ["date"]=>
+  string(19) "2017-11-29 06:19:50"
+}
+cont => 3
+array(2) {
+  ["lectura"]=>
+  float(24)
+  ["date"]=>
+  string(19) "2017-11-29 06:20:49"
+}
+cont => 4
+array(2) {
+  ["lectura"]=>
+  float(28)
+  ["date"]=>
+  string(19) "2017-11-29 06:21:49"
+}
+cont => 5
+array(2) {
+  ["lectura"]=>
+  float(32)
+  ["date"]=>
+  string(19) "2017-11-29 06:22:49"
+}
+cont => 6
+array(2) {
+  ["lectura"]=>
+  float(36)
+  ["date"]=>
+  string(19) "2017-11-29 06:23:50"
+}
+cont => 7
+array(2) {
+  ["lectura"]=>
+  float(40)
+  ["date"]=>
+  string(19) "2017-11-29 06:24:50"
+}
+cont => 8
+array(2) {
+  ["lectura"]=>
+  float(44)
+  ["date"]=>
+  string(19) "2017-11-29 06:25:50"
+}
+cont => 9
+array(2) {
+  ["lectura"]=>
+  float(48)
+  ["date"]=>
+  string(19) "2017-11-29 06:26:49"
+}
+cont => 10
+array(2) {
+  ["lectura"]=>
+  float(12)
+  ["date"]=>
+  string(19) "2017-11-29 06:17:50"
+}
+cont => 11
+array(2) {
+  ["lectura"]=>
+  float(16)
+  ["date"]=>
+  string(19) "2017-11-29 06:18:50"
+}
+cont => 12
+array(2) {
+  ["lectura"]=>
+  float(20)
+  ["date"]=>
+  string(19) "2017-11-29 06:19:50"
+}
+cont => 13
+array(2) {
+  ["lectura"]=>
+  float(24)
+  ["date"]=>
+  string(19) "2017-11-29 06:20:49"
+}
+cont => 14
+array(2) {
+  ["lectura"]=>
+  float(28)
+  ["date"]=>
+  string(19) "2017-11-29 06:21:49"
+}
+cont => 15
+array(2) {
+  ["lectura"]=>
+  float(32)
+  ["date"]=>
+  string(19) "2017-11-29 06:22:49"
+}
+cont => 16
+array(2) {
+  ["lectura"]=>
+  float(36)
+  ["date"]=>
+  string(19) "2017-11-29 06:23:50"
+}
+cont => 17
+array(2) {
+  ["lectura"]=>
+  float(40)
+  ["date"]=>
+  string(19) "2017-11-29 06:24:50"
+}
+cont => 18
+array(2) {
+  ["lectura"]=>
+  float(44)
+  ["date"]=>
+  string(19) "2017-11-29 06:25:50"
+}
+cont => 19
+array(2) {
+  ["lectura"]=>
+  float(48)
+  ["date"]=>
+  string(19) "2017-11-29 06:26:49"
+}
+cont => 20
+array(2) {
+  ["lectura"]=>
+  float(52)
+  ["date"]=>
+  string(19) "2017-11-29 06:27:49"
+}
+cont => 21
+array(2) {
+  ["lectura"]=>
+  float(56)
+  ["date"]=>
+  string(19) "2017-11-29 06:28:49"
+}
+cont => 22
+array(2) {
+  ["lectura"]=>
+  float(60)
+  ["date"]=>
+  string(19) "2017-11-29 06:29:50"
+}
+cont => 23
+array(2) {
+  ["lectura"]=>
+  float(64)
+  ["date"]=>
+  string(19) "2017-11-29 06:30:50"
+}
+cont => 24
+array(2) {
+  ["lectura"]=>
+  float(68)
+  ["date"]=>
+  string(19) "2017-11-29 06:31:50"
+}
+cont => 25
+array(2) {
+  ["lectura"]=>
+  float(71)
+  ["date"]=>
+  string(19) "2017-11-29 06:32:49"
+}
+cont => 26
+array(2) {
+  ["lectura"]=>
+  float(75)
+  ["date"]=>
+  string(19) "2017-11-29 06:33:49"
+}
+cont => 27
+array(2) {
+  ["lectura"]=>
+  float(79)
+  ["date"]=>
+  string(19) "2017-11-29 06:34:49"
+}
+cont => 28
+array(2) {
+  ["lectura"]=>
+  float(83)
+  ["date"]=>
+  string(19) "2017-11-29 06:35:50"
+}
+cont => 29
+array(2) {
+  ["lectura"]=>
+  float(87)
+  ["date"]=>
+  string(19) "2017-11-29 06:36:50"
+}
+cont => 30
+array(2) {
+  ["lectura"]=>
+  float(12)
+  ["date"]=>
+  string(19) "2017-11-29 06:17:50"
+}
+cont => 31
+array(2) {
+  ["lectura"]=>
+  float(16)
+  ["date"]=>
+  string(19) "2017-11-29 06:18:50"
+}
+cont => 32
+array(2) {
+  ["lectura"]=>
+  float(20)
+  ["date"]=>
+  string(19) "2017-11-29 06:19:50"
+}
+cont => 33
+array(2) {
+  ["lectura"]=>
+  float(24)
+  ["date"]=>
+  string(19) "2017-11-29 06:20:49"
+}
+cont => 34
+array(2) {
+  ["lectura"]=>
+  float(28)
+  ["date"]=>
+  string(19) "2017-11-29 06:21:49"
+}
+cont => 35
+array(2) {
+  ["lectura"]=>
+  float(32)
+  ["date"]=>
+  string(19) "2017-11-29 06:22:49"
+}
+cont => 36
+array(2) {
+  ["lectura"]=>
+  float(36)
+  ["date"]=>
+  string(19) "2017-11-29 06:23:50"
+}
+cont => 37
+array(2) {
+  ["lectura"]=>
+  float(40)
+  ["date"]=>
+  string(19) "2017-11-29 06:24:50"
+}
+cont => 38
+array(2) {
+  ["lectura"]=>
+  float(44)
+  ["date"]=>
+  string(19) "2017-11-29 06:25:50"
+}
+cont => 39
+array(2) {
+  ["lectura"]=>
+  float(48)
+  ["date"]=>
+  string(19) "2017-11-29 06:26:49"
+}
+cont => 40
+array(2) {
+  ["lectura"]=>
+  float(52)
+  ["date"]=>
+  string(19) "2017-11-29 06:27:49"
+}
+cont => 41
+array(2) {
+  ["lectura"]=>
+  float(56)
+  ["date"]=>
+  string(19) "2017-11-29 06:28:49"
+}
+cont => 42
+array(2) {
+  ["lectura"]=>
+  float(60)
+  ["date"]=>
+  string(19) "2017-11-29 06:29:50"
+}
+cont => 43
+array(2) {
+  ["lectura"]=>
+  float(64)
+  ["date"]=>
+  string(19) "2017-11-29 06:30:50"
+}
+cont => 44
+array(2) {
+  ["lectura"]=>
+  float(68)
+  ["date"]=>
+  string(19) "2017-11-29 06:31:50"
+}
+cont => 45
+array(2) {
+  ["lectura"]=>
+  float(71)
+  ["date"]=>
+  string(19) "2017-11-29 06:32:49"
+}
+cont => 46
+array(2) {
+  ["lectura"]=>
+  float(75)
+  ["date"]=>
+  string(19) "2017-11-29 06:33:49"
+}
+cont => 47
+array(2) {
+  ["lectura"]=>
+  float(79)
+  ["date"]=>
+  string(19) "2017-11-29 06:34:49"
+}
+cont => 48
+array(2) {
+  ["lectura"]=>
+  float(83)
+  ["date"]=>
+  string(19) "2017-11-29 06:35:50"
+}
+cont => 49
+array(2) {
+  ["lectura"]=>
+  float(87)
+  ["date"]=>
+  string(19) "2017-11-29 06:36:50"
+}
+cont => 50
+comiteo
+[32mcommit : 50\n\r[39m
+array(2) {
+  ["lectura"]=>
+  float(91)
+  ["date"]=>
+  string(19) "2017-11-29 06:37:49"
+}
+cont => 1
+array(2) {
+  ["lectura"]=>
+  float(92)
+  ["date"]=>
+  string(19) "2017-11-29 06:38:49"
+}
+cont => 2
+array(2) {
+  ["lectura"]=>
+  float(92)
+  ["date"]=>
+  string(19) "2017-11-29 06:39:49"
+}
+cont => 3
+array(2) {
+  ["lectura"]=>
+  float(92)
+  ["date"]=>
+  string(19) "2017-11-29 06:40:50"
+}
+cont => 4
+array(2) {
+  ["lectura"]=>
+  float(92)
+  ["date"]=>
+  string(19) "2017-11-29 06:41:50"
+}
+cont => 5
+array(2) {
+  ["lectura"]=>
+  float(92)
+  ["date"]=>
+  string(19) "2017-11-29 06:42:50"
+}
+cont => 6
+array(2) {
+  ["lectura"]=>
+  float(92)
+  ["date"]=>
+  string(19) "2017-11-29 06:43:49"
+}
+cont => 7
+array(2) {
+  ["lectura"]=>
+  float(92)
+  ["date"]=>
+  string(19) "2017-11-29 06:44:49"
+}
+cont => 8
+array(2) {
+  ["lectura"]=>
+  float(93)
+  ["date"]=>
+  string(19) "2017-11-29 06:45:49"
+}
+cont => 9
+array(2) {
+  ["lectura"]=>
+  float(96)
+  ["date"]=>
+  string(19) "2017-11-29 06:46:50"
+}
+cont => 10
+array(2) {
+  ["lectura"]=>
+  float(12)
+  ["date"]=>
+  string(19) "2017-11-29 06:17:50"
+}
+cont => 11
+array(2) {
+  ["lectura"]=>
+  float(16)
+  ["date"]=>
+  string(19) "2017-11-29 06:18:50"
+}
+cont => 12
+array(2) {
+  ["lectura"]=>
+  float(20)
+  ["date"]=>
+  string(19) "2017-11-29 06:19:50"
+}
+cont => 13
+array(2) {
+  ["lectura"]=>
+  float(24)
+  ["date"]=>
+  string(19) "2017-11-29 06:20:49"
+}
+cont => 14
+array(2) {
+  ["lectura"]=>
+  float(28)
+  ["date"]=>
+  string(19) "2017-11-29 06:21:49"
+}
+cont => 15
+array(2) {
+  ["lectura"]=>
+  float(32)
+  ["date"]=>
+  string(19) "2017-11-29 06:22:49"
+}
+cont => 16
+array(2) {
+  ["lectura"]=>
+  float(36)
+  ["date"]=>
+  string(19) "2017-11-29 06:23:50"
+}
+cont => 17
+array(2) {
+  ["lectura"]=>
+  float(40)
+  ["date"]=>
+  string(19) "2017-11-29 06:24:50"
+}
+cont => 18
+array(2) {
+  ["lectura"]=>
+  float(44)
+  ["date"]=>
+  string(19) "2017-11-29 06:25:50"
+}
+cont => 19
+array(2) {
+  ["lectura"]=>
+  float(48)
+  ["date"]=>
+  string(19) "2017-11-29 06:26:49"
+}
+cont => 20
+array(2) {
+  ["lectura"]=>
+  float(52)
+  ["date"]=>
+  string(19) "2017-11-29 06:27:49"
+}
+cont => 21
+array(2) {
+  ["lectura"]=>
+  float(56)
+  ["date"]=>
+  string(19) "2017-11-29 06:28:49"
+}
+cont => 22
+array(2) {
+  ["lectura"]=>
+  float(60)
+  ["date"]=>
+  string(19) "2017-11-29 06:29:50"
+}
+cont => 23
+array(2) {
+  ["lectura"]=>
+  float(64)
+  ["date"]=>
+  string(19) "2017-11-29 06:30:50"
+}
+cont => 24
+array(2) {
+  ["lectura"]=>
+  float(68)
+  ["date"]=>
+  string(19) "2017-11-29 06:31:50"
+}
+cont => 25
+array(2) {
+  ["lectura"]=>
+  float(71)
+  ["date"]=>
+  string(19) "2017-11-29 06:32:49"
+}
+cont => 26
+array(2) {
+  ["lectura"]=>
+  float(75)
+  ["date"]=>
+  string(19) "2017-11-29 06:33:49"
+}
+cont => 27
+array(2) {
+  ["lectura"]=>
+  float(79)
+  ["date"]=>
+  string(19) "2017-11-29 06:34:49"
+}
+cont => 28
+array(2) {
+  ["lectura"]=>
+  float(83)
+  ["date"]=>
+  string(19) "2017-11-29 06:35:50"
+}
+cont => 29
+array(2) {
+  ["lectura"]=>
+  float(87)
+  ["date"]=>
+  string(19) "2017-11-29 06:36:50"
+}
+cont => 30
+array(2) {
+  ["lectura"]=>
+  float(91)
+  ["date"]=>
+  string(19) "2017-11-29 06:37:49"
+}
+cont => 31
+array(2) {
+  ["lectura"]=>
+  float(92)
+  ["date"]=>
+  string(19) "2017-11-29 06:38:49"
+}
+cont => 32
+array(2) {
+  ["lectura"]=>
+  float(92)
+  ["date"]=>
+  string(19) "2017-11-29 06:39:49"
+}
+cont => 33
+array(2) {
+  ["lectura"]=>
+  float(92)
+  ["date"]=>
+  string(19) "2017-11-29 06:40:50"
+}
+cont => 34
+array(2) {
+  ["lectura"]=>
+  float(92)
+  ["date"]=>
+  string(19) "2017-11-29 06:41:50"
+}
+cont => 35
+array(2) {
+  ["lectura"]=>
+  float(92)
+  ["date"]=>
+  string(19) "2017-11-29 06:42:50"
+}
+cont => 36
+array(2) {
+  ["lectura"]=>
+  float(92)
+  ["date"]=>
+  string(19) "2017-11-29 06:43:49"
+}
+cont => 37
+array(2) {
+  ["lectura"]=>
+  float(92)
+  ["date"]=>
+  string(19) "2017-11-29 06:44:49"
+}
+cont => 38
+array(2) {
+  ["lectura"]=>
+  float(93)
+  ["date"]=>
+  string(19) "2017-11-29 06:45:49"
+}
+cont => 39
+array(2) {
+  ["lectura"]=>
+  float(96)
+  ["date"]=>
+  string(19) "2017-11-29 06:46:50"
+}
+cont => 40
+array(2) {
+  ["lectura"]=>
+  float(98)
+  ["date"]=>
+  string(19) "2017-11-29 06:47:50"
+}
+cont => 41
+array(2) {
+  ["lectura"]=>
+  float(102)
+  ["date"]=>
+  string(19) "2017-11-29 06:48:50"
+}
+cont => 42
+array(2) {
+  ["lectura"]=>
+  float(106)
+  ["date"]=>
+  string(19) "2017-11-29 06:49:49"
+}
+cont => 43
+array(2) {
+  ["lectura"]=>
+  float(109)
+  ["date"]=>
+  string(19) "2017-11-29 06:50:49"
+}
+cont => 44
+array(2) {
+  ["lectura"]=>
+  float(113)
+  ["date"]=>
+  string(19) "2017-11-29 06:51:49"
+}
+cont => 45
+array(2) {
+  ["lectura"]=>
+  float(117)
+  ["date"]=>
+  string(19) "2017-11-29 06:52:50"
+}
+cont => 46
+array(2) {
+  ["lectura"]=>
+  float(121)
+  ["date"]=>
+  string(19) "2017-11-29 06:53:50"
+}
+cont => 47
+array(2) {
+  ["lectura"]=>
+  float(124)
+  ["date"]=>
+  string(19) "2017-11-29 06:54:49"
+}
+cont => 48
+array(2) {
+  ["lectura"]=>
+  float(128)
+  ["date"]=>
+  string(19) "2017-11-29 06:55:49"
+}
+cont => 49
+array(2) {
+  ["lectura"]=>
+  float(132)
+  ["date"]=>
+  string(19) "2017-11-29 06:56:49"
+}
+cont => 50
+comiteo
+[32mcommit : 50\n\r[39m
+array(2) {
+  ["lectura"]=>
+  float(12)
+  ["date"]=>
+  string(19) "2017-11-29 06:17:50"
+}
+cont => 1
+array(2) {
+  ["lectura"]=>
+  float(16)
+  ["date"]=>
+  string(19) "2017-11-29 06:18:50"
+}
+cont => 2
+array(2) {
+  ["lectura"]=>
+  float(20)
+  ["date"]=>
+  string(19) "2017-11-29 06:19:50"
+}
+cont => 3
+array(2) {
+  ["lectura"]=>
+  float(24)
+  ["date"]=>
+  string(19) "2017-11-29 06:20:49"
+}
+cont => 4
+array(2) {
+  ["lectura"]=>
+  float(28)
+  ["date"]=>
+  string(19) "2017-11-29 06:21:49"
+}
+cont => 5
+array(2) {
+  ["lectura"]=>
+  float(32)
+  ["date"]=>
+  string(19) "2017-11-29 06:22:49"
+}
+cont => 6
+array(2) {
+  ["lectura"]=>
+  float(36)
+  ["date"]=>
+  string(19) "2017-11-29 06:23:50"
+}
+cont => 7
+array(2) {
+  ["lectura"]=>
+  float(40)
+  ["date"]=>
+  string(19) "2017-11-29 06:24:50"
+}
+cont => 8
+array(2) {
+  ["lectura"]=>
+  float(44)
+  ["date"]=>
+  string(19) "2017-11-29 06:25:50"
+}
+cont => 9
+array(2) {
+  ["lectura"]=>
+  float(48)
+  ["date"]=>
+  string(19) "2017-11-29 06:26:49"
+}
+cont => 10
+array(2) {
+  ["lectura"]=>
+  float(52)
+  ["date"]=>
+  string(19) "2017-11-29 06:27:49"
+}
+cont => 11
+array(2) {
+  ["lectura"]=>
+  float(56)
+  ["date"]=>
+  string(19) "2017-11-29 06:28:49"
+}
+cont => 12
+array(2) {
+  ["lectura"]=>
+  float(60)
+  ["date"]=>
+  string(19) "2017-11-29 06:29:50"
+}
+cont => 13
+array(2) {
+  ["lectura"]=>
+  float(64)
+  ["date"]=>
+  string(19) "2017-11-29 06:30:50"
+}
+cont => 14
+array(2) {
+  ["lectura"]=>
+  float(68)
+  ["date"]=>
+  string(19) "2017-11-29 06:31:50"
+}
+cont => 15
+array(2) {
+  ["lectura"]=>
+  float(71)
+  ["date"]=>
+  string(19) "2017-11-29 06:32:49"
+}
+cont => 16
+array(2) {
+  ["lectura"]=>
+  float(75)
+  ["date"]=>
+  string(19) "2017-11-29 06:33:49"
+}
+cont => 17
+array(2) {
+  ["lectura"]=>
+  float(79)
+  ["date"]=>
+  string(19) "2017-11-29 06:34:49"
+}
+cont => 18
+array(2) {
+  ["lectura"]=>
+  float(83)
+  ["date"]=>
+  string(19) "2017-11-29 06:35:50"
+}
+cont => 19
+array(2) {
+  ["lectura"]=>
+  float(87)
+  ["date"]=>
+  string(19) "2017-11-29 06:36:50"
+}
+cont => 20
+array(2) {
+  ["lectura"]=>
+  float(91)
+  ["date"]=>
+  string(19) "2017-11-29 06:37:49"
+}
+cont => 21
+array(2) {
+  ["lectura"]=>
+  float(92)
+  ["date"]=>
+  string(19) "2017-11-29 06:38:49"
+}
+cont => 22
+array(2) {
+  ["lectura"]=>
+  float(92)
+  ["date"]=>
+  string(19) "2017-11-29 06:39:49"
+}
+cont => 23
+array(2) {
+  ["lectura"]=>
+  float(92)
+  ["date"]=>
+  string(19) "2017-11-29 06:40:50"
+}
+cont => 24
+array(2) {
+  ["lectura"]=>
+  float(92)
+  ["date"]=>
+  string(19) "2017-11-29 06:41:50"
+}
+cont => 25
+array(2) {
+  ["lectura"]=>
+  float(92)
+  ["date"]=>
+  string(19) "2017-11-29 06:42:50"
+}
+cont => 26
+array(2) {
+  ["lectura"]=>
+  float(92)
+  ["date"]=>
+  string(19) "2017-11-29 06:43:49"
+}
+cont => 27
+array(2) {
+  ["lectura"]=>
+  float(92)
+  ["date"]=>
+  string(19) "2017-11-29 06:44:49"
+}
+cont => 28
+array(2) {
+  ["lectura"]=>
+  float(93)
+  ["date"]=>
+  string(19) "2017-11-29 06:45:49"
+}
+cont => 29
+array(2) {
+  ["lectura"]=>
+  float(96)
+  ["date"]=>
+  string(19) "2017-11-29 06:46:50"
+}
+cont => 30
+array(2) {
+  ["lectura"]=>
+  float(98)
+  ["date"]=>
+  string(19) "2017-11-29 06:47:50"
+}
+cont => 31
+array(2) {
+  ["lectura"]=>
+  float(102)
+  ["date"]=>
+  string(19) "2017-11-29 06:48:50"
+}
+cont => 32
+array(2) {
+  ["lectura"]=>
+  float(106)
+  ["date"]=>
+  string(19) "2017-11-29 06:49:49"
+}
+cont => 33
+array(2) {
+  ["lectura"]=>
+  float(109)
+  ["date"]=>
+  string(19) "2017-11-29 06:50:49"
+}
+cont => 34
+array(2) {
+  ["lectura"]=>
+  float(113)
+  ["date"]=>
+  string(19) "2017-11-29 06:51:49"
+}
+cont => 35
+array(2) {
+  ["lectura"]=>
+  float(117)
+  ["date"]=>
+  string(19) "2017-11-29 06:52:50"
+}
+cont => 36
+array(2) {
+  ["lectura"]=>
+  float(121)
+  ["date"]=>
+  string(19) "2017-11-29 06:53:50"
+}
+cont => 37
+array(2) {
+  ["lectura"]=>
+  float(124)
+  ["date"]=>
+  string(19) "2017-11-29 06:54:49"
+}
+cont => 38
+array(2) {
+  ["lectura"]=>
+  float(128)
+  ["date"]=>
+  string(19) "2017-11-29 06:55:49"
+}
+cont => 39
+array(2) {
+  ["lectura"]=>
+  float(132)
+  ["date"]=>
+  string(19) "2017-11-29 06:56:49"
+}
+cont => 40
+array(2) {
+  ["lectura"]=>
+  float(136)
+  ["date"]=>
+  string(19) "2017-11-29 06:57:49"
+}
+cont => 41
+array(2) {
+  ["lectura"]=>
+  float(139)
+  ["date"]=>
+  string(19) "2017-11-29 06:58:50"
+}
+cont => 42
+array(2) {
+  ["lectura"]=>
+  float(143)
+  ["date"]=>
+  string(19) "2017-11-29 06:59:50"
+}
+cont => 43
+array(2) {
+  ["lectura"]=>
+  float(147)
+  ["date"]=>
+  string(19) "2017-11-29 07:00:49"
+}
+cont => 44
+array(2) {
+  ["lectura"]=>
+  float(151)
+  ["date"]=>
+  string(19) "2017-11-29 07:01:49"
+}
+cont => 45
+array(2) {
+  ["lectura"]=>
+  float(154)
+  ["date"]=>
+  string(19) "2017-11-29 07:02:49"
+}
+cont => 46
+array(2) {
+  ["lectura"]=>
+  float(158)
+  ["date"]=>
+  string(19) "2017-11-29 07:03:50"
+}
+cont => 47
+array(2) {
+  ["lectura"]=>
+  float(12)
+  ["date"]=>
+  string(19) "2017-11-29 06:17:50"
+}
+cont => 48
+array(2) {
+  ["lectura"]=>
+  float(16)
+  ["date"]=>
+  string(19) "2017-11-29 06:18:50"
+}
+cont => 49
+array(2) {
+  ["lectura"]=>
+  float(20)
+  ["date"]=>
+  string(19) "2017-11-29 06:19:50"
+}
+cont => 50
+comiteo
+[32mcommit : 50\n\r[39m
+array(2) {
+  ["lectura"]=>
+  float(24)
+  ["date"]=>
+  string(19) "2017-11-29 06:20:49"
+}
+cont => 1
+array(2) {
+  ["lectura"]=>
+  float(28)
+  ["date"]=>
+  string(19) "2017-11-29 06:21:49"
+}
+cont => 2
+array(2) {
+  ["lectura"]=>
+  float(32)
+  ["date"]=>
+  string(19) "2017-11-29 06:22:49"
+}
+cont => 3
+array(2) {
+  ["lectura"]=>
+  float(36)
+  ["date"]=>
+  string(19) "2017-11-29 06:23:50"
+}
+cont => 4
+array(2) {
+  ["lectura"]=>
+  float(40)
+  ["date"]=>
+  string(19) "2017-11-29 06:24:50"
+}
+cont => 5
+array(2) {
+  ["lectura"]=>
+  float(44)
+  ["date"]=>
+  string(19) "2017-11-29 06:25:50"
+}
+cont => 6
+array(2) {
+  ["lectura"]=>
+  float(48)
+  ["date"]=>
+  string(19) "2017-11-29 06:26:49"
+}
+cont => 7
+array(2) {
+  ["lectura"]=>
+  float(52)
+  ["date"]=>
+  string(19) "2017-11-29 06:27:49"
+}
+cont => 8
+array(2) {
+  ["lectura"]=>
+  float(56)
+  ["date"]=>
+  string(19) "2017-11-29 06:28:49"
+}
+cont => 9
+array(2) {
+  ["lectura"]=>
+  float(60)
+  ["date"]=>
+  string(19) "2017-11-29 06:29:50"
+}
+cont => 10
+array(2) {
+  ["lectura"]=>
+  float(64)
+  ["date"]=>
+  string(19) "2017-11-29 06:30:50"
+}
+cont => 11
+array(2) {
+  ["lectura"]=>
+  float(68)
+  ["date"]=>
+  string(19) "2017-11-29 06:31:50"
+}
+cont => 12
+array(2) {
+  ["lectura"]=>
+  float(71)
+  ["date"]=>
+  string(19) "2017-11-29 06:32:49"
+}
+cont => 13
+array(2) {
+  ["lectura"]=>
+  float(75)
+  ["date"]=>
+  string(19) "2017-11-29 06:33:49"
+}
+cont => 14
+array(2) {
+  ["lectura"]=>
+  float(79)
+  ["date"]=>
+  string(19) "2017-11-29 06:34:49"
+}
+cont => 15
+array(2) {
+  ["lectura"]=>
+  float(83)
+  ["date"]=>
+  string(19) "2017-11-29 06:35:50"
+}
+cont => 16
+array(2) {
+  ["lectura"]=>
+  float(87)
+  ["date"]=>
+  string(19) "2017-11-29 06:36:50"
+}
+cont => 17
+array(2) {
+  ["lectura"]=>
+  float(91)
+  ["date"]=>
+  string(19) "2017-11-29 06:37:49"
+}
+cont => 18
+array(2) {
+  ["lectura"]=>
+  float(92)
+  ["date"]=>
+  string(19) "2017-11-29 06:38:49"
+}
+cont => 19
+array(2) {
+  ["lectura"]=>
+  float(92)
+  ["date"]=>
+  string(19) "2017-11-29 06:39:49"
+}
+cont => 20
+array(2) {
+  ["lectura"]=>
+  float(92)
+  ["date"]=>
+  string(19) "2017-11-29 06:40:50"
+}
+cont => 21
+array(2) {
+  ["lectura"]=>
+  float(92)
+  ["date"]=>
+  string(19) "2017-11-29 06:41:50"
+}
+cont => 22
+array(2) {
+  ["lectura"]=>
+  float(92)
+  ["date"]=>
+  string(19) "2017-11-29 06:42:50"
+}
+cont => 23
+array(2) {
+  ["lectura"]=>
+  float(92)
+  ["date"]=>
+  string(19) "2017-11-29 06:43:49"
+}
+cont => 24
+array(2) {
+  ["lectura"]=>
+  float(92)
+  ["date"]=>
+  string(19) "2017-11-29 06:44:49"
+}
+cont => 25
+array(2) {
+  ["lectura"]=>
+  float(93)
+  ["date"]=>
+  string(19) "2017-11-29 06:45:49"
+}
+cont => 26
+array(2) {
+  ["lectura"]=>
+  float(96)
+  ["date"]=>
+  string(19) "2017-11-29 06:46:50"
+}
+cont => 27
+array(2) {
+  ["lectura"]=>
+  float(98)
+  ["date"]=>
+  string(19) "2017-11-29 06:47:50"
+}
+cont => 28
+array(2) {
+  ["lectura"]=>
+  float(102)
+  ["date"]=>
+  string(19) "2017-11-29 06:48:50"
+}
+cont => 29
+array(2) {
+  ["lectura"]=>
+  float(106)
+  ["date"]=>
+  string(19) "2017-11-29 06:49:49"
+}
+cont => 30
+array(2) {
+  ["lectura"]=>
+  float(109)
+  ["date"]=>
+  string(19) "2017-11-29 06:50:49"
+}
+cont => 31
+array(2) {
+  ["lectura"]=>
+  float(113)
+  ["date"]=>
+  string(19) "2017-11-29 06:51:49"
+}
+cont => 32
+array(2) {
+  ["lectura"]=>
+  float(117)
+  ["date"]=>
+  string(19) "2017-11-29 06:52:50"
+}
+cont => 33
+array(2) {
+  ["lectura"]=>
+  float(121)
+  ["date"]=>
+  string(19) "2017-11-29 06:53:50"
+}
+cont => 34
+array(2) {
+  ["lectura"]=>
+  float(124)
+  ["date"]=>
+  string(19) "2017-11-29 06:54:49"
+}
+cont => 35
+array(2) {
+  ["lectura"]=>
+  float(128)
+  ["date"]=>
+  string(19) "2017-11-29 06:55:49"
+}
+cont => 36
+array(2) {
+  ["lectura"]=>
+  float(132)
+  ["date"]=>
+  string(19) "2017-11-29 06:56:49"
+}
+cont => 37
+array(2) {
+  ["lectura"]=>
+  float(136)
+  ["date"]=>
+  string(19) "2017-11-29 06:57:49"
+}
+cont => 38
+array(2) {
+  ["lectura"]=>
+  float(139)
+  ["date"]=>
+  string(19) "2017-11-29 06:58:50"
+}
+cont => 39
+array(2) {
+  ["lectura"]=>
+  float(143)
+  ["date"]=>
+  string(19) "2017-11-29 06:59:50"
+}
+cont => 40
+array(2) {
+  ["lectura"]=>
+  float(147)
+  ["date"]=>
+  string(19) "2017-11-29 07:00:49"
+}
+cont => 41
+array(2) {
+  ["lectura"]=>
+  float(151)
+  ["date"]=>
+  string(19) "2017-11-29 07:01:49"
+}
+cont => 42
+array(2) {
+  ["lectura"]=>
+  float(154)
+  ["date"]=>
+  string(19) "2017-11-29 07:02:49"
+}
+cont => 43
+array(2) {
+  ["lectura"]=>
+  float(158)
+  ["date"]=>
+  string(19) "2017-11-29 07:03:50"
+}
+cont => 44
+array(2) {
+  ["lectura"]=>
+  float(162)
+  ["date"]=>
+  string(19) "2017-11-29 07:04:50"
+}
+cont => 45
+array(2) {
+  ["lectura"]=>
+  float(166)
+  ["date"]=>
+  string(19) "2017-11-29 07:05:50"
+}
+cont => 46
+array(2) {
+  ["lectura"]=>
+  float(170)
+  ["date"]=>
+  string(19) "2017-11-29 07:06:49"
+}
+cont => 47
+array(2) {
+  ["lectura"]=>
+  float(173)
+  ["date"]=>
+  string(19) "2017-11-29 07:07:49"
+}
+cont => 48
+array(2) {
+  ["lectura"]=>
+  float(177)
+  ["date"]=>
+  string(19) "2017-11-29 07:08:49"
+}
+cont => 49
+array(2) {
+  ["lectura"]=>
+  float(181)
+  ["date"]=>
+  string(19) "2017-11-29 07:09:50"
+}
+cont => 50
+comiteo
+[32mcommit : 50\n\r[39m
+array(2) {
+  ["lectura"]=>
+  float(185)
+  ["date"]=>
+  string(19) "2017-11-29 07:10:50"
+}
+cont => 1
+array(2) {
+  ["lectura"]=>
+  float(188)
+  ["date"]=>
+  string(19) "2017-11-29 07:11:50"
+}
+cont => 2
+array(2) {
+  ["lectura"]=>
+  float(192)
+  ["date"]=>
+  string(19) "2017-11-29 07:12:49"
+}
+cont => 3
+array(2) {
+  ["lectura"]=>
+  float(196)
+  ["date"]=>
+  string(19) "2017-11-29 07:13:49"
+}
+cont => 4
+array(2) {
+  ["lectura"]=>
+  float(12)
+  ["date"]=>
+  string(19) "2017-11-29 06:17:50"
+}
+cont => 5
+array(2) {
+  ["lectura"]=>
+  float(16)
+  ["date"]=>
+  string(19) "2017-11-29 06:18:50"
+}
+cont => 6
+array(2) {
+  ["lectura"]=>
+  float(20)
+  ["date"]=>
+  string(19) "2017-11-29 06:19:50"
+}
+cont => 7
+array(2) {
+  ["lectura"]=>
+  float(24)
+  ["date"]=>
+  string(19) "2017-11-29 06:20:49"
+}
+cont => 8
+array(2) {
+  ["lectura"]=>
+  float(28)
+  ["date"]=>
+  string(19) "2017-11-29 06:21:49"
+}
+cont => 9
+array(2) {
+  ["lectura"]=>
+  float(32)
+  ["date"]=>
+  string(19) "2017-11-29 06:22:49"
+}
+cont => 10
+array(2) {
+  ["lectura"]=>
+  float(36)
+  ["date"]=>
+  string(19) "2017-11-29 06:23:50"
+}
+cont => 11
+array(2) {
+  ["lectura"]=>
+  float(40)
+  ["date"]=>
+  string(19) "2017-11-29 06:24:50"
+}
+cont => 12
+array(2) {
+  ["lectura"]=>
+  float(44)
+  ["date"]=>
+  string(19) "2017-11-29 06:25:50"
+}
+cont => 13
+array(2) {
+  ["lectura"]=>
+  float(48)
+  ["date"]=>
+  string(19) "2017-11-29 06:26:49"
+}
+cont => 14
+array(2) {
+  ["lectura"]=>
+  float(52)
+  ["date"]=>
+  string(19) "2017-11-29 06:27:49"
+}
+cont => 15
+array(2) {
+  ["lectura"]=>
+  float(56)
+  ["date"]=>
+  string(19) "2017-11-29 06:28:49"
+}
+cont => 16
+array(2) {
+  ["lectura"]=>
+  float(60)
+  ["date"]=>
+  string(19) "2017-11-29 06:29:50"
+}
+cont => 17
+array(2) {
+  ["lectura"]=>
+  float(64)
+  ["date"]=>
+  string(19) "2017-11-29 06:30:50"
+}
+cont => 18
+array(2) {
+  ["lectura"]=>
+  float(68)
+  ["date"]=>
+  string(19) "2017-11-29 06:31:50"
+}
+cont => 19
+array(2) {
+  ["lectura"]=>
+  float(71)
+  ["date"]=>
+  string(19) "2017-11-29 06:32:49"
+}
+cont => 20
+array(2) {
+  ["lectura"]=>
+  float(75)
+  ["date"]=>
+  string(19) "2017-11-29 06:33:49"
+}
+cont => 21
+array(2) {
+  ["lectura"]=>
+  float(79)
+  ["date"]=>
+  string(19) "2017-11-29 06:34:49"
+}
+cont => 22
+array(2) {
+  ["lectura"]=>
+  float(83)
+  ["date"]=>
+  string(19) "2017-11-29 06:35:50"
+}
+cont => 23
+array(2) {
+  ["lectura"]=>
+  float(87)
+  ["date"]=>
+  string(19) "2017-11-29 06:36:50"
+}
+cont => 24
+array(2) {
+  ["lectura"]=>
+  float(91)
+  ["date"]=>
+  string(19) "2017-11-29 06:37:49"
+}
+cont => 25
+array(2) {
+  ["lectura"]=>
+  float(92)
+  ["date"]=>
+  string(19) "2017-11-29 06:38:49"
+}
+cont => 26
+array(2) {
+  ["lectura"]=>
+  float(92)
+  ["date"]=>
+  string(19) "2017-11-29 06:39:49"
+}
+cont => 27
+array(2) {
+  ["lectura"]=>
+  float(92)
+  ["date"]=>
+  string(19) "2017-11-29 06:40:50"
+}
+cont => 28
+array(2) {
+  ["lectura"]=>
+  float(92)
+  ["date"]=>
+  string(19) "2017-11-29 06:41:50"
+}
+cont => 29
+array(2) {
+  ["lectura"]=>
+  float(92)
+  ["date"]=>
+  string(19) "2017-11-29 06:42:50"
+}
+cont => 30
+array(2) {
+  ["lectura"]=>
+  float(92)
+  ["date"]=>
+  string(19) "2017-11-29 06:43:49"
+}
+cont => 31
+array(2) {
+  ["lectura"]=>
+  float(92)
+  ["date"]=>
+  string(19) "2017-11-29 06:44:49"
+}
+cont => 32
+array(2) {
+  ["lectura"]=>
+  float(93)
+  ["date"]=>
+  string(19) "2017-11-29 06:45:49"
+}
+cont => 33
+array(2) {
+  ["lectura"]=>
+  float(96)
+  ["date"]=>
+  string(19) "2017-11-29 06:46:50"
+}
+cont => 34
+array(2) {
+  ["lectura"]=>
+  float(98)
+  ["date"]=>
+  string(19) "2017-11-29 06:47:50"
+}
+cont => 35
+array(2) {
+  ["lectura"]=>
+  float(102)
+  ["date"]=>
+  string(19) "2017-11-29 06:48:50"
+}
+cont => 36
+array(2) {
+  ["lectura"]=>
+  float(106)
+  ["date"]=>
+  string(19) "2017-11-29 06:49:49"
+}
+cont => 37
+array(2) {
+  ["lectura"]=>
+  float(109)
+  ["date"]=>
+  string(19) "2017-11-29 06:50:49"
+}
+cont => 38
+array(2) {
+  ["lectura"]=>
+  float(113)
+  ["date"]=>
+  string(19) "2017-11-29 06:51:49"
+}
+cont => 39
+array(2) {
+  ["lectura"]=>
+  float(117)
+  ["date"]=>
+  string(19) "2017-11-29 06:52:50"
+}
+cont => 40
+array(2) {
+  ["lectura"]=>
+  float(121)
+  ["date"]=>
+  string(19) "2017-11-29 06:53:50"
+}
+cont => 41
+array(2) {
+  ["lectura"]=>
+  float(124)
+  ["date"]=>
+  string(19) "2017-11-29 06:54:49"
+}
+cont => 42
+array(2) {
+  ["lectura"]=>
+  float(128)
+  ["date"]=>
+  string(19) "2017-11-29 06:55:49"
+}
+cont => 43
+array(2) {
+  ["lectura"]=>
+  float(132)
+  ["date"]=>
+  string(19) "2017-11-29 06:56:49"
+}
+cont => 44
+array(2) {
+  ["lectura"]=>
+  float(136)
+  ["date"]=>
+  string(19) "2017-11-29 06:57:49"
+}
+cont => 45
+array(2) {
+  ["lectura"]=>
+  float(139)
+  ["date"]=>
+  string(19) "2017-11-29 06:58:50"
+}
+cont => 46
+array(2) {
+  ["lectura"]=>
+  float(143)
+  ["date"]=>
+  string(19) "2017-11-29 06:59:50"
+}
+cont => 47
+array(2) {
+  ["lectura"]=>
+  float(147)
+  ["date"]=>
+  string(19) "2017-11-29 07:00:49"
+}
+cont => 48
+array(2) {
+  ["lectura"]=>
+  float(151)
+  ["date"]=>
+  string(19) "2017-11-29 07:01:49"
+}
+cont => 49
+array(2) {
+  ["lectura"]=>
+  float(154)
+  ["date"]=>
+  string(19) "2017-11-29 07:02:49"
+}
+cont => 50
+comiteo
+[32mcommit : 50\n\r[39m
+array(2) {
+  ["lectura"]=>
+  float(158)
+  ["date"]=>
+  string(19) "2017-11-29 07:03:50"
+}
+cont => 1
+array(2) {
+  ["lectura"]=>
+  float(162)
+  ["date"]=>
+  string(19) "2017-11-29 07:04:50"
+}
+cont => 2
+array(2) {
+  ["lectura"]=>
+  float(166)
+  ["date"]=>
+  string(19) "2017-11-29 07:05:50"
+}
+cont => 3
+array(2) {
+  ["lectura"]=>
+  float(170)
+  ["date"]=>
+  string(19) "2017-11-29 07:06:49"
+}
+cont => 4
+array(2) {
+  ["lectura"]=>
+  float(173)
+  ["date"]=>
+  string(19) "2017-11-29 07:07:49"
+}
+cont => 5
+array(2) {
+  ["lectura"]=>
+  float(177)
+  ["date"]=>
+  string(19) "2017-11-29 07:08:49"
+}
+cont => 6
+array(2) {
+  ["lectura"]=>
+  float(181)
+  ["date"]=>
+  string(19) "2017-11-29 07:09:50"
+}
+cont => 7
+array(2) {
+  ["lectura"]=>
+  float(185)
+  ["date"]=>
+  string(19) "2017-11-29 07:10:50"
+}
+cont => 8
+array(2) {
+  ["lectura"]=>
+  float(188)
+  ["date"]=>
+  string(19) "2017-11-29 07:11:50"
+}
+cont => 9
+array(2) {
+  ["lectura"]=>
+  float(192)
+  ["date"]=>
+  string(19) "2017-11-29 07:12:49"
+}
+cont => 10
+array(2) {
+  ["lectura"]=>
+  float(196)
+  ["date"]=>
+  string(19) "2017-11-29 07:13:49"
+}
+cont => 11
+array(2) {
+  ["lectura"]=>
+  float(200)
+  ["date"]=>
+  string(19) "2017-11-29 07:14:49"
+}
+cont => 12
+array(2) {
+  ["lectura"]=>
+  float(204)
+  ["date"]=>
+  string(19) "2017-11-29 07:15:50"
+}
+cont => 13
+array(2) {
+  ["lectura"]=>
+  float(208)
+  ["date"]=>
+  string(19) "2017-11-29 07:16:50"
+}
+cont => 14
+array(2) {
+  ["lectura"]=>
+  float(211)
+  ["date"]=>
+  string(19) "2017-11-29 07:17:50"
+}
+cont => 15
+array(2) {
+  ["lectura"]=>
+  float(215)
+  ["date"]=>
+  string(19) "2017-11-29 07:18:49"
+}
+cont => 16
+array(2) {
+  ["lectura"]=>
+  float(219)
+  ["date"]=>
+  string(19) "2017-11-29 07:19:49"
+}
+cont => 17
+array(2) {
+  ["lectura"]=>
+  float(223)
+  ["date"]=>
+  string(19) "2017-11-29 07:20:50"
+}
+cont => 18
+array(2) {
+  ["lectura"]=>
+  float(227)
+  ["date"]=>
+  string(19) "2017-11-29 07:21:50"
+}
+cont => 19
+array(2) {
+  ["lectura"]=>
+  float(230)
+  ["date"]=>
+  string(19) "2017-11-29 07:22:50"
+}
+cont => 20
+array(2) {
+  ["lectura"]=>
+  float(234)
+  ["date"]=>
+  string(19) "2017-11-29 07:23:50"
+}
+cont => 21
+array(2) {
+  ["lectura"]=>
+  float(12)
+  ["date"]=>
+  string(19) "2017-11-29 06:17:50"
+}
+cont => 22
+array(2) {
+  ["lectura"]=>
+  float(16)
+  ["date"]=>
+  string(19) "2017-11-29 06:18:50"
+}
+cont => 23
+array(2) {
+  ["lectura"]=>
+  float(20)
+  ["date"]=>
+  string(19) "2017-11-29 06:19:50"
+}
+cont => 24
+array(2) {
+  ["lectura"]=>
+  float(24)
+  ["date"]=>
+  string(19) "2017-11-29 06:20:49"
+}
+cont => 25
+array(2) {
+  ["lectura"]=>
+  float(28)
+  ["date"]=>
+  string(19) "2017-11-29 06:21:49"
+}
+cont => 26
+array(2) {
+  ["lectura"]=>
+  float(32)
+  ["date"]=>
+  string(19) "2017-11-29 06:22:49"
+}
+cont => 27
+array(2) {
+  ["lectura"]=>
+  float(36)
+  ["date"]=>
+  string(19) "2017-11-29 06:23:50"
+}
+cont => 28
+array(2) {
+  ["lectura"]=>
+  float(40)
+  ["date"]=>
+  string(19) "2017-11-29 06:24:50"
+}
+cont => 29
+array(2) {
+  ["lectura"]=>
+  float(44)
+  ["date"]=>
+  string(19) "2017-11-29 06:25:50"
+}
+cont => 30
+array(2) {
+  ["lectura"]=>
+  float(48)
+  ["date"]=>
+  string(19) "2017-11-29 06:26:49"
+}
+cont => 31
+array(2) {
+  ["lectura"]=>
+  float(52)
+  ["date"]=>
+  string(19) "2017-11-29 06:27:49"
+}
+cont => 32
+array(2) {
+  ["lectura"]=>
+  float(56)
+  ["date"]=>
+  string(19) "2017-11-29 06:28:49"
+}
+cont => 33
+array(2) {
+  ["lectura"]=>
+  float(60)
+  ["date"]=>
+  string(19) "2017-11-29 06:29:50"
+}
+cont => 34
+array(2) {
+  ["lectura"]=>
+  float(64)
+  ["date"]=>
+  string(19) "2017-11-29 06:30:50"
+}
+cont => 35
+array(2) {
+  ["lectura"]=>
+  float(68)
+  ["date"]=>
+  string(19) "2017-11-29 06:31:50"
+}
+cont => 36
+array(2) {
+  ["lectura"]=>
+  float(71)
+  ["date"]=>
+  string(19) "2017-11-29 06:32:49"
+}
+cont => 37
+array(2) {
+  ["lectura"]=>
+  float(75)
+  ["date"]=>
+  string(19) "2017-11-29 06:33:49"
+}
+cont => 38
+array(2) {
+  ["lectura"]=>
+  float(79)
+  ["date"]=>
+  string(19) "2017-11-29 06:34:49"
+}
+cont => 39
+array(2) {
+  ["lectura"]=>
+  float(83)
+  ["date"]=>
+  string(19) "2017-11-29 06:35:50"
+}
+cont => 40
+array(2) {
+  ["lectura"]=>
+  float(87)
+  ["date"]=>
+  string(19) "2017-11-29 06:36:50"
+}
+cont => 41
+array(2) {
+  ["lectura"]=>
+  float(91)
+  ["date"]=>
+  string(19) "2017-11-29 06:37:49"
+}
+^Cultima actualizada 18709
+comiteo => 500
+[32mcommit : 500\n\r[39m
+comiteo => 500
+[32mcommit : 500\n\r[39m
+comiteo => 500
+[32mcommit : 500\n\r[39m
+comiteo => 500
+[32mcommit : 500\n\r[39m
+comiteo => 500
+[32mcommit : 500\n\r[39m
+comiteo => 500
+[32mcommit : 500\n\r[39m
+comiteo => 500
+[32mcommit : 500\n\r[39m
+comiteo => 500
+[32mcommit : 500\n\r[39m
+comiteo => 500
+[32mcommit : 500\n\r[39m
+comiteo => 500
+[32mcommit : 500\n\r[39m
+comiteo => 500
+[32mcommit : 500\n\r[39m
+comiteo => 500
+[32mcommit : 500\n\r[39m
+comiteo => 500
+[32mcommit : 500\n\r[39m
+comiteo => 500
+[32mcommit : 500\n\r[39m
+comiteo => 500
+[32mcommit : 500\n\r[39m
+comiteo => 500
+[32mcommit : 500\n\r[39m
+comiteo => 500
+[32mcommit : 500\n\r[39m
+comiteo => 500
+[32mcommit : 500\n\r[39m
+comiteo => 500
+[32mcommit : 500\n\r[39m
+comiteo => 500
+[32mcommit : 500\n\r[39m
+comiteo => 500
+[32mcommit : 500\n\r[39m
+comiteo => 500
+[32mcommit : 500\n\r[39m
+comiteo => 500
+[32mcommit : 500\n\r[39m
+comiteo => 500
+[32mcommit : 500\n\r[39m
+[32m[ 06-12-2017 18:08:27 ]  -  balanza 1 -  Command description
+[ 06-12-2017 18:08:27 ]  -  cantidad de datos ingresados -  12320
+
+
+[39m
