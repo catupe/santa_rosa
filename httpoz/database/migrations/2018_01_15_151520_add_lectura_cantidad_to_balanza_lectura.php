@@ -14,7 +14,7 @@ class AddLecturaCantidadToBalanzaLectura extends Migration
     public function up()
     {
         Schema::table('balanza_lectura', function (Blueprint $table) {
-            $table->unsignedInteger('lectura_cantidad')->after('lectura');
+            $table->unsignedInteger('lectura_cantidad')->after('lectura_acumulada');
         });
     }
 
