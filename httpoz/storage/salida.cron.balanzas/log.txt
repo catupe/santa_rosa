@@ -1,13 +1,9 @@
 ultima actualizada 1
-array(5) {
-  [0]=>
-  string(7) "lectura"
-  [1]=>
-  string(17) "lectura_acumulada"
-  [2]=>
-  string(16) "lectura_cantidad"
-  [3]=>
-  string(4) "date"
-  [4]=>
-  string(4) "time"
-}
+string(15) "id balanza -> 1"
+int(12)
+int(11)
+[32m[ 16-01-2018 14:30:13 ]  -  balanza 1 -  Command description
+[ 16-01-2018 14:30:13 ]  -  cantidad de datos ingresados -  11
+
+
+[39m

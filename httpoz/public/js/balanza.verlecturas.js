@@ -57,10 +57,12 @@ $(document).ready( function () {
       if( modo == 2 ) {
         modal.find('.modal-title').text('Editar Lectura');
         $('#agregarLectura #balanza-nueva').prop('disabled', true);
-        $('#agregarLectura #lectura-nueva').val( button.data('lectura'));
         $('#agregarLectura #fecha-nueva').prop('disabled', true);
         $('#agregarLectura #fecha-nueva').val( button.data('fecha'));
+        $('#agregarLectura #lectura-nueva').val( button.data('lectura'));
         $('#agregarLectura #lectura-nueva').prop('disabled', true);
+        $('#agregarLectura #lectura-acumulada-nueva').val( button.data('lectura-acumulada'));
+        $('#agregarLectura #lectura-acumulada-nueva').prop('disabled', true);
         $('#agregarLectura #comentarios-nueva').val( button.data('comentarios'));
       }
 
@@ -75,12 +77,13 @@ $(document).ready( function () {
       $('#agregarLectura input[type=text]').removeClass("is-invalid");
       $('#agregarLectura .invalid-feedback').html("");
 
-      var modo = $('#agregarLectura #modo-nueva').val();
-      var id = $('#agregarLectura #id-nueva').val();
-      var balanza = $('#agregarLectura #balanza-nueva').val();
-      var lectura = $('#agregarLectura #lectura-nueva').val().replace(',', '.');
-      var fecha = $('#agregarLectura #fecha-nueva').val();
-      var comentarios = $('#agregarLectura #comentarios-nueva').val();
+      var modo              = $('#agregarLectura #modo-nueva').val();
+      var id                = $('#agregarLectura #id-nueva').val();
+      var balanza           = $('#agregarLectura #balanza-nueva').val();
+      var lectura           = $('#agregarLectura #lectura-nueva').val().replace(',', '.');
+      var lectura_acumulada = $('#agregarLectura #lectura-acumulada-nueva').val().replace(',', '.');
+      var fecha             = $('#agregarLectura #fecha-nueva').val();
+      var comentarios       = $('#agregarLectura #comentarios-nueva').val();
 
       var error = 0;
       if( modo == 1 ) {
@@ -92,6 +95,11 @@ $(document).ready( function () {
         if( lectura == "" || !$.isNumeric(lectura) ) {
           $('#agregarLectura #lectura-nueva').addClass('is-invalid');
           $('#agregarLectura #invalid-lectura-nueva').html('La lectura es un campo requerido, debe ser num&eacute;rico');
+          error = 1;
+        }
+        if( lectura_acumulada == "" || !$.isNumeric(lectura_acumulada) ) {
+          $('#agregarLectura #lectura-acumulada-nueva').addClass('is-invalid');
+          $('#agregarLectura #invalid-lectura-acumulada-nueva').html('La lectura es un campo requerido, debe ser num&eacute;rico');
           error = 1;
         }
         var fechaExpReg = /^\d{4}\-\d{2}\-\d{2} \d{2}:\d{2}$/;

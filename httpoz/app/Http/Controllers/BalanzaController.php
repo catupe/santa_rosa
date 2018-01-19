@@ -70,8 +70,8 @@ class BalanzaController extends Controller
                   $fecha_fin = $request->session()->get("balanzas_verlecturas_fecha_fin");
 
                   $lecturas = \App\BalanzaLectura::where('balanza_id', $balanza)
-                                                  ->where('updated_at', '>=', $fecha_ini)
-                                                  ->where('updated_at', '<=', $fecha_fin)
+                                                  ->where('created_at', '>=', $fecha_ini)
+                                                  ->where('created_at', '<=', $fecha_fin)
                                                   ->limit($perPage)
                                                   ->offset($start)
                                                   ->orderBy('updated_at', 'desc')

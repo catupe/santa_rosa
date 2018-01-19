@@ -57,6 +57,8 @@
             <tr>
               <th scope="col">#</th>
               <th scope="col">Lectura</th>
+              <th scope="col">Lectura Acumulada</th>
+              <th scope="col">Lectura Cantidad</th>
               <th scope="col">Fecha</th>
               <th scope="col">Comentarios</th>
               <th scope="col">
@@ -69,12 +71,15 @@
               <tr>
                   <td>{{ $lectura->id }}</td>
                   <td>{{ $lectura->lectura }}</td>
-                  <td>{{ $lectura->updated_at }}</td>
+                  <td>{{ $lectura->lectura_acumulada }}</td>
+                  <td>{{ $lectura->lectura_cantidad }}</td>
+                  <td>{{ $lectura->created_at }}</td>
                   <td>{{ $lectura->comentarios }}</td>
                   <td><button type="button" class="btn btn-outline-dark btn-sm" data-toggle="modal" data-target="#agregarLectura"
                         data-modo="2"
                         data-lectura="{{ $lectura->lectura }}"
-                        data-fecha="{{ $lectura->updated_at }}"
+                        data-lectura-acumulada="{{ $lectura->lectura_acumulada }}"
+                        data-fecha="{{ $lectura->created_at }}"
                         data-comentarios="{{ $lectura->comentarios }}"
                         data-id="{{ $lectura->id }}">Editar</button></td>
               </tr>
@@ -115,6 +120,11 @@
                   <label for="lectura-nueva" class="col-form-label">Lectura:</label>
                   <input type="text" class="form-control" id="lectura-nueva" name="lectura-nueva" required>
                   <div class="invalid-feedback" id="invalid-lectura-nueva"></div>
+                </div>
+                <div class="form-group">
+                  <label for="lectura-acumulada-nueva" class="col-form-label">Lectura Acumulada:</label>
+                  <input type="text" class="form-control" id="lectura-acumulada-nueva" name="lectura-acumulada-nueva" required>
+                  <div class="invalid-feedback" id="invalid-lectura-acumulada-nueva"></div>
                 </div>
                 <div class="form-group">
                   <label for="fecha-nueva" class="col-form-label">Fecha Lecura</label>
