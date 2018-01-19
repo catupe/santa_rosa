@@ -1,0 +1,1 @@
+- lectura acumulada cuando se ingresa una nueva lectura, se calcula?
