@@ -43,6 +43,7 @@
           <thead>
             <tr>
               <th scope="col">#</th>
+              <th scope="col">Balanza</th>
               <th scope="col">Lectura</th>
               <th scope="col">Lectura Acumulada</th>
               <th scope="col">Lectura Cantidad</th>
@@ -54,6 +55,7 @@
             @foreach ($lecturas as $key => $lectura)
               <tr>
                   <td>{{ $lectura->id }}</td>
+                  <td>{{ $lectura->nombre }}</td>
                   <td>{{ $lectura->lectura }}</td>
                   <td>{{ $lectura->lectura_acumulada }}</td>
                   <td>{{ $lectura->lectura_cantidad }}</td>
