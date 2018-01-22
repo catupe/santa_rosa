@@ -292,10 +292,11 @@ class BalanzaController extends Controller
                   //$lecturas = \App\BalanzaLectura::
                   $lecturas = DB::table('balanza_lectura')->select('balanza_lectura.*', 'balanza.nombre')
                                                   ->join('balanza', 'balanza.id', '=', 'balanza_lectura.balanza_id')
-                                                  ->where('blanza_lectura.created_at', '>=', $fecha_ini)
+                                                  ->where('balanza_lectura.created_at', '>=', $fecha_ini)
                                                   ->where('balanza_lectura.created_at', '<=', $fecha_fin)
-                                                  ->orderBy('balanza_lectura.updated_at', 'desc')
-                                                  ->orderBy('balanza.nombre', 'balanza_lectura.id', 'balanza_lectura.asc')
+                                                  //->orderBy('balanza_lectura.updated_at', 'desc')
+                                                  ->orderBy('balanza.nombre', 'asc')
+                                                  ->orderBy('balanza_lectura.created_at', 'asc')
                                                   //->toSql();
                                                   ->get();
 
