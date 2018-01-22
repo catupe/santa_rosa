@@ -24,6 +24,7 @@ Route::any('cambiar_password', 'UserController@cambiar_password');
 
 //// balanzas
 Route::any('balanzas', 'BalanzaController@getLecturas');
+Route::any('calculo', 'BalanzaController@calculo');
 Route::post('editar_lectura', 'BalanzaController@editarLectura');
 /*
 Route::any('balanzas', [

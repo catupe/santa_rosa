@@ -23,7 +23,7 @@
 						<a href="{{ action('BalanzaController@getLecturas') }}">Ver Lecturas</a>
 					</li>
 					<li>
-						<a href="register.html">Blanza 2</a>
+						<a href="{{ action('BalanzaController@calculo') }}">C&aacute;lculo</a>
 					</li>
 					<li>
 						<a href="forgot-password.html">Blanza 3</a>
