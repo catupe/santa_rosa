@@ -317,7 +317,13 @@ class BalanzaController extends Controller
                       error_log(print_r($peso_blz_1,1));
                       error_log(print_r($peso_blz_2,1));
                       error_log(print_r($peso_blz_3,1));
-                    }                    
+                      $harina2 = ($peso_blz_2 / $peso_blz_1) * 100;
+                      $harina3 = ($peso_blz_3 / $peso_blz_1) * 100;
+                      error_log("--------------------");
+                      error_log(print_r($harina2,1));
+                      error_log(print_r($harina3,1));
+
+                    }
                   }
 
               }
