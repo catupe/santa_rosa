@@ -241,11 +241,11 @@ class BalanzaController extends Controller
               }
               ***/
 
-              $codigo_error = 0;
-              $mensaje      = "";
-              $lecturas     = array();
+              $codigo_error     = 0;
+              $mensaje          = "";
+              $lecturas         = array();
+              $lectura_balanzas = array();
 
-              $balanza    = "";
               $fecha_ini  = "";
               $hora_fin   = "";
 
@@ -290,6 +290,7 @@ class BalanzaController extends Controller
                   error_log("fecha_fin ".$fecha_fin);
 
                   //$lecturas = \App\BalanzaLectura::
+                  /*
                   $lecturas = DB::table('balanza_lectura')->select('balanza_lectura.*', 'balanza.nombre')
                                                   ->join('balanza', 'balanza.id', '=', 'balanza_lectura.balanza_id')
                                                   ->where('balanza_lectura.created_at', '>=', $fecha_ini)
@@ -299,16 +300,50 @@ class BalanzaController extends Controller
                                                   ->orderBy('balanza_lectura.created_at', 'asc')
                                                   //->toSql();
                                                   ->get();
+                  */
+                  $balanzas = \App\Balanza::where('activa', 1)
+                                            ->orderBy('nombre_mostrar', 'asc')
+                                            ->get();
 
-                  //error_log(print_r($lecturas,1));
+
+                  foreach ( $balanzas as $k => $v ) {
+                    $lecturas1 = DB::table('balanza_lectura')->select('balanza_lectura.*')
+                                                            ->where('balanza_lectura.created_at', '>=', $fecha_ini)
+                                                            ->where('balanza_lectura.created_at', '<=', $fecha_fin)
+                                                            ->where('balanza_lectura.balanza_id', '=', $v->id)
+                                                            ->orderBy('balanza_lectura.created_at', 'asc')
+                                                            ->limit(1);
+
+                    $lecturas = DB::table('balanza_lectura')->select('balanza_lectura.*')
+                                                            ->where('balanza_lectura.created_at', '>=', $fecha_ini)
+                                                            ->where('balanza_lectura.created_at', '<=', $fecha_fin)
+                                                            ->where('balanza_lectura.balanza_id', '=', $v->id)
+                                                            ->orderBy('balanza_lectura.created_at', 'desc')
+                                                            ->limit(1)
+                                                            ->union($lecturas1)//->get()
+                                                            //->toSql();
+                                                            ->get();
+
+                    if( !$lecturas->isEmpty() ) {
+                      $lecturas->nombre_balanza = $v->nombre;
+                      $lectura_balanzas[$v->id] = $lecturas;
+                    }
+
+                  }
+
+
+
+
                   // sino  hay datos para los filtros ingresados
                   // muestro mensaje de que no hay datos
-                  if( count($lecturas) == 0 ) {
+                  if( count($lectura_balanzas) == 0 ) {
                       $codigo_error = 2;
                       $mensaje      = "No existen datos para los filtros ingresados";
                   }
               }
-
+              else {
+                 $fecha_ini = date('Y-m-d H:i', strtotime('-1 hours'));
+              }
               /*
               $balanzas = \App\Balanza::where('activa', 1)
                                         ->orderBy('nombre_mostrar', 'asc')
@@ -316,9 +351,9 @@ class BalanzaController extends Controller
               */
               return view('balanza.calculosubproductos', array( 'code_error'      => $codigo_error,
                                                                 'mensaje'         => $mensaje,
-                                                                //'balanzas'        => $balanzas,
-                                                                //'balanza_actual'  => $balanza,
-                                                                'lecturas'        => $lecturas));
+                                                                'fecha_ini_actual'=> $fecha_ini,
+                                                                'hora_fin_actual' => $hora_fin,
+                                                                'lecturas'        => $lectura_balanzas));
           }
           catch( Exception $e ) {
             error_log("EXCEPXCION");
