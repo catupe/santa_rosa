@@ -249,58 +249,13 @@ class BalanzaController extends Controller
               $fecha_ini  = "";
               $hora_fin   = "";
 
-              /*
-              if( !isset($request->page) ) {
-                  $request->page = 1;
-              }
-              if ( $request->page == 1) {
-                  $start = 0;
-              }
-              else {
-                  $start = ( $request->page - 1 ) * $perPage;
-              }
-              */
-              /*
-              if( $request->has("page") ) {
-                  $balanza   = $request->session()->get("balanzas_verlecturas_balanza");
-                  $fecha_ini = $request->session()->get("balanzas_verlecturas_fecha_ini");
-                  $fecha_fin = $request->session()->get("balanzas_verlecturas_fecha_fin");
-              }
-              if ( $request->has('aceptar') ) {
-                  $request->merge(['page' => 1]);
-                  $request->session()->put('balanzas_verlecturas_balanza', $request->balanza);
-                  $request->session()->put('balanzas_verlecturas_fecha_ini', $request->fecha_ini);
-                  $request->session()->put('balanzas_verlecturas_fecha_fin', $request->fecha_fin);
-              }
-              */
               if( $request->has('aceptar') ) {
                   $fecha_ini = $request->fecha_ini; //$request->session()->get("balanzas_verlecturas_fecha_ini");
                   $hora_fin  = $request->hora_fin;
 
-                  error_log("fecha_ini ".$fecha_ini);
-                  error_log("fecha_ini ".$hora_fin);
-
-                  //$fecha = date_create($fecha_ini);
-                  //date_add($fecha, date_interval_create_from_date_string($hora_fin . ' minute'));
-                  //+$fecha_fin = strtotime ( '+' . $hora_fin . ' minute' , strtotime ( $fecha_ini ) ) ;
-                  //$fecha_fin = date_format($fecha, 'Y-m-d H:m');
-                  //+$fecha_fin = date('Y-m-d H:m', $fecha_fin);
                   $dt = Carbon::createFromFormat('Y-m-d H:i', $fecha_ini);
                   $fecha_fin = $dt->addMinutes($hora_fin)->format('Y-m-d H:i');
-                  error_log("fecha_fin ".$fecha_fin);
 
-                  //$lecturas = \App\BalanzaLectura::
-                  /*
-                  $lecturas = DB::table('balanza_lectura')->select('balanza_lectura.*', 'balanza.nombre')
-                                                  ->join('balanza', 'balanza.id', '=', 'balanza_lectura.balanza_id')
-                                                  ->where('balanza_lectura.created_at', '>=', $fecha_ini)
-                                                  ->where('balanza_lectura.created_at', '<=', $fecha_fin)
-                                                  //->orderBy('balanza_lectura.updated_at', 'desc')
-                                                  ->orderBy('balanza.nombre', 'asc')
-                                                  ->orderBy('balanza_lectura.created_at', 'asc')
-                                                  //->toSql();
-                                                  ->get();
-                  */
                   $balanzas = \App\Balanza::where('activa', 1)
                                             ->orderBy('nombre_mostrar', 'asc')
                                             ->get();
@@ -330,25 +285,46 @@ class BalanzaController extends Controller
                     }
 
                   }
-
-
-
-
                   // sino  hay datos para los filtros ingresados
                   // muestro mensaje de que no hay datos
                   if( count($lectura_balanzas) == 0 ) {
                       $codigo_error = 2;
                       $mensaje      = "No existen datos para los filtros ingresados";
                   }
+
+                  if( $codigo_error == 0 ) {
+                    if( !isset($lectura_balanzas[1][0]->lectura_acumulada) or
+                        !isset($lectura_balanzas[1][1]->lectura_acumulada) ) {
+                      $codigo_error = 2;
+                      $mensaje      = "Faltan datos por completar";
+                    }
+                    if( !isset($lectura_balanzas[2][0]->lectura_acumulada) or
+                        !isset($lectura_balanzas[2][1]->lectura_acumulada) ) {
+                      $codigo_error = 2;
+                      $mensaje      = "Faltan datos por completar";
+                    }
+                    if( !isset($lectura_balanzas[3][0]->lectura_acumulada) or
+                        !isset($lectura_balanzas[3][1]->lectura_acumulada) ) {
+                      $codigo_error = 2;
+                      $mensaje      = "Faltan datos por completar";
+                    }
+
+                    if ( $codigo_error == 0 ) {
+                      $peso_blz_1 = $lectura_balanzas[1][0]->lectura_acumulada - $lectura_balanzas[1][1]->lectura_acumulada;
+                      $peso_blz_2 = $lectura_balanzas[2][0]->lectura_acumulada - $lectura_balanzas[2][1]->lectura_acumulada;
+                      $peso_blz_3 = $lectura_balanzas[3][0]->lectura_acumulada - $lectura_balanzas[3][1]->lectura_acumulada;
+                      error_log("--------------------");
+                      error_log(print_r($peso_blz_1,1));
+                      error_log(print_r($peso_blz_2,1));
+                      error_log(print_r($peso_blz_3,1));
+                    }                    
+                  }
+
               }
               else {
                  $fecha_ini = date('Y-m-d H:i', strtotime('-1 hours'));
               }
-              /*
-              $balanzas = \App\Balanza::where('activa', 1)
-                                        ->orderBy('nombre_mostrar', 'asc')
-                                        ->get();
-              */
+
               return view('balanza.calculosubproductos', array( 'code_error'      => $codigo_error,
                                                                 'mensaje'         => $mensaje,
                                                                 'fecha_ini_actual'=> $fecha_ini,
