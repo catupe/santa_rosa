@@ -31,6 +31,18 @@
           </div>
         </div>
         <div class="form-group row">
+          <label for="afrechillo" class="col-4 col-sm-4 col-form-label">Afrechillo</label>
+          <div class="input-group col-6 col-md-4">
+            <input type="number" class="form-control" value="{{ $afrechillo }}" id="afrechillo" name="afrechillo">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="semolin" class="col-4 col-sm-4 col-form-label">Semolin</label>
+          <div class="input-group col-6 col-md-4">
+            <input type="number" class="form-control" value="{{ $semolin }}" id="semolin" name="semolin">
+          </div>
+        </div>
+        <div class="form-group row">
           <div class="col-4 col-sm-4">
             <button type="submit" name="aceptar" class="btn btn-dark">Aceptar</button>
           </div>

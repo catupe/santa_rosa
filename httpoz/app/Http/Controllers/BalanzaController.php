@@ -248,10 +248,14 @@ class BalanzaController extends Controller
 
               $fecha_ini  = "";
               $hora_fin   = "";
+              $afrechillo = "";
+              $semolin    = "";
 
               if( $request->has('aceptar') ) {
                   $fecha_ini = $request->fecha_ini; //$request->session()->get("balanzas_verlecturas_fecha_ini");
                   $hora_fin  = $request->hora_fin;
+                  $afrechillo= $request->afrechillo;
+                  $semolin   = $request->semolin;
 
                   $dt = Carbon::createFromFormat('Y-m-d H:i', $fecha_ini);
                   $fecha_fin = $dt->addMinutes($hora_fin)->format('Y-m-d H:i');
@@ -263,11 +267,11 @@ class BalanzaController extends Controller
 
                   foreach ( $balanzas as $k => $v ) {
                     $lecturas1 = DB::table('balanza_lectura')->select('balanza_lectura.*')
-                                                            ->where('balanza_lectura.created_at', '>=', $fecha_ini)
-                                                            ->where('balanza_lectura.created_at', '<=', $fecha_fin)
-                                                            ->where('balanza_lectura.balanza_id', '=', $v->id)
-                                                            ->orderBy('balanza_lectura.created_at', 'asc')
-                                                            ->limit(1);
+                                                             ->where('balanza_lectura.created_at', '>=', $fecha_ini)
+                                                             ->where('balanza_lectura.created_at', '<=', $fecha_fin)
+                                                             ->where('balanza_lectura.balanza_id', '=', $v->id)
+                                                             ->orderBy('balanza_lectura.created_at', 'asc')
+                                                             ->limit(1);
 
                     $lecturas = DB::table('balanza_lectura')->select('balanza_lectura.*')
                                                             ->where('balanza_lectura.created_at', '>=', $fecha_ini)
@@ -275,7 +279,7 @@ class BalanzaController extends Controller
                                                             ->where('balanza_lectura.balanza_id', '=', $v->id)
                                                             ->orderBy('balanza_lectura.created_at', 'desc')
                                                             ->limit(1)
-                                                            ->union($lecturas1)//->get()
+                                                            ->union($lecturas1)
                                                             //->toSql();
                                                             ->get();
 
@@ -293,35 +297,55 @@ class BalanzaController extends Controller
                   }
 
                   if( $codigo_error == 0 ) {
-                    if( !isset($lectura_balanzas[1][0]->lectura_acumulada) or
-                        !isset($lectura_balanzas[1][1]->lectura_acumulada) ) {
-                      $codigo_error = 2;
-                      $mensaje      = "Faltan datos por completar";
-                    }
-                    if( !isset($lectura_balanzas[2][0]->lectura_acumulada) or
-                        !isset($lectura_balanzas[2][1]->lectura_acumulada) ) {
-                      $codigo_error = 2;
-                      $mensaje      = "Faltan datos por completar";
-                    }
-                    if( !isset($lectura_balanzas[3][0]->lectura_acumulada) or
-                        !isset($lectura_balanzas[3][1]->lectura_acumulada) ) {
-                      $codigo_error = 2;
-                      $mensaje      = "Faltan datos por completar";
+                    // cheque que en el periodo esten las lecturas mayor y menor para cada balanza
+                    foreach ( $balanzas as $k => $v ) {
+                      if( !isset($lectura_balanzas[$v->id][0]->lectura_acumulada) or
+                          !isset($lectura_balanzas[$v->id][1]->lectura_acumulada) ) {
+                        $codigo_error = 2;
+                        $mensaje      = "Faltan datos por completar la solicitud";
+                        break;
+                      }
                     }
 
+                    $peso_blzs = array();
                     if ( $codigo_error == 0 ) {
-                      $peso_blz_1 = $lectura_balanzas[1][0]->lectura_acumulada - $lectura_balanzas[1][1]->lectura_acumulada;
-                      $peso_blz_2 = $lectura_balanzas[2][0]->lectura_acumulada - $lectura_balanzas[2][1]->lectura_acumulada;
-                      $peso_blz_3 = $lectura_balanzas[3][0]->lectura_acumulada - $lectura_balanzas[3][1]->lectura_acumulada;
-                      error_log("--------------------");
-                      error_log(print_r($peso_blz_1,1));
-                      error_log(print_r($peso_blz_2,1));
-                      error_log(print_r($peso_blz_3,1));
-                      $harina2 = ($peso_blz_2 / $peso_blz_1) * 100;
-                      $harina3 = ($peso_blz_3 / $peso_blz_1) * 100;
-                      error_log("--------------------");
-                      error_log(print_r($harina2,1));
-                      error_log(print_r($harina3,1));
+                      // guardo en el array $peso_blzs las diferencias de pesos acumulados del periodo
+                      foreach ( $balanzas as $k => $v ) {
+                        $peso_blzs[$v->id] = $lectura_balanzas[$v->id][0]->lectura_acumulada - $lectura_balanzas[$v->id][1]->lectura_acumulada;
+                      }
+                      $harinas = array();
+                      $harina1 = array_shift($peso_blzs); // este es el peso de la balanza 1, ademas quita el peso de harina1 array
+                      foreach ( $peso_blzs as $k => $v ) {
+                        $harinas[] = ( $v / $harina1 ) * 100; //  porcentaje harinas 2 a n
+                      }
+                      // subtotal es la suma de todos los porcentajes de harinas de 2 a n (balanzas 2 a n)
+                      $subtotal = 0;
+                      foreach ( $harinas as $k => $v ) {
+                        $subtotal += $v;
+                      }
+                      // subproducto es la resta del porcentaje de harina1(balanza1 100%) - subtotal
+                      $subproducto = 100 - $subtotal;
+
+                      $sp_afrechillo = $afrechillo / $harina1;
+                      $sp_semolin = $semolin / $harina1;
+
+                      // guardo en sesion los calculos hasta ahora
+                      $request->session()->put('calculo_pesos_balanzas', $peso_blzs);
+                      $request->session()->put('calculo_peso_balanza1', $harina1);
+                      $request->session()->put('calculo_harinas', $harinas);
+                      $request->session()->put('calculo_subtotal', $subtotal);
+                      $request->session()->put('calculo_subproducto', $subproducto);
+                      $request->session()->put('calculo_afrechillo', $afrechillo);
+                      $request->session()->put('calculo_semolin', $semolin);
+                      $request->session()->put('calculo_spafrechillo', $sp_afrechillo);
+                      $request->session()->put('calculo_spsemolin', $sp_semolin);
+                      error_log("---pesos balanzas---");
+                      error_log("peso balanza1 -> ".$harina1);
+                      error_log(print_r($peso_blzs,1));
+                      error_log("---pesos harinas---");
+                      error_log(print_r($harinas,1));
+                      error_log("subtotal -> " . $subtotal);
+                      error_log("subproducto -> " . $subproducto);
 
                     }
                   }
@@ -335,6 +359,8 @@ class BalanzaController extends Controller
                                                                 'mensaje'         => $mensaje,
                                                                 'fecha_ini_actual'=> $fecha_ini,
                                                                 'hora_fin_actual' => $hora_fin,
+                                                                'afrechillo'      => $afrechillo,
+                                                                'semolin'         => $semolin,
                                                                 'lecturas'        => $lectura_balanzas));
           }
           catch( Exception $e ) {
