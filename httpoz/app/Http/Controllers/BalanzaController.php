@@ -248,8 +248,8 @@ class BalanzaController extends Controller
 
               $fecha_ini  = "";
               $hora_fin   = "";
-              $afrechillo = "";
-              $semolin    = "";
+              $afrechillo = 0;
+              $semolin    = 0;
 
               if( $request->has('aceptar') ) {
                   $fecha_ini = $request->fecha_ini; //$request->session()->get("balanzas_verlecturas_fecha_ini");
@@ -264,7 +264,8 @@ class BalanzaController extends Controller
                                             ->orderBy('nombre_mostrar', 'asc')
                                             ->get();
 
-
+                  $cantidad_lecturas = array();
+                  $cantidad_lecturas["total"] = 0;
                   foreach ( $balanzas as $k => $v ) {
                     $lecturas1 = DB::table('balanza_lectura')->select('balanza_lectura.*')
                                                              ->where('balanza_lectura.created_at', '>=', $fecha_ini)
@@ -283,11 +284,21 @@ class BalanzaController extends Controller
                                                             //->toSql();
                                                             ->get();
 
+                    $cant_lecturas = DB::table('balanza_lectura')->select(DB::raw('count(*) as cantidad'))
+                                                                 ->where('balanza_lectura.created_at', '>=', $fecha_ini)
+                                                                 ->where('balanza_lectura.created_at', '<=', $fecha_fin)
+                                                                 ->where('balanza_lectura.balanza_id', '=', $v->id)
+                                                                 ->get();
+
                     if( !$lecturas->isEmpty() ) {
                       $lecturas->nombre_balanza = $v->nombre;
                       $lectura_balanzas[$v->id] = $lecturas;
                     }
 
+                    if( !$cant_lecturas->isEmpty() ) {
+                      $cantidad_lecturas[$v->id] = $cant_lecturas[0]->cantidad;
+                      $cantidad_lecturas["total"] += $cant_lecturas[0]->cantidad;
+                    }
                   }
                   // sino  hay datos para los filtros ingresados
                   // muestro mensaje de que no hay datos
@@ -326,8 +337,10 @@ class BalanzaController extends Controller
                       // subproducto es la resta del porcentaje de harina1(balanza1 100%) - subtotal
                       $subproducto = 100 - $subtotal;
 
-                      $sp_afrechillo = $afrechillo / $harina1;
-                      $sp_semolin = $semolin / $harina1;
+                      $ptje_afrechillo = $afrechillo / $harina1;
+                      $ptje_semolin = $semolin / $harina1;
+                      $sp_afrechillo = $ptje_afrechillo / $subproducto;
+                      $sp_semolin = $ptje_semolin / $subproducto;
 
                       // guardo en sesion los calculos hasta ahora
                       $request->session()->put('calculo_pesos_balanzas', $peso_blzs);
@@ -346,7 +359,9 @@ class BalanzaController extends Controller
                       error_log(print_r($harinas,1));
                       error_log("subtotal -> " . $subtotal);
                       error_log("subproducto -> " . $subproducto);
-
+                      error_log("sp_afrechillo -> " . $sp_afrechillo);
+                      error_log("sp_semolin -> " . $sp_semolin);
+                      error_log(print_r($cantidad_lecturas,1));
                     }
                   }
 
