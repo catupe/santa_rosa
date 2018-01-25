@@ -49,6 +49,56 @@
         </div>
       </form>
     </div>
+
+    <hr>
+
+    @if( count($lecturas) > 0)
+      <div class="col-12">
+          <div class="card-deck">
+            <div class="card bg-light border-dark mb-3">
+              <div class="card-header border-dark"><h6>Lecturas</h6></div>
+              <div class="card-body">
+                @foreach ($calculo_cantidades_lecturas["cantidades"] as $k => $v)
+                  <p class="card-text">Lecturas correspondientes a la <strong>{{ $v["nombre"] }}</strong> - <strong>{{ $v["total"] }}</strong></p>
+                @endforeach
+                <p class="card-text">Total de lecturas <strong>{{ $calculo_cantidades_lecturas["total"] }}</strong></p>
+                <!--
+                @foreach ($lecturas as $key1 => $lectura1)
+                  <p class="card-text"><strong>{{ $lectura1->nombre_balanza }}</strong></p>
+                  <p class="card-text">
+                  @foreach ($lectura1 as $key => $lectura)
+                    | {{ $lectura->lectura_acumulada }} |
+                  @endforeach
+                  </p>
+                @endforeach
+                -->
+                <!--<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>-->
+              </div>
+            </div>
+            <div class="card bg-light border-dark mb-3">
+              <div class="card-header border-dark"><h6>Pesajes</h6></div>
+              <div class="card-body">
+                <p class="card-text">Trigo - <strong>100 &#37;</strong> ( <strong>{{ $calculo_trigo }} Kg.</strong> )</p>
+                @foreach ($balanzas as $k => $v)
+                  @if($v->es_trigo == 0)
+                    <p class="card-text">{{ $v->nombre }} - <strong>{{ str_limit($calculo_ptjes_harina[$v->id], 6) }} &#37;</strong> ( <strong>{{ $calculo_pesos_balanzas[$v->id] }} Kg.</strong> )</p>
+                  @endif
+                @endforeach
+              </div>
+            </div>
+            <div class="card bg-light border-dark mb-3">
+              <div class="card-header border-dark"><h6>Subproductos</h6></div>
+              <div class="card-body">
+                <p class="card-text">Subtotal <strong>{{ str_limit($calculo_subtotal, 8) }} Kg.</strong></p>
+                <p class="card-text">Subproducto <strong>{{ str_limit($calculo_subproducto,6) }} &#37;</strong></p>
+                <p class="card-text">Afrechillo <strong>{{ str_limit($calculo_sp_afrechillo,6) }}</strong></p>
+                <p class="card-text">Semolin <strong>{{ str_limit($calculo_sp_semolin,6) }}</strong></p>
+              </div>
+            </div>
+          </div>
+        </div>
+    @endif
+    <hr>
     @if( count($lecturas) > 0 )
       <div class="col-12 col-sm-12 col-md-12">
         <table class="table table-sm table-striped table-responsive-sm">
@@ -58,7 +108,6 @@
               <th scope="col">Balanza</th>
               <th scope="col">Lectura</th>
               <th scope="col">Lectura Acumulada</th>
-              <th scope="col">Lectura Cantidad</th>
               <th scope="col">Fecha</th>
             </tr>
           </thead>
@@ -70,7 +119,6 @@
                     <td>{{ $lectura1->nombre_balanza }}</td>
                     <td>{{ $lectura->lectura }}</td>
                     <td>{{ $lectura->lectura_acumulada }}</td>
-                    <td>{{ $lectura->lectura_cantidad }}</td>
                     <td>{{ $lectura->created_at }}</td>
                     <!--<td>{{ $lectura->comentarios }}</td>-->
                 </tr>
