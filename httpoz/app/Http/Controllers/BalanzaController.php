@@ -364,7 +364,6 @@ class BalanzaController extends Controller
                       error_log(print_r($cantidad_lecturas,1));
                     }
                   }
-
               }
               else {
                  $fecha_ini = date('Y-m-d H:i', strtotime('-1 hours'));
