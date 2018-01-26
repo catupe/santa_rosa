@@ -252,6 +252,8 @@ class BalanzaController extends Controller
               $semolin    = 0;
 
               // inicializo variables
+              $balanzas                   = array();
+              $balanza_trigo              = array();
               $calculos_mostrar           = array();
               $cantidad_lecturas          = array();
               $cantidad_lecturas["total"] = 0;
@@ -259,16 +261,27 @@ class BalanzaController extends Controller
               $harinas                    = array();
               $subtotal                   = 0;
               $subproducto                = 0;
-              $ptje_afrechillo            = 0;
-              $ptje_semolin               = 0;
-              $sp_afrechillo              = 0;
-              $sp_semolin                 = 0;
+              $ptjes_subproductos         = array();
+              $sp_subproductos            = array();
+              $valores_subproductos       = array();
+              //$ptje_afrechillo            = 0;
+              //$ptje_semolin               = 0;
+              //$sp_afrechillo              = 0;
+              //$sp_semolin                 = 0;
+
+              $subproductos = \App\Subproducto::where('activa', 1)
+                                              ->orderBy('nombre_mostrar', 'asc')
+                                              ->get();
 
               if( $request->has('aceptar') ) {
                   $fecha_ini = $request->fecha_ini; //$request->session()->get("balanzas_verlecturas_fecha_ini");
                   $hora_fin  = $request->hora_fin;
-                  $afrechillo= $request->afrechillo;
-                  $semolin   = $request->semolin;
+                  //$afrechillo= $request->afrechillo;
+                  //$semolin   = $request->semolin;
+                  //foreach ($request->id_sp as $k => $v) {
+                  for($i = 0; $i < count($request->id_sp); $i++) {
+                    $valores_subproductos[$request->id_sp[$i]] = $request->valores_sp[$i];
+                  }
 
                   $dt = Carbon::createFromFormat('Y-m-d H:i', $fecha_ini);
                   $fecha_fin = $dt->addMinutes($hora_fin)->format('Y-m-d H:i');
@@ -353,10 +366,17 @@ class BalanzaController extends Controller
                       // subproducto es la resta del porcentaje de harina1(balanza1 100%) - subtotal
                       $subproducto = 100 - $subtotal;
 
-                      $ptje_afrechillo = $afrechillo / $harina1;
-                      $ptje_semolin = $semolin / $harina1;
-                      $sp_afrechillo = $ptje_afrechillo / $subproducto;
-                      $sp_semolin = $ptje_semolin / $subproducto;
+
+                      foreach($subproductos as $k => $v) {
+                        $ptjes_subproductos[$v->id] = $valores_subproductos[$v->id] / $harina1;
+                      }
+                      //$ptje_afrechillo = $afrechillo / $harina1;
+                      //$ptje_semolin = $semolin / $harina1;
+                      //$sp_afrechillo = $ptje_afrechillo / $subproducto;
+                      //$sp_semolin = $ptje_semolin / $subproducto;
+                      foreach ($ptjes_subproductos as $k => $v) {
+                        $sp_subproductos[$k] = $ptjes_subproductos[$k] / $subproducto;
+                      }
 
                       // guardo en sesion los calculos hasta ahora
                       $request->session()->put('calculo_pesos_balanzas', $peso_blzs);
@@ -364,10 +384,10 @@ class BalanzaController extends Controller
                       $request->session()->put('calculo_harinas', $harinas);
                       $request->session()->put('calculo_subtotal', $subtotal);
                       $request->session()->put('calculo_subproducto', $subproducto);
-                      $request->session()->put('calculo_afrechillo', $afrechillo);
-                      $request->session()->put('calculo_semolin', $semolin);
-                      $request->session()->put('calculo_spafrechillo', $sp_afrechillo);
-                      $request->session()->put('calculo_spsemolin', $sp_semolin);
+                      //$request->session()->put('calculo_afrechillo', $afrechillo);
+                      //$request->session()->put('calculo_semolin', $semolin);
+                      //$request->session()->put('calculo_spafrechillo', $sp_afrechillo);
+                      //$request->session()->put('calculo_spsemolin', $sp_semolin);
                       /*
                       error_log("---pesos balanzas---");
                       error_log("peso balanza1 -> ".$harina1);
@@ -386,10 +406,12 @@ class BalanzaController extends Controller
                       $calculos_mostrar["calculo_ptjes_harina"]         = $harinas;
                       $calculos_mostrar["calculo_subtotal"]             = $subtotal;
                       $calculos_mostrar["calculo_subproducto"]          = $subproducto;
-                      $calculos_mostrar["calculo_ptje_afrechillo"]      = $ptje_afrechillo;
-                      $calculos_mostrar["calculo_ptje_semolin"]         = $ptje_semolin;
-                      $calculos_mostrar["calculo_sp_afrechillo"]        = $sp_afrechillo;
-                      $calculos_mostrar["calculo_sp_semolin"]           = $sp_semolin;
+                      //$calculos_mostrar["calculo_ptje_afrechillo"]      = $ptje_afrechillo;
+                      //$calculos_mostrar["calculo_ptje_semolin"]         = $ptje_semolin;
+                      $calculos_mostrar["calculo_ptje"]                 = $ptjes_subproductos;
+                      $calculos_mostrar["calculo_sp"]                   = $sp_subproductos;
+                      //$calculos_mostrar["calculo_sp_afrechillo"]        = $sp_afrechillo;
+                      //$calculos_mostrar["calculo_sp_semolin"]           = $sp_semolin;
 
                       error_log(print_r($calculos_mostrar,1));
                     }
@@ -408,7 +430,9 @@ class BalanzaController extends Controller
                                                                     'semolin'         => $semolin,
                                                                     'lecturas'        => $lectura_balanzas,
                                                                     'balanzas'        => $balanzas,
-                                                                    'balanza_trigo'   => $balanza_trigo),
+                                                                    'balanza_trigo'   => $balanza_trigo,
+                                                                    'valores_subproductos' => $valores_subproductos,
+                                                                    'subproductos'    => $subproductos),
                                                             $calculos_mostrar));
           }
           catch( Exception $e ) {

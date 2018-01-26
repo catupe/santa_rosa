@@ -56,6 +56,7 @@
             <script src="{{ asset('js/jquery.min.js') }}"></script>
             <script src="{{ asset('js/bootstrap/bootstrap.bundle.min.js') }}"></script>
             <script src="{{ asset('js/jquery-easing/jquery.easing.min.js') }}"></script>
+            <script defer src="{{ asset('fonts/fontawesome-5.0.4/js/fontawesome-all.min.js') }}"></script>
             <script src="{{ asset('js/sb-admin.min.js') }}"></script>
             <script src="{{ asset('js/ladda/spin.js') }}"></script>
             <script src="{{ asset('js/ladda/ladda.min.js') }}"></script>

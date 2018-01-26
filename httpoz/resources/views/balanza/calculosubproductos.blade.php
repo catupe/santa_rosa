@@ -30,6 +30,49 @@
             </select>
           </div>
         </div>
+
+        <div class="control-group controls">
+          <div class="controls" id="subproductos_form">
+            @if( count($valores_subproductos) == 0 )
+              <div class="entry row">
+                 <div class="col-6 col-md-4">
+                   <select class="form-control custom-select id_sp" id="id_sp" name="id_sp[]">
+                      @foreach($subproductos as $k => $v)
+                        <option id="{{ $v->id }}" value="{{ $v->id }}">{{ $v->nombre_mostrar }}</option>
+                      @endforeach
+                    </select>
+                 </div>
+                 <div class="col-6 col-md-4 input-group">
+                   <input type="number" name="valores_sp[]" class="form-control" id="valores_sp" placeholder="Peso">
+                   <div class="input-group-append btn-add">
+                     <span class="input-group-text btn btn-outline-secondary"><i class="fas fa-plus"></i></span>
+                   </div>
+                 </div>
+               </div>
+               <br>
+             @endif
+             @foreach ($valores_subproductos as $kvsp => $vvsp)
+               <div class="entry row">
+                  <div class="col-6 col-md-4">
+                    <select class="form-control custom-select id_sp" id="id_sp" name="id_sp[]">
+                       @foreach($subproductos as $k => $v)
+                         <option id="{{ $v->id }}" value="{{ $v->id }}" {{ $kvsp == $v->id ? 'selected' : '' }} >{{ $v->nombre_mostrar }}</option>
+                       @endforeach
+                     </select>
+                  </div>
+                  <div class="col-6 col-md-4 input-group">
+                    <input type="number" name="valores_sp[]" class="form-control" id="valores_sp" placeholder="Peso" value="{{ $vvsp }}">
+                    <div class="input-group-append btn-add">
+                      <span class="input-group-text btn btn-outline-secondary"><i class="fas fa-plus"></i></span>
+                    </div>
+                  </div>
+                </div>
+                <br>
+             @endforeach
+
+           </div>
+        </div>
+        <!--
         <div class="form-group row">
           <label for="afrechillo" class="col-4 col-sm-4 col-form-label">Afrechillo</label>
           <div class="input-group col-6 col-md-4">
@@ -42,6 +85,7 @@
             <input type="number" class="form-control" value="{{ $semolin }}" id="semolin" name="semolin">
           </div>
         </div>
+        -->
         <div class="form-group row">
           <div class="col-4 col-sm-4">
             <button type="submit" name="aceptar" class="btn btn-dark">Aceptar</button>
@@ -50,9 +94,9 @@
       </form>
     </div>
 
-    <hr>
 
     @if( count($lecturas) > 0)
+      <hr>
       <div class="col-12">
           <div class="card-deck">
             <div class="card bg-light border-dark mb-3">
@@ -91,15 +135,17 @@
               <div class="card-body">
                 <p class="card-text">Subtotal <strong>{{ str_limit($calculo_subtotal, 8) }} Kg.</strong></p>
                 <p class="card-text">Subproducto <strong>{{ str_limit($calculo_subproducto,6) }} &#37;</strong></p>
-                <p class="card-text">Afrechillo <strong>{{ str_limit($calculo_sp_afrechillo,6) }}</strong></p>
-                <p class="card-text">Semolin <strong>{{ str_limit($calculo_sp_semolin,6) }}</strong></p>
+                @foreach($subproductos as $k => $v)
+                  <p class="card-text">{{ $v->nombre_mostrar }} <strong>{{ str_limit($calculo_sp[$v->id],6) }}</strong></p>
+                @endforeach
+
               </div>
             </div>
           </div>
         </div>
     @endif
-    <hr>
     @if( count($lecturas) > 0 )
+      <hr>
       <div class="col-12 col-sm-12 col-md-12">
         <table class="table table-sm table-striped table-responsive-sm">
           <thead>
@@ -134,5 +180,6 @@
 @section('scripts')
     <script type="text/javascript" src="{{ asset('js/bootstrap-datetimepicker.min.js') }}" charset="UTF-8"></script>
     <script type="text/javascript" src="{{ asset('js/locales/bootstrap-datetimepicker.es.js') }}" charset="UTF-8"></script>
-    <script type="text/javascript" src="{{ asset('js/balanza.verlecturas.js') }}"></script>
+    <!--<script type="text/javascript" src="{{ asset('js/balanza.verlecturas.js') }}"></script>-->
+    <script type="text/javascript" src="{{ asset('js/balanza.calculos.js') }}"></script>
 @endsection
