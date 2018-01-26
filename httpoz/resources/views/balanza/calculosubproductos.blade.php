@@ -62,8 +62,8 @@
                   </div>
                   <div class="col-6 col-md-4 input-group">
                     <input type="number" name="valores_sp[]" class="form-control" id="valores_sp" placeholder="Peso" value="{{ $vvsp }}">
-                    <div class="input-group-append btn-add">
-                      <span class="input-group-text btn btn-outline-secondary"><i class="fas fa-plus"></i></span>
+                    <div class="input-group-append {{ ($loop->last) ? 'btn-add' : 'btn-remove'}}">
+                      <span class="input-group-text btn {{ ($loop->last) ? 'btn-outline-secondary' : 'btn-outline-danger'}}"><i class="fas {{ ($loop->last) ? 'fa-plus' : 'fa-minus'}}"></i></span>
                     </div>
                   </div>
                 </div>
@@ -135,8 +135,8 @@
               <div class="card-body">
                 <p class="card-text">Subtotal <strong>{{ str_limit($calculo_subtotal, 8) }} Kg.</strong></p>
                 <p class="card-text">Subproducto <strong>{{ str_limit($calculo_subproducto,6) }} &#37;</strong></p>
-                @foreach($subproductos as $k => $v)
-                  <p class="card-text">{{ $v->nombre_mostrar }} <strong>{{ str_limit($calculo_sp[$v->id],6) }}</strong></p>
+                @foreach($calculo_sp as $k => $v)
+                  <p class="card-text">{{ $subproductos[$k]->nombre_mostrar }} <strong>{{ str_limit($v,6) }}</strong></p>
                 @endforeach
 
               </div>

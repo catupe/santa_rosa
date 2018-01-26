@@ -366,9 +366,13 @@ class BalanzaController extends Controller
                       // subproducto es la resta del porcentaje de harina1(balanza1 100%) - subtotal
                       $subproducto = 100 - $subtotal;
 
-
                       foreach($subproductos as $k => $v) {
-                        $ptjes_subproductos[$v->id] = $valores_subproductos[$v->id] / $harina1;
+                        $subproductos[$v->id] = $v;
+                      }
+                      //foreach($subproductos as $k => $v) {
+                      foreach($valores_subproductos as $k => $v) {
+                        //$ptjes_subproductos[$v->id] = $valores_subproductos[$v->id] / $harina1;
+                        $ptjes_subproductos[$k] = $v / $harina1;
                       }
                       //$ptje_afrechillo = $afrechillo / $harina1;
                       //$ptje_semolin = $semolin / $harina1;
