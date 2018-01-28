@@ -16,21 +16,6 @@ $(document).ready( function () {
     }
   });
 
-  $('#agregarLectura #fecha-nueva').datetimepicker({
-  //$('#datetimepicker1').datetimepicker({
-    todayBtn:  1,
-    autoclose: 1,
-    todayHighlight: 1,
-    startView: 2,
-    forceParse: 0,
-    //showMeridian: 1,
-    minuteStep: 30,
-    pickerPosition: 'bottom-left'
-  });
-  $("#agregarLectura #fecha-nueva").datetimepicker().on('show.bs.modal', function(event) {
-    event.stopPropagation();
-  });
-  
   $(document).on('click', '.btn-add', function(e) {
       e.preventDefault();
 
@@ -66,4 +51,5 @@ $(document).ready( function () {
     e.preventDefault();
     return false;
   });
+
 });

@@ -264,14 +264,19 @@ class BalanzaController extends Controller
               $ptjes_subproductos         = array();
               $sp_subproductos            = array();
               $valores_subproductos       = array();
+              $subproductos               = array();
               //$ptje_afrechillo            = 0;
               //$ptje_semolin               = 0;
               //$sp_afrechillo              = 0;
               //$sp_semolin                 = 0;
 
-              $subproductos = \App\Subproducto::where('activa', 1)
+              $subproductos_db = \App\Subproducto::where('activa', 1)
                                               ->orderBy('nombre_mostrar', 'asc')
                                               ->get();
+
+              foreach($subproductos_db as $k => $v) {
+                $subproductos[$v->id] = $v;
+              }
 
               if( $request->has('aceptar') ) {
                   $fecha_ini = $request->fecha_ini; //$request->session()->get("balanzas_verlecturas_fecha_ini");
@@ -352,72 +357,78 @@ class BalanzaController extends Controller
                       foreach ( $balanzas as $k => $v ) {
                         $peso_blzs[$v->id] = $lectura_balanzas[$v->id][0]->lectura_acumulada - $lectura_balanzas[$v->id][1]->lectura_acumulada;
                       }
-
-                      //$harina1 = array_shift($peso_blzs); // este es el peso de la balanza 1, ademas quita el peso de harina1 array
-                      $harina1 = $peso_blzs[$balanza_trigo[0]->id];
-                      unset($peso_blzs[$balanza_trigo[0]->id]);
-                      foreach ( $peso_blzs as $k => $v ) {
-                        $harinas[$k] = ( $v / $harina1 ) * 100; //  porcentaje harinas 2 a n
-                      }
-                      // subtotal es la suma de todos los porcentajes de harinas de 2 a n (balanzas 2 a n)
-                      foreach ( $harinas as $k => $v ) {
-                        $subtotal += $v;
-                      }
-                      // subproducto es la resta del porcentaje de harina1(balanza1 100%) - subtotal
-                      $subproducto = 100 - $subtotal;
-
-                      foreach($subproductos as $k => $v) {
-                        $subproductos[$v->id] = $v;
-                      }
-                      //foreach($subproductos as $k => $v) {
-                      foreach($valores_subproductos as $k => $v) {
-                        //$ptjes_subproductos[$v->id] = $valores_subproductos[$v->id] / $harina1;
-                        $ptjes_subproductos[$k] = $v / $harina1;
-                      }
-                      //$ptje_afrechillo = $afrechillo / $harina1;
-                      //$ptje_semolin = $semolin / $harina1;
-                      //$sp_afrechillo = $ptje_afrechillo / $subproducto;
-                      //$sp_semolin = $ptje_semolin / $subproducto;
-                      foreach ($ptjes_subproductos as $k => $v) {
-                        $sp_subproductos[$k] = $ptjes_subproductos[$k] / $subproducto;
-                      }
-
-                      // guardo en sesion los calculos hasta ahora
-                      $request->session()->put('calculo_pesos_balanzas', $peso_blzs);
-                      $request->session()->put('calculo_peso_balanza1', $harina1);
-                      $request->session()->put('calculo_harinas', $harinas);
-                      $request->session()->put('calculo_subtotal', $subtotal);
-                      $request->session()->put('calculo_subproducto', $subproducto);
-                      //$request->session()->put('calculo_afrechillo', $afrechillo);
-                      //$request->session()->put('calculo_semolin', $semolin);
-                      //$request->session()->put('calculo_spafrechillo', $sp_afrechillo);
-                      //$request->session()->put('calculo_spsemolin', $sp_semolin);
-                      /*
-                      error_log("---pesos balanzas---");
-                      error_log("peso balanza1 -> ".$harina1);
+                      // chequeo que el peso de la balanza 1 (trigo) se mayor que cero
                       error_log(print_r($peso_blzs,1));
-                      error_log("---pesos harinas---");
-                      error_log(print_r($harinas,1));
-                      error_log("subtotal -> " . $subtotal);
-                      error_log("subproducto -> " . $subproducto);
-                      error_log("sp_afrechillo -> " . $sp_afrechillo);
-                      error_log("sp_semolin -> " . $sp_semolin);
-                      error_log(print_r($cantidad_lecturas,1));
-                      */
-                      $calculos_mostrar["calculo_cantidades_lecturas"]  = $cantidad_lecturas;
-                      $calculos_mostrar["calculo_pesos_balanzas"]       = $peso_blzs;
-                      $calculos_mostrar["calculo_trigo"]                = $harina1;
-                      $calculos_mostrar["calculo_ptjes_harina"]         = $harinas;
-                      $calculos_mostrar["calculo_subtotal"]             = $subtotal;
-                      $calculos_mostrar["calculo_subproducto"]          = $subproducto;
-                      //$calculos_mostrar["calculo_ptje_afrechillo"]      = $ptje_afrechillo;
-                      //$calculos_mostrar["calculo_ptje_semolin"]         = $ptje_semolin;
-                      $calculos_mostrar["calculo_ptje"]                 = $ptjes_subproductos;
-                      $calculos_mostrar["calculo_sp"]                   = $sp_subproductos;
-                      //$calculos_mostrar["calculo_sp_afrechillo"]        = $sp_afrechillo;
-                      //$calculos_mostrar["calculo_sp_semolin"]           = $sp_semolin;
+                      error_log("peso-> ".$balanza_trigo[0]->id);
+                      error_log(print_r($peso_blzs[$balanza_trigo[0]->id],1));
+                      if( $peso_blzs[$balanza_trigo[0]->id] <= 0 ) {
+                        $codigo_error = 1;
+                        $peso_trigo   = $peso_blzs[$balanza_trigo[0]->id];
+                        $mensaje      = "El peso acumulado para el periodo de la balanza 1 es menor o igual a 0 ( $peso_trigo Kg trigo )";
+                      }
+                      else {
+                        //$harina1 = array_shift($peso_blzs); // este es el peso de la balanza 1, ademas quita el peso de harina1 array
+                        $harina1 = $peso_blzs[$balanza_trigo[0]->id];
+                        unset($peso_blzs[$balanza_trigo[0]->id]);
+                        foreach ( $peso_blzs as $k => $v ) {
+                          $harinas[$k] = ( $v / $harina1 ) * 100; //  porcentaje harinas 2 a n
+                        }
+                        // subtotal es la suma de todos los porcentajes de harinas de 2 a n (balanzas 2 a n)
+                        foreach ( $harinas as $k => $v ) {
+                          $subtotal += $v;
+                        }
+                        // subproducto es la resta del porcentaje de harina1(balanza1 100%) - subtotal
+                        $subproducto = 100 - $subtotal;
 
-                      error_log(print_r($calculos_mostrar,1));
+                        //foreach($subproductos as $k => $v) {
+                        foreach($valores_subproductos as $k => $v) {
+                          //$ptjes_subproductos[$v->id] = $valores_subproductos[$v->id] / $harina1;
+                          $ptjes_subproductos[$k] = $v / $harina1;
+                        }
+                        //$ptje_afrechillo = $afrechillo / $harina1;
+                        //$ptje_semolin = $semolin / $harina1;
+                        //$sp_afrechillo = $ptje_afrechillo / $subproducto;
+                        //$sp_semolin = $ptje_semolin / $subproducto;
+                        foreach ($ptjes_subproductos as $k => $v) {
+                          $sp_subproductos[$k] = $ptjes_subproductos[$k] / $subproducto;
+                        }
+
+                        // guardo en sesion los calculos hasta ahora
+                        $request->session()->put('calculo_pesos_balanzas', $peso_blzs);
+                        $request->session()->put('calculo_peso_balanza1', $harina1);
+                        $request->session()->put('calculo_harinas', $harinas);
+                        $request->session()->put('calculo_subtotal', $subtotal);
+                        $request->session()->put('calculo_subproducto', $subproducto);
+                        //$request->session()->put('calculo_afrechillo', $afrechillo);
+                        //$request->session()->put('calculo_semolin', $semolin);
+                        //$request->session()->put('calculo_spafrechillo', $sp_afrechillo);
+                        //$request->session()->put('calculo_spsemolin', $sp_semolin);
+                        /*
+                        error_log("---pesos balanzas---");
+                        error_log("peso balanza1 -> ".$harina1);
+                        error_log(print_r($peso_blzs,1));
+                        error_log("---pesos harinas---");
+                        error_log(print_r($harinas,1));
+                        error_log("subtotal -> " . $subtotal);
+                        error_log("subproducto -> " . $subproducto);
+                        error_log("sp_afrechillo -> " . $sp_afrechillo);
+                        error_log("sp_semolin -> " . $sp_semolin);
+                        error_log(print_r($cantidad_lecturas,1));
+                        */
+                        $calculos_mostrar["calculo_cantidades_lecturas"]  = $cantidad_lecturas;
+                        $calculos_mostrar["calculo_pesos_balanzas"]       = $peso_blzs;
+                        $calculos_mostrar["calculo_trigo"]                = $harina1;
+                        $calculos_mostrar["calculo_ptjes_harina"]         = $harinas;
+                        $calculos_mostrar["calculo_subtotal"]             = $subtotal;
+                        $calculos_mostrar["calculo_subproducto"]          = $subproducto;
+                        //$calculos_mostrar["calculo_ptje_afrechillo"]      = $ptje_afrechillo;
+                        //$calculos_mostrar["calculo_ptje_semolin"]         = $ptje_semolin;
+                        $calculos_mostrar["calculo_ptje"]                 = $ptjes_subproductos;
+                        $calculos_mostrar["calculo_sp"]                   = $sp_subproductos;
+                        //$calculos_mostrar["calculo_sp_afrechillo"]        = $sp_afrechillo;
+                        //$calculos_mostrar["calculo_sp_semolin"]           = $sp_semolin;
+
+                      }
                     }
                   }
               }

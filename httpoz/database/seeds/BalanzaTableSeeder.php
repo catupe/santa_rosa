@@ -15,7 +15,8 @@ class BalanzaTableSeeder extends Seeder
         \App\Balanza::create([
             'nombre' => 'balanza1',
             'nombre_mostrar' => 'Balanza 1',
-            'descripcion' => 'Balanza 1, ztq 1029'
+            'descripcion' => 'Balanza 1, ztq 1029',
+            'es_trigo'    => 1,
         ]);
         \App\Balanza::create([
             'nombre' => 'balanza2',

@@ -43,15 +43,15 @@
                     </select>
                  </div>
                  <div class="col-6 col-md-4 input-group">
-                   <input type="number" name="valores_sp[]" class="form-control" id="valores_sp" placeholder="Peso">
+                   <input type="number" min="0" name="valores_sp[]" class="form-control" id="valores_sp" placeholder="Peso" value="0">
                    <div class="input-group-append btn-add">
                      <span class="input-group-text btn btn-outline-secondary"><i class="fas fa-plus"></i></span>
                    </div>
                  </div>
                </div>
                <br>
-             @endif
-             @foreach ($valores_subproductos as $kvsp => $vvsp)
+            @endif
+            @foreach ($valores_subproductos as $kvsp => $vvsp)
                <div class="entry row">
                   <div class="col-6 col-md-4">
                     <select class="form-control custom-select id_sp" id="id_sp" name="id_sp[]">
@@ -61,7 +61,7 @@
                      </select>
                   </div>
                   <div class="col-6 col-md-4 input-group">
-                    <input type="number" name="valores_sp[]" class="form-control" id="valores_sp" placeholder="Peso" value="{{ $vvsp }}">
+                    <input type="number" min="0" name="valores_sp[]" class="form-control" id="valores_sp" placeholder="Peso" value="{{ $vvsp }}">
                     <div class="input-group-append {{ ($loop->last) ? 'btn-add' : 'btn-remove'}}">
                       <span class="input-group-text btn {{ ($loop->last) ? 'btn-outline-secondary' : 'btn-outline-danger'}}"><i class="fas {{ ($loop->last) ? 'fa-plus' : 'fa-minus'}}"></i></span>
                     </div>
@@ -69,7 +69,6 @@
                 </div>
                 <br>
              @endforeach
-
            </div>
         </div>
         <!--
@@ -95,7 +94,7 @@
     </div>
 
 
-    @if( count($lecturas) > 0)
+    @if( count($lecturas) > 0 and $code_error == 0)
       <hr>
       <div class="col-12">
           <div class="card-deck">

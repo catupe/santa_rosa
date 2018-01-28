@@ -60,7 +60,7 @@
               <th scope="col">Lectura Acumulada</th>
               <th scope="col">Lectura Cantidad</th>
               <th scope="col">Fecha</th>
-              <th scope="col">Comentarios</th>
+              <!--<th scope="col">Comentarios</th>-->
               <th scope="col">
                 <button type="button" class="btn btn-outline-dark btn-sm" data-toggle="modal" data-target="#agregarLectura" data-modo="1">Agregar Lectura</button>
               </th>
@@ -68,20 +68,20 @@
           </thead>
           <tbody>
             @foreach ($lecturas as $key => $lectura)
-              <tr>
+              <tr data-toggle="tooltip" data-placement="top" title="{{ $lectura->comentarios }}">
                   <td>{{ $lectura->id }}</td>
                   <td>{{ $lectura->lectura }}</td>
                   <td>{{ $lectura->lectura_acumulada }}</td>
                   <td>{{ $lectura->lectura_cantidad }}</td>
                   <td>{{ $lectura->created_at }}</td>
-                  <td>{{ $lectura->comentarios }}</td>
+                  <!--<td>{{ $lectura->comentarios }}</td>-->
                   <td><button type="button" class="btn btn-outline-dark btn-sm" data-toggle="modal" data-target="#agregarLectura"
                         data-modo="2"
                         data-lectura="{{ $lectura->lectura }}"
                         data-lectura-acumulada="{{ $lectura->lectura_acumulada }}"
                         data-fecha="{{ $lectura->created_at }}"
                         data-comentarios="{{ $lectura->comentarios }}"
-                        data-id="{{ $lectura->id }}">Editar</button></td>
+                        data-id="{{ $lectura->id }}">Comentario</button></td>
               </tr>
             @endforeach
           </tbody>
@@ -94,7 +94,7 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Agregar Lectura</h5>
+              <h5 class="modal-title" id="exampleModalLabel">Agregar Comentario</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
