@@ -24,9 +24,15 @@ $(document).ready( function () {
           newEntry = $(currentEntry.clone()).appendTo(controlForm);
 
       newEntry.find('input').val('');
+      /*
       controlForm.find('.entry:not(:last) .btn-add')
                   .removeClass('btn-add').addClass('btn-remove')
                   .html('<div class="input-group-text btn btn-outline-danger"><i class="fas fa-minus"></i></div>');
+      */
+      controlForm.find('.entry:not(:last) .btn-add')
+                  .removeClass('btn-add')
+                  .addClass('btn-remove')
+                  .html('<div class="input-group-text btn btn-outline-danger"><i class="fas fa-minus"></i></div>');            
       controlForm.append('<br>');
 
       /*

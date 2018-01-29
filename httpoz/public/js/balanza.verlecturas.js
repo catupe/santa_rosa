@@ -113,7 +113,7 @@ $(document).ready( function () {
       if( error == 0 ) {
         $.ajax({
                  type: 'POST',
-                 url: '/editar_lectura',
+                 url: 'editar_lectura',
                  data: {
                      '_token': $('input[name=_token]').val(),
                      'modo': modo,
@@ -124,6 +124,20 @@ $(document).ready( function () {
                      'comentarios': comentarios
                  },
                  success: function(data) {
+                   if(data.error == 1){
+                     /*
+                     var msjes = "";
+                     $.each(data.mensaje, function( index, value ) {
+                       msjes += value + "<br>";
+                     })
+                     */
+                     var params = new Object();
+                     params.mensajes = data.mensaje;
+                     params.tipo = "error";
+                     $("#error_modal").load('load_error', JSON.stringify(params));
+
+                   }
+
                     /*
                      $('.errorTitle').addClass('hidden');
                      $('.errorContent').addClass('hidden');

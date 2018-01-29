@@ -75,7 +75,7 @@
                   <td>{{ $lectura->lectura_cantidad }}</td>
                   <td>{{ $lectura->created_at }}</td>
                   <!--<td>{{ $lectura->comentarios }}</td>-->
-                  <td><button type="button" class="btn btn-outline-dark btn-sm" data-toggle="modal" data-target="#agregarLectura"
+                  <td><button type="button" class="btn btn-outline-dark btn-sm" id="{{ $lectura->id }}" data-toggle="modal" data-target="#agregarLectura"
                         data-modo="2"
                         data-lectura="{{ $lectura->lectura }}"
                         data-lectura-acumulada="{{ $lectura->lectura_acumulada }}"
@@ -100,6 +100,7 @@
               </button>
             </div>
             <div class="modal-body">
+              <div id="error_modal"></div>
               <form>
                 <div class="form-group">
                   <label for="balanza-nueva" class="col-form-label">Balanza:</label>
