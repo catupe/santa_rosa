@@ -21,13 +21,18 @@ class ProcesarError extends Controller
       try{
 
       //  $data = $request->json('mensajes');
-        $data= json_decode($request->all());
+        //$data= json_decode($request->all());
         error_log("--------loadError--------");
+        //$dataEncode = array_shift(array_keys($_GET));
+        //$data = @file_get_contents('php://input');
+        //error_log(print_r($_GET,1));
+	      // $data = json_decode($_GET);
+        //error_log(print_r($data,1));
         //error_log(print_r($request,1));
-        error_log(print_r($data,1));
+        error_log(print_r(request()->all(),1));
         //error_log(print_r(Request::get('mensaje'),1));
         //error_log(print_r(json_decode($request->getContent(), true),1));
-        error_log(print_r($request->error,1));
+        //error_log(print_r($request->error,1));
         //$a = \Request::json_decode($request->all());
         //error_log(print_r($a,1));
         error_log("--------loadError--------");

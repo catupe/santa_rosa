@@ -131,9 +131,10 @@ $(document).ready( function () {
                        msjes += value + "<br>";
                      })
                      */
-                     var params = new Object();
-                     params.mensajes = data.mensaje;
-                     params.tipo = "error";
+                     //var params = new Object();
+                     //params.mensajes = data.mensaje;
+                     //params.tipo = "error";
+                     params = '{ "name": "test", "description": "test", "startdate": "2016-02-21T13:00:00.000Z", "enddate": "2016-02-23T13:00:00.000Z" }';
                      $("#error_modal").load('load_error', JSON.stringify(params));
 
                    }
