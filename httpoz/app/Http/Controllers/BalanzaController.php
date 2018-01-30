@@ -167,7 +167,7 @@ class BalanzaController extends Controller
                   $mensajes[] = $this->mensajes["003"];
                 }
               }
-              $mensajes[] = "ERORR";
+              $mensajes[] = "ERORR que no se que es";
               $error = 1;
               return \Response::json( array('error'    => $error,
                                            'mensaje'  => $mensajes ) );

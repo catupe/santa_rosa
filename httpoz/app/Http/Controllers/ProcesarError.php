@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProcesarError extends Controller
 {
+    protected $mensaje = null;
     //
     /**
      * Create a new controller instance.
@@ -15,65 +17,53 @@ class ProcesarError extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->mensaje = app()->make('App\Http\Controllers\Mensaje');
     }
 
     public function loadError( Request $request ) {
       try{
-
-      //  $data = $request->json('mensajes');
-        //$data= json_decode($request->all());
-        error_log("--------loadError--------");
-        //$dataEncode = array_shift(array_keys($_GET));
-        //$data = @file_get_contents('php://input');
-        //error_log(print_r($_GET,1));
-	      // $data = json_decode($_GET);
-        //error_log(print_r($data,1));
-        //error_log(print_r($request,1));
-        error_log(print_r(request()->all(),1));
-        //error_log(print_r(Request::get('mensaje'),1));
-        //error_log(print_r(json_decode($request->getContent(), true),1));
-        //error_log(print_r($request->error,1));
-        //$a = \Request::json_decode($request->all());
-        //error_log(print_r($a,1));
-        error_log("--------loadError--------");
-
-        //$dataEncode = array_shift(array_keys($request->all()));
-        //$dataIn = json_decode($dataEncode);
-        /*
-        error_log("--------ERORR--------");
-        error_log(print_r($dataIn,1));
-        error_log("--------ERORR--------");
-        */
-        /*
-
-        $mensaje = "";
-        if(isset($dataIn->mensaje) and ($dataIn->mensaje != "")){
-        	$mensaje = str_replace('_', ' ', $dataIn->mensaje);
-        }
+        $dataIn = json_decode($request->data);
 
         $tipo	 = $dataIn->tipo;
+        $data["error"]	= 'mensajes.error';
+        $data["info"]	  = 'mensajes.info';
+        $data["ok"] 	  = 'mensajes.success';
 
-       	$data["error"]	= 'mensajes/error.html';
-        $data["info"]	= 'mensajes/info.html';
-        $data["ok"] 	= 'mensajes/success.html';
 
-        if(isset($dataIn->codigoMensaje) and ($dataIn->codigoMensaje != "")){
-        	$mensaje = Mensajes::getMensaje($dataIn->codigoMensaje, array($dataIn->mensaje));
-        }
-        elseif($mensaje == ""){
-    		$mensaje = Mensajes::getMensaje('024', array());
-        }
 
-        if($tipo == "error"){
-        	$salida = $twig->render($data[$tipo],array(	'mensaje_error'		=> $mensaje,
-        												'hay_error' => 1));
-        }
-        else{
-        	$salida = $twig->render($data[$tipo],array(	'mensaje' => $mensaje));
-        }
+        //$mensaje = \App::call('Mensaje@getMensaje');;
 
-        echo $salida;
-        */
+        $errors = array();
+        if( isset($dataIn->codigoMensaje) and
+            ($dataIn->codigoMensaje != "") and
+            is_numeric($dataIn->codigoMensaje)){
+
+        	 $errors[] = $this->mensaje->getMensaje( $dataIn->codigoMensaje );
+
+        }
+        elseif( !is_array( $dataIn->mensajes ) and ( $dataIn->mensajes == "") ){
+    		    $errors[] = $this->mensaje->getMensaje("000");
+        }
+        elseif( is_array( $dataIn->mensajes )) {
+          $errors = $dataIn->mensajes;
+        }
+        if( $tipo == "error" ){
+          $salida = view('mensajes.error', array( 'errors' => $errors));
+        }
+        elseif( $tipo == "info" ){
+        	$salida = $twig->render($data[$tipo],array(	'mensajes' => $errors));
+        }
+        elseif( $tipo == "ok" ) {
+          $salida = $twig->render($data[$tipo],array(	'mensajes' => $errors));
+        }
+        error_log("======================");
+        error_log($salida);
+        error_log("======================");
+        return response()->json( array("data" => (String)$salida ));
+        //echo (response()->view($data[$tipo], array(	'mensajes' => $errors)));
+        //return \Response::json( $salida  );;
+        //return \Response::json( $salida  );
+
       }
       catch( Exception $e ) {
         error_log("EXCEPXCION");

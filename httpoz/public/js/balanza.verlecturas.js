@@ -131,11 +131,33 @@ $(document).ready( function () {
                        msjes += value + "<br>";
                      })
                      */
-                     //var params = new Object();
-                     //params.mensajes = data.mensaje;
-                     //params.tipo = "error";
-                     params = '{ "name": "test", "description": "test", "startdate": "2016-02-21T13:00:00.000Z", "enddate": "2016-02-23T13:00:00.000Z" }';
-                     $("#error_modal").load('load_error', JSON.stringify(params));
+
+                     var params = new Object();
+                     params.mensajes = data.mensaje;
+                     params.tipo = "error";
+                     params._token = $('input[name=_token]').val();
+
+
+
+                     //params = '{ "name": "test", "description": "test", "startdate": "2016-02-21T13:00:00.000Z", "enddate": "2016-02-23T13:00:00.000Z" }';
+                     //$("#error_modal").load('load_error', JSON.stringify({"data": params, '_token': $('input[name=_token]').val()}));
+                     //$.post( "load_error", JSON.stringify(params));
+
+                      $.ajax({
+                      	type: 'POST',
+                      	url: 'load_error',
+                      	data:{
+                              'data': JSON.stringify(params),
+                              '_token': $('input[name=_token]').val()
+                            },
+                        dataType : 'json',
+                      	success: function( salida ) {
+                      		$("#error_modal").html(salida.data);
+                      	},
+                      	error: function ( salida, status, xhttpr ) {
+                      		console.log('Error:', salida);
+                      	},
+                      });
 
                    }
 

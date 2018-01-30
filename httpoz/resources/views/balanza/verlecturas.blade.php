@@ -100,7 +100,6 @@
               </button>
             </div>
             <div class="modal-body">
-              <div id="error_modal"></div>
               <form>
                 <div class="form-group">
                   <label for="balanza-nueva" class="col-form-label">Balanza:</label>
@@ -140,6 +139,7 @@
                   <textarea class="form-control" id="comentarios-nueva" name="comentarios-nueva"></textarea>
                 </div>
               </form>
+              <div id="error_modal"></div>
             </div>
             <input type="hidden" id="modo-nueva" name="modo-nueva">
             <input type="hidden" id="id-nueva" name="id-nueva">
