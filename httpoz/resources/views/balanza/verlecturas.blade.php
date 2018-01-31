@@ -156,5 +156,6 @@
 @section('scripts')
     <script type="text/javascript" src="{{ asset('js/bootstrap-datetimepicker.min.js') }}" charset="UTF-8"></script>
     <script type="text/javascript" src="{{ asset('js/locales/bootstrap-datetimepicker.es.js') }}" charset="UTF-8"></script>
+    <script type="text/javascript" src="{{ asset('js/gral.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/balanza.verlecturas.js') }}"></script>
 @endsection

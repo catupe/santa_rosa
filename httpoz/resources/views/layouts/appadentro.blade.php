@@ -36,7 +36,7 @@
                         @elseif (count($errors) )
                             @include('mensajes.error', array('errors'=>$errors))
                         @elseif ( isset($code_error) and ($code_error == 2) )
-                            @include('mensajes.info', array('mensaje'=>$mensaje))
+                            @include('mensajes.info', array('mensajes'=>$mensaje))
                         @endif
 
                         @yield('content')

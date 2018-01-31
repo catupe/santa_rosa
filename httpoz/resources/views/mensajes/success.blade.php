@@ -1,8 +1,8 @@
-<div class="alert alert-danger alert-dismissible fade show" role="alert">
-  @if(count($errors))
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  @if(count($mensajes))
       <ul class="list-unstyled">
-        @foreach ($errors as $k => $error)
-          <li>{{ $error }}</li>
+        @foreach ($mensajes as $k => $mensaje)
+          <li>{{ $mensaje }}</li>
           @endforeach
       </ul>
   @endif

@@ -48,13 +48,13 @@ class ProcesarError extends Controller
           $errors = $dataIn->mensajes;
         }
         if( $tipo == "error" ){
-          $salida = view('mensajes.error', array( 'errors' => $errors));
+          $salida = view($data[$tipo], array( 'errors' => $errors));
         }
         elseif( $tipo == "info" ){
-        	$salida = $twig->render($data[$tipo],array(	'mensajes' => $errors));
+        	$salida = view($data[$tipo], array(	'mensajes' => $errors));
         }
         elseif( $tipo == "ok" ) {
-          $salida = $twig->render($data[$tipo],array(	'mensajes' => $errors));
+          $salida = view($data[$tipo], array(	'mensajes' => $errors));
         }
         error_log("======================");
         error_log($salida);

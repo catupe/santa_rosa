@@ -34,6 +34,7 @@ $(document).ready( function () {
     $('#agregarLectura').on('show.bs.modal', function (event) {
       //event.preventDefault();
       // limpio todos los campos
+      $("#error_modal").remove();
       $('#agregarLectura select').prop('disabled', false);
       $('#agregarLectura input[type=text]').val("");
       $('#agregarLectura input[type=text]').prop('disabled', false);
@@ -113,7 +114,7 @@ $(document).ready( function () {
       if( error == 0 ) {
         $.ajax({
                  type: 'POST',
-                 url: 'editar_lectura',
+                 url: url_lectura,
                  data: {
                      '_token': $('input[name=_token]').val(),
                      'modo': modo,
@@ -124,91 +125,27 @@ $(document).ready( function () {
                      'comentarios': comentarios
                  },
                  success: function(data) {
+
+                   var params = new Object();
+                   params.mensajes = data.mensaje;
+                   params._token = $('input[name=_token]').val();
+
                    if(data.error == 1){
-                     /*
-                     var msjes = "";
-                     $.each(data.mensaje, function( index, value ) {
-                       msjes += value + "<br>";
-                     })
-                     */
-
-                     var params = new Object();
-                     params.mensajes = data.mensaje;
                      params.tipo = "error";
-                     params._token = $('input[name=_token]').val();
-
-
-
-                     //params = '{ "name": "test", "description": "test", "startdate": "2016-02-21T13:00:00.000Z", "enddate": "2016-02-23T13:00:00.000Z" }';
-                     //$("#error_modal").load('load_error', JSON.stringify({"data": params, '_token': $('input[name=_token]').val()}));
-                     //$.post( "load_error", JSON.stringify(params));
-
-                      $.ajax({
-                      	type: 'POST',
-                      	url: 'load_error',
-                      	data:{
-                              'data': JSON.stringify(params),
-                              '_token': $('input[name=_token]').val()
-                            },
-                        dataType : 'json',
-                      	success: function( salida ) {
-                      		$("#error_modal").html(salida.data);
-                      	},
-                      	error: function ( salida, status, xhttpr ) {
-                      		console.log('Error:', salida);
-                      	},
-                      });
-
+                     loadMensaje(params, $params._token, "error_modal");
+                   }
+                   else{
+                     params.tipo      = "ok";
+                     loadMensaje(params, params._token, "error_modal");
                    }
 
-                    /*
-                     $('.errorTitle').addClass('hidden');
-                     $('.errorContent').addClass('hidden');
-
-                     if ((data.errors)) {
-                         setTimeout(function () {
-                             $('#addModal').modal('show');
-                             toastr.error('Validation error!', 'Error Alert', {timeOut: 5000});
-                         }, 500);
-
-                         if (data.errors.title) {
-                             $('.errorTitle').removeClass('hidden');
-                             $('.errorTitle').text(data.errors.title);
-                         }
-                         if (data.errors.content) {
-                             $('.errorContent').removeClass('hidden');
-                             $('.errorContent').text(data.errors.content);
-                         }
-                     } else {
-                         toastr.success('Successfully added Post!', 'Success Alert', {timeOut: 5000});
-                         $('#postTable').append("<tr class='item" + data.id + "'><td>" + data.id + "</td><td>" + data.title + "</td><td>" + data.content + "</td><td class='text-center'><input type='checkbox' class='new_published' data-id='" + data.id + " '></td><td>Right now</td><td><button class='show-modal btn btn-success' data-id='" + data.id + "' data-title='" + data.title + "' data-content='" + data.content + "'><span class='glyphicon glyphicon-eye-open'></span> Show</button> <button class='edit-modal btn btn-info' data-id='" + data.id + "' data-title='" + data.title + "' data-content='" + data.content + "'><span class='glyphicon glyphicon-edit'></span> Edit</button> <button class='delete-modal btn btn-danger' data-id='" + data.id + "' data-title='" + data.title + "' data-content='" + data.content + "'><span class='glyphicon glyphicon-trash'></span> Delete</button></td></tr>");
-                         $('.new_published').iCheck({
-                             checkboxClass: 'icheckbox_square-yellow',
-                             radioClass: 'iradio_square-yellow',
-                             increaseArea: '20%'
-                         });
-                         $('.new_published').on('ifToggled', function(event){
-                             $(this).closest('tr').toggleClass('warning');
-                         });
-                         $('.new_published').on('ifChanged', function(event){
-                             id = $(this).data('id');
-                             $.ajax({
-                                 type: 'POST',
-                                 url: "{{ URL::route('changeStatus') }}",
-                                 data: {
-                                     '_token': $('input[name=_token]').val(),
-                                     'id': id
-                                 },
-                                 success: function(data) {
-                                     // empty
-                                 },
-                             });
-                         });
-                     }
-                     */
                  },
                  error: function (data) {
-                  console.log('Error:', data);
+                   var params       = new Object();
+                   params.mensajes  = "En este momento no se puede procesar su solicitud";
+                   params.tipo      = "error";
+                   params._token    = $('input[name=_token]').val();
+                   loadMensaje(params, params._token, "error_modal");
                  },
                  complete: function () {
                    l.stop();

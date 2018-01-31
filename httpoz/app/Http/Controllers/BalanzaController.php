@@ -21,6 +21,7 @@ class BalanzaController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->mensaje = app()->make('App\Http\Controllers\Mensaje');
     }
 
     public function getLecturas( Request $request )
@@ -35,7 +36,7 @@ class BalanzaController extends Controller
               ***/
 
               $codigo_error = 0;
-              $mensaje      = "";
+              $mensajes     = array();
               $lecturas     = array();
 
               $balanza    = "";
@@ -67,26 +68,34 @@ class BalanzaController extends Controller
                   $request->session()->put('balanzas_verlecturas_fecha_fin', $request->fecha_fin);
               }
               if( $request->has('aceptar') or $request->has("page") ) {
-                  $balanza   = $request->session()->get("balanzas_verlecturas_balanza");
-                  $fecha_ini = $request->session()->get("balanzas_verlecturas_fecha_ini");
-                  $fecha_fin = $request->session()->get("balanzas_verlecturas_fecha_fin");
+                  error_log("VOY A TRAER LECTURAS");
+                  error_log("balanza => #".$request->session()->get("balanzas_verlecturas_balanza")."#");
+                  if( ($request->session()->get("balanzas_verlecturas_balanza")   !== null ) and
+                      ($request->session()->get("balanzas_verlecturas_fecha_ini") !== null ) and
+                      ($request->session()->get("balanzas_verlecturas_fecha_fin") !== null ) ) {
 
-                  $lecturas = \App\BalanzaLectura::where('balanza_id', $balanza)
-                                                  ->where('created_at', '>=', $fecha_ini)
-                                                  ->where('created_at', '<=', $fecha_fin)
-                                                  ->limit($perPage)
-                                                  ->offset($start)
-                                                  ->orderBy('updated_at', 'desc')
-                                                  ->orderBy('id', 'asc')
-                                                  //->toSql();
-                                                  ->paginate($perPage);
-                                                  //->get();
+                    $balanza   = $request->session()->get("balanzas_verlecturas_balanza");
+                    $fecha_ini = $request->session()->get("balanzas_verlecturas_fecha_ini");
+                    $fecha_fin = $request->session()->get("balanzas_verlecturas_fecha_fin");
 
+                    $lecturas = \App\BalanzaLectura::where('balanza_id', $balanza)
+                                                    ->where('created_at', '>=', $fecha_ini)
+                                                    ->where('created_at', '<=', $fecha_fin)
+                                                    ->limit($perPage)
+                                                    ->offset($start)
+                                                    ->orderBy('updated_at', 'desc')
+                                                    ->orderBy('id', 'asc')
+                                                    //->toSql();
+                                                    ->paginate($perPage);
+                                                    //->get();
+                  }
                   // sino  hay datos para los filtros ingresados
                   // muestro mensaje de que no hay datos
+                  error_log("cantidad => ".count($lecturas));
+                  error_log(print_r($lecturas,1));
                   if( count($lecturas) == 0 ) {
                       $codigo_error = 2;
-                      $mensaje      = "No existen datos para los filtros ingresados";
+                      $mensajes[]   = $this->mensaje->getMensaje( "002" );//"No existen datos para los filtros ingresados";
                   }
               }
 
@@ -96,7 +105,7 @@ class BalanzaController extends Controller
                                         ->get();
 
               return view('balanza.verlecturas', array( 'code_error'      => $codigo_error,
-                                                        'mensaje'         => $mensaje,
+                                                        'mensaje'         => $mensajes,
                                                         'balanzas'        => $balanzas,
                                                         'balanza_actual'  => $balanza,
                                                         'lecturas'        => $lecturas));
@@ -104,7 +113,7 @@ class BalanzaController extends Controller
           catch( Exception $e ) {
             error_log("EXCEPXCION");
             return view('balanza.verlecturas', array( 'code_error'  => 1,
-                                                      'mensaje'     => "Ocurrio un error vuelva a intentarlo mas tarde."));
+                                                      'errors'      => $this->mensaje->getMensaje( "000" )));//"Ocurrio un error vuelva a intentarlo mas tarde."));
           }
     }
     public function editarLectura( Request $request )
@@ -117,35 +126,48 @@ class BalanzaController extends Controller
                   // TODO redirigir a index
               }
               ***/
-              error_log("LLEGUE");
-              error_log(print_r($request->all(),1));
               $error = 0;
               $mensajes = array();
 
 
               if( $request->modo == 1 ) { // estoy creando lectura
+                $balanza = null;
                 if( is_numeric($request->balanza) ) {
-                  error_log("ok");
                   $balanza = \App\Balanza::find($request->balanza);
-                  error_log("------");
-                  error_log(print_r($balanza,1));
-                  error_log("------");
-                  if( !isset($balanza) ){
+                  if( !isset($balanza->id) ){
                     $error = 1;
-                    $mensajes[] = $this->mensajes["003"];
+                    $mensajes[] = $this->mensaje->getMensaje( "004" );//$this->mensajes["003"];
                   }
                 }
                 else {
                   $error = 1;
-                  $mensajes[] = $this->mensajes["003"];
+                  $mensajes[] = $this->mensaje->getMensaje( "004" );//$this->mensajes["003"];
                 }
-                if( !is_numeric($reques->lectura) ) {
+                if( !is_numeric($request->lectura) ) {
                   $error = 1;
                   $mensajes[] = $this->mensajes["001"];
                 }
-                if( !preg_match('/^\d{4}\-\d{2}\-\d{2} \d{2}:\d{2}$/', $reques->fecha) ) {
+                if( !preg_match('/^\d{4}\-\d{2}\-\d{2} \d{2}:\d{2}$/', $request->fecha) ) {
                   $error = 1;
-                  $mensajes[] = $this->mensajes["002"];
+                  $mensajes[] = $this->mensaje->getMensaje( "003" );
+                }
+
+                if( $error == 0 ) {
+                  $lectura              = new \App\BalanzaLectura;
+                  $lectura->balanza_id  = $balanza->id;
+                  $lectura->lectura     = $request->lectura;
+
+                  // voy a ver cual es la lectura anterior para calculara la cantidad de lecturas
+                  $last_lectura = \App\BalanzaLectura::where('balanza_id', $balanza->id)
+                                                    ->orderBy('created_at', 'desc')
+                                                    ->limit(1);
+                                                    //->toSql();
+
+                  $lectura->lectura_acumulada = $request->lectura_acumulada;// Se calcula??? $request->lectura + $last_lectura->lectura_acumulada;
+                  $lectura->lectura_cantidad  = $last_lectura->lectura_cantidad + 1;
+                  $lectura->comentarios       = $request->comentarios;
+
+                  $lectura->save();
                 }
               }
               elseif( $request->modo == 2 ) { // estoy editando
@@ -167,10 +189,12 @@ class BalanzaController extends Controller
                   $mensajes[] = $this->mensajes["003"];
                 }
               }
-              $mensajes[] = "ERORR que no se que es";
-              $error = 1;
+
+              $error      = 0;
+              $mensajes[] = $this->mensaje->getMensaje( "001" );
+
               return \Response::json( array('error'    => $error,
-                                           'mensaje'  => $mensajes ) );
+                                            'mensaje'  => $mensajes ) );
               /*
               if( !isset($request->page) ) {
                   $request->page = 1;
@@ -232,7 +256,7 @@ class BalanzaController extends Controller
           catch( Exception $e ) {
             error_log("EXCEPXCION");
             return view('balanza.verlecturas', array( 'code_error'  => 1,
-                                                      'mensaje'     => "Ocurrio un error vuelva a intentarlo mas tarde."));
+                                                      'mensaje'     => $this->mensaje->getMensaje( "000" )));
           }
     }
     public function calculo( Request $request ) {
@@ -423,7 +447,7 @@ class BalanzaController extends Controller
           catch( Exception $e ) {
             error_log("EXCEPXCION");
             return view('balanza.verlecturas', array( 'code_error'  => 1,
-                                                      'mensaje'     => "Ocurrio un error vuelva a intentarlo mas tarde."));
+                                                      'mensaje'     => $this->mensaje->getMensaje( "000" )));
           }
     }
 
