@@ -53,7 +53,8 @@ $(document).ready( function () {
       modal.find('.modal-title').text('Agregar Lectura');
 
       if( modo == 1 ) {
-        $('#agregarLectura select').val("");
+        //$('#agregarLectura select').val("");
+        $('#agregarLectura #balanza-nueva').prop('disabled', true);
       }
       if( modo == 2 ) {
         modal.find('.modal-title').text('Editar Lectura');

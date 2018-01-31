@@ -118,12 +118,12 @@
                 </div>
                 <div class="form-group">
                   <label for="lectura-nueva" class="col-form-label">Lectura:</label>
-                  <input type="text" class="form-control" id="lectura-nueva" name="lectura-nueva" required>
+                  <input type="number" class="form-control" id="lectura-nueva" name="lectura-nueva" required>
                   <div class="invalid-feedback" id="invalid-lectura-nueva"></div>
                 </div>
                 <div class="form-group">
                   <label for="lectura-acumulada-nueva" class="col-form-label">Lectura Acumulada:</label>
-                  <input type="text" class="form-control" id="lectura-acumulada-nueva" name="lectura-acumulada-nueva" required>
+                  <input type="number" class="form-control" id="lectura-acumulada-nueva" name="lectura-acumulada-nueva" required>
                   <div class="invalid-feedback" id="invalid-lectura-acumulada-nueva"></div>
                 </div>
                 <div class="form-group">

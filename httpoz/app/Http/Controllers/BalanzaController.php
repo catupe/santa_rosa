@@ -91,8 +91,6 @@ class BalanzaController extends Controller
                   }
                   // sino  hay datos para los filtros ingresados
                   // muestro mensaje de que no hay datos
-                  error_log("cantidad => ".count($lecturas));
-                  error_log(print_r($lecturas,1));
                   if( count($lecturas) == 0 ) {
                       $codigo_error = 2;
                       $mensajes[]   = $this->mensaje->getMensaje( "002" );//"No existen datos para los filtros ingresados";
