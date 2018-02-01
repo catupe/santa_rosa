@@ -132,6 +132,11 @@ class BalanzaController extends Controller
                 $balanza = null;
                 if( is_numeric($request->balanza) ) {
                   $balanza = \App\Balanza::find($request->balanza);
+
+                  error_log("__________________");
+                  error_log(print_r($balanza,1));
+                  error_log("__________________");
+
                   if( !isset($balanza->id) ){
                     $error = 1;
                     $mensajes[] = $this->mensaje->getMensaje( "004" );//$this->mensajes["003"];
@@ -149,21 +154,32 @@ class BalanzaController extends Controller
                   $error = 1;
                   $mensajes[] = $this->mensaje->getMensaje( "003" );
                 }
+                error_log("__________________");
+                error_log(print_r($error,1));
+                error_log(print_r($mensajes,1));
+                error_log("__________________");
 
                 if( $error == 0 ) {
+                  error_log("000");
                   $lectura              = new \App\BalanzaLectura;
                   $lectura->balanza_id  = $balanza->id;
                   $lectura->lectura     = $request->lectura;
-
+                  error_log("111-> #".$balanza->id);
                   // voy a ver cual es la lectura anterior para calculara la cantidad de lecturas
                   $last_lectura = \App\BalanzaLectura::where('balanza_id', $balanza->id)
                                                     ->orderBy('created_at', 'desc')
-                                                    ->limit(1);
+                                                    ->limit(1)
+                                                    ->get();
                                                     //->toSql();
 
+                  error_log(print_r($last_lectura,1));
+                  error_log("222");
+
                   $lectura->lectura_acumulada = $request->lectura_acumulada;// Se calcula??? $request->lectura + $last_lectura->lectura_acumulada;
-                  $lectura->lectura_cantidad  = $last_lectura->lectura_cantidad + 1;
+                  $lectura->lectura_cantidad  = $last_lectura[0]->lectura_cantidad + 1;
                   $lectura->comentarios       = $request->comentarios;
+                  $lectura->fila              = $last_lectura[0]->fila + 1;;
+                  error_log("5555");
 
                   $lectura->save();
                 }

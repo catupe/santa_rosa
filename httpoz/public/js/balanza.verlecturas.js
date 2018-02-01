@@ -34,7 +34,7 @@ $(document).ready( function () {
     $('#agregarLectura').on('show.bs.modal', function (event) {
       //event.preventDefault();
       // limpio todos los campos
-      $("#error_modal").remove();
+      $("#error_modal").empty();
       $('#agregarLectura select').prop('disabled', false);
       $('#agregarLectura input[type=text]').val("");
       $('#agregarLectura input[type=text]').prop('disabled', false);
@@ -115,7 +115,7 @@ $(document).ready( function () {
       if( error == 0 ) {
         $.ajax({
                  type: 'POST',
-                 url: url_lectura,
+                 url: 'editar_lectura',
                  data: {
                      '_token': $('input[name=_token]').val(),
                      'modo': modo,
@@ -143,7 +143,8 @@ $(document).ready( function () {
                  },
                  error: function (data) {
                    var params       = new Object();
-                   params.mensajes  = "En este momento no se puede procesar su solicitud";
+                   params.mensajes  = new Array();
+                   params.mensajes.push("En este momento no se puede procesar su solicitud");
                    params.tipo      = "error";
                    params._token    = $('input[name=_token]').val();
                    loadMensaje(params, params._token, "error_modal");
