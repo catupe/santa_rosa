@@ -27,6 +27,8 @@ Route::any('balanzas', 'BalanzaController@getLecturas');
 Route::any('calculo', 'BalanzaController@calculo');
 Route::post('editar_lectura', 'BalanzaController@editarLectura');
 
+Route::any('getGraficaLecturas', 'GraficasController@getGraficaLecturas');
+
 Route::any('load_error', 'ProcesarError@loadError');
 /*
 Route::any('balanzas', [

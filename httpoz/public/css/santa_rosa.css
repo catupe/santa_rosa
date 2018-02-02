@@ -122,3 +122,6 @@
     color: #000;
     font-size: 18px;
 }
+#curve_chart{
+  overflow: hidden;
+}

@@ -30,11 +30,16 @@
 					</li>
 				</ul>
 			</li>
-			<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Gr&aacute;ficas">
-				<a class="nav-link" href="tables.html">
-					<i class="fa fa-fw fa-bar-chart santa_rosa-icon-charts-sidebar"></i>
+			<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Registro de Balanzas">
+				<a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseGraficas" data-parent="#collapseGraficas">
+					<i class="fa fa-fw fa-chart-line santa_rosa-icon-charts-sidebar"></i>
 					<span class="nav-link-text">Gr&aacute;ficas</span>
 				</a>
+				<ul class="sidenav-second-level collapse" id="collapseGraficas">
+					<li>
+						<a href="{{ action('GraficasController@getGraficaLecturas') }}">Grafico Lecturas</a>
+					</li>
+				</ul>
 			</li>
 		</ul>
 		<ul class="navbar-nav sidenav-toggler">

@@ -10,9 +10,11 @@ use DB;
 class BalanzaController extends Controller
 {
     private $rowsPerPage = 5;
+    /*
     private $mensajes = array( '001' => 'La lectura es un campo requerido, debe ser num&eacute;rico',
                                '002' => 'La fecha es un campo requerido, formato yyyy-mm-dd hh:mm',
                                '003' => 'La balanza es un campo requerido' );
+    */                           
     /**
      * Create a new controller instance.
      *
