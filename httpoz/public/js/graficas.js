@@ -50,13 +50,14 @@ $(document).ready( function () {
               dataInCabezal.push('Lecturas');
               datos_grafica.push(dataInCabezal);
 
-              for( i = 0; i < data.data.lenght; i++ ) {
+              for( i = 0; i < data.data.length; i++ ) {
                 var dataIn = new Array();
                 dataIn.push(data.data[i].created_at);
-                dataIn.push(data.data[i].lectura_acumulada);
+                dataIn.push(parseFloat(data.data[i].lectura_acumulada));
                 datos_grafica.push(dataIn);
               }
-              var data = google.visualization.arrayToDataTable([ JSON.stringify(datos_grafica) ]);
+              //var data = google.visualization.arrayToDataTable(JSON.stringify(datos_grafica));
+              var data = google.visualization.arrayToDataTable( [ datos_grafica ] );
               /*
               var data = google.visualization.arrayToDataTable([
                 ['Fecha', 'Lecturas'],
@@ -72,6 +73,7 @@ $(document).ready( function () {
                 legend: { position: 'bottom' },
                 width: 900,
                 height: 500,
+                hAxis: { format: 'decimal' }
               };
 
               var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
@@ -89,7 +91,7 @@ $(document).ready( function () {
         		loadMensaje(params, params._token, "error_modal");
         	},
         	complete: function () {
-        		l.stop();
+        		//l.stop();
         	}
         });
       }

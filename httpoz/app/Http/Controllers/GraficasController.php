@@ -16,10 +16,11 @@ class GraficasController extends Controller
     public function getGraficaLecturas( Request $request ) {
       try{
 
+          /*
           error_log("=======================");
           error_log(print_r($request->all(),1));
           error_log("=======================");
-
+          */
           $error        = 0;
           $mensajes     = array();
           $lecturas     = array();
@@ -42,12 +43,19 @@ class GraficasController extends Controller
               $lecturas = \App\BalanzaLectura::where('balanza_id', $balanza)
                                               ->where('created_at', '>=', $fecha_ini)
                                               ->where('created_at', '<=', $fecha_fin)
-                                              ->toSql();
-                                              //->get();
+                                              //->toSql();
+                                              ->get();
 
-              error_log(print_r($lecturas,1));
+              //error_log(print_r($lecturas,1));
               foreach( $lecturas as $k => $v ) {
-                  $data[$v->id] = $v;
+                  error_log("----------");
+                  error_log(print_r($v->created_at,1));
+                  error_log("----------");
+                  $date = new DateTime($v->created_at);
+                  error_log(print_r($date,1));
+                  error_log("----date------");
+                  $v->created_at = $date->format('Ymd');
+                  $data[] = $v;
               }
 
           }
