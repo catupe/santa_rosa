@@ -19,9 +19,6 @@ $(document).ready( function () {
   $(document).on('click', '#aceptar', function(e) {
 
 
-      google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChart);
-
       var id_balanza  = $("#balanza option:selected").val();
       var fecha_ini   = $("#fecha_ini").val();
       var fecha_fin   = $("#fecha_fin").val();
@@ -41,7 +38,7 @@ $(document).ready( function () {
 
             var nombre_balanza = $("#balanza option:selected").text();
 
-            //function drawChart() {
+            function drawChart() {
 
               var datos_grafica = new Array();
 
@@ -79,7 +76,12 @@ $(document).ready( function () {
               var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
 
               chart.draw(data, options);
-            //}
+            }
+
+            google.charts.load('current', {'packages':['corechart']});
+            google.charts.setOnLoadCallback(drawChart);
+
+
 
         	},
         	error: function (data) {
