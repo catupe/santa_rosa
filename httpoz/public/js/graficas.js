@@ -23,7 +23,6 @@ $(document).ready( function () {
       var fecha_ini   = $("#fecha_ini").val();
       var fecha_fin   = $("#fecha_fin").val();
 
-      function drawChart() {
         $.ajax({
         	type: 'POST',
         	url: 'getGraficaLecturas',
@@ -34,11 +33,12 @@ $(document).ready( function () {
         		 'fecha_fin': fecha_fin,
         		 //'lectura': lectura
         	},
+          dataType: "json",
         	success: function(data) {
 
             var nombre_balanza = $("#balanza option:selected").text();
 
-            function drawChart() {
+            function drawChart(dataI) {
 
               var datos_grafica = new Array();
 
@@ -47,14 +47,23 @@ $(document).ready( function () {
               dataInCabezal.push('Lecturas');
               datos_grafica.push(dataInCabezal);
 
+              dataI = Object.values(dataI.data)
+              for( i = 0; i < dataI.length; i++ ) {
+                var dataIn = new Array();
+                dataIn.push(dataI[i].created_at);
+                dataIn.push(parseFloat(dataI[i].lectura_acumulada));
+                datos_grafica.push(dataIn);
+              }
+              /*
               for( i = 0; i < data.data.length; i++ ) {
                 var dataIn = new Array();
                 dataIn.push(data.data[i].created_at);
                 dataIn.push(parseFloat(data.data[i].lectura_acumulada));
                 datos_grafica.push(dataIn);
               }
+              */
               //var data = google.visualization.arrayToDataTable(JSON.stringify(datos_grafica));
-              var data = google.visualization.arrayToDataTable( [ datos_grafica ] );
+              var data = google.visualization.arrayToDataTable( datos_grafica );
               /*
               var data = google.visualization.arrayToDataTable([
                 ['Fecha', 'Lecturas'],
@@ -79,7 +88,8 @@ $(document).ready( function () {
             }
 
             google.charts.load('current', {'packages':['corechart']});
-            google.charts.setOnLoadCallback(drawChart);
+            //google.charts.setOnLoadCallback(drawChart);
+            google.charts.setOnLoadCallback(function(){ drawChart(data) });
 
 
 
@@ -96,7 +106,7 @@ $(document).ready( function () {
         		//l.stop();
         	}
         });
-      }
+      
 
   });
 });

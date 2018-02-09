@@ -48,13 +48,13 @@ class GraficasController extends Controller
 
               //error_log(print_r($lecturas,1));
               foreach( $lecturas as $k => $v ) {
-                  error_log("----------");
-                  error_log(print_r($v->created_at,1));
-                  error_log("----------");
-                  $date = new DateTime($v->created_at);
-                  error_log(print_r($date,1));
-                  error_log("----date------");
-                  $v->created_at = $date->format('Ymd');
+                  //error_log("----------");
+                  //error_log(print_r($v->created_at,1));
+                  //error_log("----------");
+                  //$date = new DateTime($v->created_at);
+                  //error_log(print_r($date,1));
+                  //error_log("----date------");
+                  //$v->created_at = $date->format('Ymd');
                   $data[] = $v;
               }
 
@@ -70,6 +70,7 @@ class GraficasController extends Controller
           }
 
 
+          error_log(print_r($data,1));
 
           return \Response::json( array('error'    => $error,
                                         'mensaje'  => $mensajes,
