@@ -43,6 +43,7 @@ class GraficasController extends Controller
               $lecturas = \App\BalanzaLectura::where('balanza_id', $balanza)
                                               ->where('created_at', '>=', $fecha_ini)
                                               ->where('created_at', '<=', $fecha_fin)
+                                              ->orderBy('created_at', 'asc')
                                               //->toSql();
                                               ->get();
 

@@ -41,38 +41,27 @@ $(document).ready( function () {
             function drawChart(dataI) {
 
               var datos_grafica = new Array();
-
+              /*++++
               var dataInCabezal = new Array();
               dataInCabezal.push('Fecha');
               dataInCabezal.push('Lecturas');
               datos_grafica.push(dataInCabezal);
+              ++++*/
 
               dataI = Object.values(dataI.data)
               for( i = 0; i < dataI.length; i++ ) {
                 var dataIn = new Array();
-                dataIn.push(dataI[i].created_at);
+                //+++dataIn.push(dataI[i].created_at);
+                dataIn.push(new Date(dataI[i].created_at));
                 dataIn.push(parseFloat(dataI[i].lectura_acumulada));
                 datos_grafica.push(dataIn);
               }
-              /*
-              for( i = 0; i < data.data.length; i++ ) {
-                var dataIn = new Array();
-                dataIn.push(data.data[i].created_at);
-                dataIn.push(parseFloat(data.data[i].lectura_acumulada));
-                datos_grafica.push(dataIn);
-              }
-              */
-              //var data = google.visualization.arrayToDataTable(JSON.stringify(datos_grafica));
-              var data = google.visualization.arrayToDataTable( datos_grafica );
-              /*
-              var data = google.visualization.arrayToDataTable([
-                ['Fecha', 'Lecturas'],
-                ['2004',  1000  ],
-                ['2005',  1170  ],
-                ['2006',  660   ],
-                ['2007',  1030  ]
-              ]);
-              */
+              var data = new google.visualization.DataTable();
+              data.addColumn('date', 'Fecha');
+              data.addColumn('number', 'Lectura');
+              //++++var data = google.visualization.arrayToDataTable( datos_grafica );
+              data.addRows(datos_grafica);
+              /*++
               var options = {
                 title: 'Lecturas Acumuladas - ' + nombre_balanza + ' -',
                 curveType: 'function',
@@ -80,15 +69,24 @@ $(document).ready( function () {
                 width: 900,
                 height: 500,
                 hAxis: { format: 'decimal' }
+
               };
-
-              var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
-
+              +++*/
+              var options = {
+                              chart: {
+                                title: 'Lectura Acumulada',
+                                subtitle: ''
+                              },
+                              width: 900,
+                              height: 500
+                            };
+              //+++var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+              var chart = new google.charts.Line(document.getElementById('curve_chart'));
               chart.draw(data, options);
             }
 
-            google.charts.load('current', {'packages':['corechart']});
-            //google.charts.setOnLoadCallback(drawChart);
+            //+++google.charts.load('current', {'packages':['corechart']});
+            google.charts.load('current', {'packages':['line']});
             google.charts.setOnLoadCallback(function(){ drawChart(data) });
 
 
@@ -106,7 +104,7 @@ $(document).ready( function () {
         		//l.stop();
         	}
         });
-      
+
 
   });
 });
