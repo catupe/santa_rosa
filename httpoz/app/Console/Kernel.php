@@ -31,8 +31,9 @@ class Kernel extends ConsoleKernel
         $file_log = 'salida.cron.balanzas' . DIRECTORY_SEPARATOR . 'log.txt';
         $path_log = storage_path($file_log);
         //print($path_log);
-        $schedule->command('balanza:cargardatos')
-                //->everyThirtyMinutes()
+        $schedule->command('balanza:cargardatos', ["balanza1"])
+                  //->exec('balanza:cargardatos', ["--balanza=1"])
+                  //->everyThirtyMinutes()
                   ->everyMinute()
                   ->appendOutputTo($path_log);
     }

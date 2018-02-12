@@ -1,9 +1,9 @@
-ultima actualizada 1
-string(15) "id balanza -> 1"
-int(12)
-int(11)
-[32m[ 16-01-2018 14:30:13 ]  -  balanza 1 -  Command description
-[ 16-01-2018 14:30:13 ]  -  cantidad de datos ingresados -  11
+=====================
+string(8) "balanza1"
+=====================
+ultima actualizada 12
+[32m[ 12-02-2018 14:36:03 ]  -  balanza 1 -  Command description
+[ 12-02-2018 14:36:03 ]  -  cantidad de datos ingresados -  0
 
 
 [39m

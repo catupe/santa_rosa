@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 
 class Balanza extends Command
 {
@@ -13,7 +14,7 @@ class Balanza extends Command
      *
      * @var string
      */
-    protected $signature = 'balanza:cargardatos';
+    protected $signature = 'balanza:cargardatos {balanza}';
 
     /**
      * The console command description.
@@ -28,6 +29,15 @@ class Balanza extends Command
      * @var integer
      */
     protected $cantidad_balanzas = 3;
+
+    /**
+     * Constante define nombre de archivos csv.
+     *
+     * @var integer
+     */
+    protected const $NOMBRE_CSV_BLZ_1 = 'CE1.csv';
+    protected const $NOMBRE_CSV_BLZ_2 = 'CE2.csv';
+    protected const $NOMBRE_CSV_BLZ_3 = 'CE3.csv';
 
     /**
      * Create a new command instance.
@@ -45,9 +55,20 @@ class Balanza extends Command
      *
      * @return mixed
      */
-    public function handle()
+    public function handle(Request $request)
     {
         try{
+          $balanza_       = $this->argument('balanza');
+          $nombre_csv = "";
+          if( strcmp("balanza1", $balanza_) == 0 ) {
+            $nombre_balanza = $NOMBRE_CSV_BLZ_1;
+          }
+          elseif( strcmp("balanza2", $balanza_) == 0 ) {
+            $nombre_balanza = $NOMBRE_CSV_BLZ_2;
+          }
+          if( strcmp("balanza3", $balanza_) == 0 ) {
+            $nombre_balanza = $NOMBRE_CSV_BLZ_3;
+          }
           ini_set('memory_limit', '-1');
           $cant_registros = 0;
           $total          = 0;
@@ -56,7 +77,7 @@ class Balanza extends Command
           print "ultima actualizada ".$ultima_actualizada."\n";
 
           //$nombre_excel = storage_path( 'excel' . DIRECTORY_SEPARATOR . '29-11-17CE1.csv' );
-          $nombre_excel = storage_path( 'excel' . DIRECTORY_SEPARATOR . 'CE1.csv' );
+          $nombre_excel = storage_path( 'excel' . DIRECTORY_SEPARATOR . $nombre_balanza/*'CE1.csv'*/ );
           Excel::load( $nombre_excel, function($reader) use($ultima_actualizada, &$total, &$cant_registros) {
               $total = $reader->get()->count();
 
@@ -73,25 +94,38 @@ class Balanza extends Command
               $fila         = $ultima_actualizada;
               $commit_cont  = 0;
               foreach ($datos as $key => $value) {
-                  $fila++;
 
-                  $balanza_lectura                    = new \App\BalanzaLectura;
-                  $balanza_lectura->lectura           = trim($value[$header[0]]);//trim($datos["lectura"]);
-                  $balanza_lectura->lectura_acumulada = trim($value[$header[1]]);
-                  $balanza_lectura->lectura_cantidad  = trim($value[$header[2]]);
-                  $balanza_lectura->comentarios       = "";
-                  $balanza_lectura->created_at        = $value[$header[3]] . ' ' . $value[$header[4]];
-                  $balanza_lectura->balanza_id        = $idBalanza;//$arr_ids_balanzas[$nombre_balanza];
-                  $balanza_lectura->fila              = $fila;
-                  $balanza_lectura->save();
-                  $cant_registros++;
+                  if( is_numeric(trim($value[$header[0]])) and
+                      is_numeric(trim($value[$header[1]])) and
+                      is_numeric(trim($value[$header[2]])) and
+                      preg_match('/\d{4}\-\d{2}\-\d{2}/', $value[$header[3]]) and
+                      preg_match('/\d{2}:\d{2}:\d{2}/', $value[$header[4]]) ) {
 
-                  $commit_cont++;
-                  if( $commit_cont == 500 ) {
-                    print("comiteo => ".$commit_cont."\r\n");
-                    $this->info("commit : ".$commit_cont . '\n\r');
-                    $commit_cont = 0;
-                    DB::commit();
+                      $fila++;
+
+                      $balanza_lectura                    = new \App\BalanzaLectura;
+                      $balanza_lectura->lectura           = trim($value[$header[0]]);//trim($datos["lectura"]);
+                      $balanza_lectura->lectura_acumulada = trim($value[$header[1]]);
+                      $balanza_lectura->lectura_cantidad  = trim($value[$header[2]]);
+                      $balanza_lectura->comentarios       = "";
+                      $balanza_lectura->created_at        = $value[$header[3]] . ' ' . $value[$header[4]];
+                      $balanza_lectura->balanza_id        = $idBalanza;//$arr_ids_balanzas[$nombre_balanza];
+                      $balanza_lectura->fila              = $fila;
+                      $balanza_lectura->save();
+                      $cant_registros++;
+
+                      $commit_cont++;
+                      if( $commit_cont == 500 ) {
+                        print("comiteo => ".$commit_cont."\r\n");
+                        $this->info("commit : ".$commit_cont . '\n\r');
+                        $commit_cont = 0;
+                        DB::commit();
+                      }
+                  }
+                  else{
+                      $nro_fila = $fila + 1;
+                      $mensaje_salida = "Formato invalido fila: " . $nro_fila . "\n";
+                      $this->info($mensaje_salida);
                   }
               }
               DB::commit();

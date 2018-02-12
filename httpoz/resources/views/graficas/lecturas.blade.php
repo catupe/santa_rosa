@@ -50,7 +50,9 @@
         </div>
       </form>
     </div>
-    <div id="curve_chart"></div>
+    <div class="col-12 col-sm-12 col-md-8">
+      <div id="curve_chart"></div>
+    </div>
 @endsection
 
 @section('scripts')
