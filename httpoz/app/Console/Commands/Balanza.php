@@ -35,9 +35,9 @@ class Balanza extends Command
      *
      * @var integer
      */
-    protected const $NOMBRE_CSV_BLZ_1 = 'CE1.csv';
-    protected const $NOMBRE_CSV_BLZ_2 = 'CE2.csv';
-    protected const $NOMBRE_CSV_BLZ_3 = 'CE3.csv';
+    protected static $NOMBRE_CSV_BLZ_1 = 'CE1.csv';
+    protected static $NOMBRE_CSV_BLZ_2 = 'CE2.csv';
+    protected static $NOMBRE_CSV_BLZ_3 = 'CE3.csv';
 
     /**
      * Create a new command instance.
@@ -61,13 +61,13 @@ class Balanza extends Command
           $balanza_       = $this->argument('balanza');
           $nombre_csv = "";
           if( strcmp("balanza1", $balanza_) == 0 ) {
-            $nombre_balanza = $NOMBRE_CSV_BLZ_1;
+            $nombre_balanza = self::$NOMBRE_CSV_BLZ_1;
           }
           elseif( strcmp("balanza2", $balanza_) == 0 ) {
-            $nombre_balanza = $NOMBRE_CSV_BLZ_2;
+            $nombre_balanza = self::$NOMBRE_CSV_BLZ_2;
           }
           if( strcmp("balanza3", $balanza_) == 0 ) {
-            $nombre_balanza = $NOMBRE_CSV_BLZ_3;
+            $nombre_balanza = self::$NOMBRE_CSV_BLZ_3;
           }
           ini_set('memory_limit', '-1');
           $cant_registros = 0;

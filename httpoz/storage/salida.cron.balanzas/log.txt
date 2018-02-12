@@ -1,9 +1,14 @@
-=====================
-string(8) "balanza1"
-=====================
+array(3) {
+  [0]=>
+  string(7) "artisan"
+  [1]=>
+  string(19) "balanza:cargardatos"
+  [2]=>
+  string(8) "balanza1"
+}
 ultima actualizada 12
-[32m[ 12-02-2018 14:36:03 ]  -  balanza 1 -  Command description
-[ 12-02-2018 14:36:03 ]  -  cantidad de datos ingresados -  0
+[32m[ 12-02-2018 16:49:10 ]  -  balanza 1 -  Command description
+[ 12-02-2018 16:49:10 ]  -  cantidad de datos ingresados -  0
 
 
 [39m
