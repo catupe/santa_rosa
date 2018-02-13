@@ -9,7 +9,7 @@
 @endsection
 
 @section('content')
-    @section('title', 'Ver Lecturas Balanzas')
+    @section('title', 'Gr&aacute;fica Lecturas Acumuladas Balanzas')
     <div class="col-12 col-sm-12 col-md-8">
       <form id="balanzas-verlecturas" class="form-horizontal" method="POST">
         {{ csrf_field() }}

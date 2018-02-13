@@ -23,6 +23,7 @@ $(document).ready( function () {
       var fecha_ini   = $("#fecha_ini").val();
       var fecha_fin   = $("#fecha_fin").val();
 
+      
         $.ajax({
         	type: 'POST',
         	url: 'getGraficaLecturas',
@@ -80,12 +81,22 @@ $(document).ready( function () {
                               width: 900,
                               height: 500
                             };
+
+              /*--
+              var options = {
+                              title: 'Company Performance',
+                              hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
+                              vAxis: {minValue: 0}
+                            };
+              --*/
               //+++var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+              //--var chart = new google.visualization.AreaChart(document.getElementById('curve_chart'));
               var chart = new google.charts.Line(document.getElementById('curve_chart'));
               chart.draw(data, options);
             }
 
             //+++google.charts.load('current', {'packages':['corechart']});
+            //--google.charts.load('current', {'packages':['corechart']});
             google.charts.load('current', {'packages':['line']});
             google.charts.setOnLoadCallback(function(){ drawChart(data) });
 
